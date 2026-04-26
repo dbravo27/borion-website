@@ -7,7 +7,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>BorionAI — Turn AI Into Business Value</title>
+<title>Borion AI — AI That Ships</title>
+<meta name="description" content="Borion AI deploys production AI agents in 60–90 days with payment tied to delivery. 20+ enterprise projects delivered.">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -154,6 +155,9 @@
     padding: 96px 0 120px;
     overflow: hidden;
     z-index: 1;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
   }
   .hero::before{
     content: "";
@@ -180,234 +184,102 @@
     pointer-events: none;
     z-index: -1;
   }
-  .hero-grid{
-    display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-  .eyebrow{
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 7px 14px 7px 8px;
-    border: 1px solid var(--line-strong);
-    background: rgba(210, 204, 241, 0.04);
-    border-radius: 999px;
-    font-size: 12.5px;
-    font-weight: 500;
-    color: var(--lavender);
-    letter-spacing: 0.01em;
-    margin-bottom: 28px;
-  }
-  .eyebrow .dot{
-    width: 18px; height: 18px;
-    border-radius: 50%;
-    background: var(--blue);
-    position: relative;
-    box-shadow: 0 0 0 3px rgba(25, 90, 221, 0.25);
-  }
-  .eyebrow .dot::after{
-    content: "";
-    position: absolute;
-    inset: 5px;
-    border-radius: 50%;
-    background: white;
-  }
+  .hero-content{ text-align: center; max-width: 850px; margin: 0 auto; }
   h1.hero-title{
-    font-size: clamp(48px, 6vw, 76px);
+    font-size: clamp(48px, 8vw, 90px);
     margin: 0 0 24px;
     color: white;
   }
-  h1.hero-title .grad{
+  h1.hero-title em{
+    font-style: normal;
     background: linear-gradient(120deg, #ffffff 0%, #d2ccf1 50%, #6f5dd2 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    display: block;
   }
   .hero-sub{
-    font-size: 19px;
+    font-size: clamp(18px, 2.5vw, 22px);
     line-height: 1.55;
     color: var(--muted);
-    max-width: 540px;
-    margin: 0 0 40px;
+    max-width: 600px;
+    margin: 0 auto 40px;
     font-weight: 400;
   }
   .hero-ctas{
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 14px;
     flex-wrap: wrap;
   }
-  .hero-meta{
-    margin-top: 56px;
-    padding-top: 28px;
-    border-top: 1px solid var(--line);
-    display: flex;
-    gap: 48px;
-  }
-  .hero-meta-item .num{
-    font-family: 'Inter Tight', sans-serif;
-    font-weight: 500;
-    font-size: 28px;
-    letter-spacing: -0.02em;
-    color: white;
-    line-height: 1;
-  }
-  .hero-meta-item .lbl{
-    font-size: 12.5px;
-    color: var(--dim);
-    margin-top: 8px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
 
-  /* ---- HERO VISUAL ---- */
-  .hero-visual{
-    position: relative;
-    height: 520px;
-  }
-  .hv-card{
-    position: absolute;
-    background: linear-gradient(180deg, rgba(20, 30, 66, 0.9), rgba(13, 18, 48, 0.85));
-    border: 1px solid var(--line-strong);
-    border-radius: 16px;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    padding: 18px;
-    box-shadow: 0 24px 48px -16px rgba(0,0,0,0.4);
-  }
-  .hv-main{
-    inset: 30px 30px 30px 30px;
-    padding: 24px;
-    overflow: hidden;
-  }
-  .hv-header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 22px;
-  }
-  .hv-header .label{
-    font-size: 11px;
-    color: var(--dim);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-  .hv-header .pill{
-    display: inline-flex;
-    gap: 6px;
-    align-items: center;
-    font-size: 11px;
-    color: var(--lavender);
-    background: rgba(25, 90, 221, 0.18);
-    border: 1px solid rgba(25, 90, 221, 0.35);
-    padding: 4px 10px;
-    border-radius: 999px;
-  }
-  .hv-header .pill::before{
-    content: "";
-    width: 6px; height: 6px; border-radius: 50%;
-    background: #4ee79b;
-    box-shadow: 0 0 8px #4ee79b;
-  }
-  .hv-row{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 0;
+  /* ---------- LOGO BAR ---------- */
+  .logo-bar{
+    padding: 2.5rem 2rem;
+    border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
+    background: var(--navy-deep);
   }
-  .hv-row:last-of-type{ border-bottom: none; }
-  .hv-row-l{ display: flex; align-items: center; gap: 12px; }
-  .hv-icon{
-    width: 32px; height: 32px;
-    border-radius: 8px;
-    background: linear-gradient(135deg, rgba(25,90,221,0.3), rgba(111,93,210,0.3));
-    border: 1px solid var(--line-strong);
+  .logo-bar-label{
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--dim);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-family: 'Inter Tight', sans-serif;
+  }
+  .logo-track{
     display: flex;
+    gap: 3rem;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
   }
-  .hv-icon svg{ width: 16px; height: 16px; color: var(--lavender); }
-  .hv-row .name{ font-size: 13.5px; font-weight: 500; color: white; }
-  .hv-row .sub{ font-size: 11.5px; color: var(--dim); margin-top: 2px; }
-  .hv-row .val{
+  .logo-item{
     font-family: 'Inter Tight', sans-serif;
-    font-size: 14px; font-weight: 500;
-    color: var(--lavender);
-    letter-spacing: -0.01em;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.35);
+    white-space: nowrap;
+    transition: color 0.3s;
   }
-  .hv-row .val .delta{ color: #4ee79b; font-size: 11.5px; margin-left: 6px; }
+  .logo-item:hover{ color: var(--blue); }
+  .logo-item.nda{ font-style: italic; font-weight: 400; font-size: 13px; }
 
-  .hv-chart{
-    margin-top: 18px;
-    height: 110px;
-    border-radius: 10px;
-    background:
-      linear-gradient(180deg, rgba(25,90,221,0.08), transparent 70%),
-      linear-gradient(rgba(210,204,241,0.05) 1px, transparent 1px);
-    background-size: 100% 100%, 100% 22px;
-    border: 1px solid var(--line);
-    position: relative;
-    overflow: hidden;
+  /* ---------- PROOF BAR ---------- */
+  .proof-bar{
+    padding: 4rem 2rem;
+    background: var(--navy);
   }
-  .hv-chart svg{ width: 100%; height: 100%; display: block; }
-
-  .hv-mini{
-    width: 220px;
-    bottom: -10px;
-    left: -20px;
-    padding: 16px;
+  .proof-grid{
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
   }
-  .hv-mini .ttl{ font-size: 11px; color: var(--dim); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; }
-  .hv-mini .big{
+  .proof-item .number{
     font-family: 'Inter Tight', sans-serif;
-    font-size: 32px;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--blue);
+    line-height: 1;
+  }
+  .proof-item .label{
+    font-size: 12px;
+    color: var(--dim);
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     font-weight: 500;
-    margin-top: 6px;
-    letter-spacing: -0.02em;
   }
-  .hv-mini .row{ display: flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 12px; color: var(--lavender); }
-  .hv-mini .bar{
-    flex: 1;
-    height: 4px;
-    background: rgba(210,204,241,0.1);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  .hv-mini .bar i{
-    display: block;
-    height: 100%;
-    width: 78%;
-    background: linear-gradient(90deg, var(--blue), var(--purple));
-    border-radius: 2px;
-  }
-
-  .hv-orbit{
-    width: 200px;
-    top: -20px;
-    right: -30px;
-    padding: 14px 16px;
-    display: flex;
-    gap: 12px;
-    align-items: center;
-  }
-  .hv-orbit .o-icon{
-    width: 38px; height: 38px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, var(--blue), var(--purple));
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    box-shadow: 0 8px 18px -6px rgba(25,90,221,0.5);
-  }
-  .hv-orbit .o-icon svg{ width: 18px; height: 18px; color: white; }
-  .hv-orbit .ttl{ font-size: 12.5px; font-weight: 600; color: white; }
-  .hv-orbit .sub{ font-size: 11px; color: var(--dim); margin-top: 2px; }
 
   /* ---------- SECTIONS ---------- */
-  section{ position: relative; z-index: 1; }
+  section{ position: relative; z-index: 1; padding: 120px 0; }
   .section{
     padding: 120px 0;
   }
@@ -443,10 +315,49 @@
   .section-lede{
     font-size: 16.5px;
     color: var(--muted);
-    max-width: 380px;
+    max-width: 650px;
     line-height: 1.55;
     margin: 0;
     padding-bottom: 8px;
+  }
+
+  /* ---------- PROBLEM SECTION ---------- */
+  .problem-section{
+    background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .stats-row{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .stat-block{
+    background: var(--navy);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s;
+  }
+  .stat-block:hover{
+    border-color: var(--blue);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(25, 90, 221, 0.15);
+  }
+  .stat-block .val{
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+  }
+  .stat-block .val span{ color: var(--blue); }
+  .stat-block .desc{
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 0.5rem;
   }
 
   /* ---------- SERVICES ---------- */
@@ -480,30 +391,7 @@
     background: linear-gradient(180deg, rgba(25, 90, 221, 0.08), rgba(210, 204, 241, 0.02));
   }
   .service:hover::before{ opacity: 1; }
-  .service:hover .svc-num{ color: var(--lavender); }
-  .service:hover .svc-arrow{ transform: translate(2px, -2px); color: white; }
 
-  .svc-top{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 60px;
-  }
-  .svc-num{
-    font-family: 'Inter Tight', sans-serif;
-    font-size: 13px;
-    color: var(--dim);
-    letter-spacing: 0.04em;
-    transition: color 0.25s ease;
-  }
-  .svc-icon{
-    width: 48px; height: 48px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, rgba(25,90,221,0.18), rgba(111,93,210,0.18));
-    border: 1px solid var(--line-strong);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .svc-icon svg{ width: 22px; height: 22px; color: var(--lavender); }
   .svc-title{
     font-size: 22px;
     margin: 0 0 12px;
@@ -513,86 +401,500 @@
     font-size: 15px;
     color: var(--muted);
     line-height: 1.55;
-    margin: 0 0 28px;
+    margin: 0 0 20px;
   }
-  .svc-foot{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 20px;
-    border-top: 1px solid var(--line);
-  }
-  .svc-tag{
-    font-size: 12px;
-    color: var(--lavender);
-    font-weight: 500;
-    letter-spacing: 0.02em;
-  }
-  .svc-arrow{
-    width: 28px; height: 28px;
-    border-radius: 50%;
-    border: 1px solid var(--line-strong);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--lavender);
-    transition: transform 0.25s ease, color 0.25s ease;
-  }
-  .svc-arrow svg{ width: 12px; height: 12px; }
-
-  /* ---------- WHY ---------- */
-  .why-section{
-    background:
-      radial-gradient(ellipse at 20% 0%, rgba(25, 90, 221, 0.18), transparent 60%),
-      radial-gradient(ellipse at 80% 100%, rgba(111, 93, 210, 0.15), transparent 60%);
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-  }
-  .why-grid{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    border-left: 1px solid var(--line);
-  }
-  .why-col{
-    padding: 8px 36px 8px 36px;
-    border-right: 1px solid var(--line);
-  }
-  .why-col:first-child{ padding-left: 0; }
-  .why-col:first-child{ padding-left: 0; }
-  .why-num{
+  .price-tag{
+    display: inline-block;
+    margin-top: 1rem;
     font-family: 'Inter Tight', sans-serif;
     font-size: 13px;
     color: var(--blue);
-    letter-spacing: 0.06em;
-    margin-bottom: 32px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    padding: 6px 12px;
+    border: 1px solid rgba(25, 90, 221, 0.3);
+    border-radius: 8px;
   }
-  .why-num::after{
-    content: "";
-    flex: 1; height: 1px;
-    background: var(--line);
+
+  /* ---------- PRICING ---------- */
+  .pricing-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
   }
-  .why-title{
-    font-size: 26px;
-    margin: 0 0 16px;
+  .pricing-card{
+    background: linear-gradient(180deg, rgba(210, 204, 241, 0.045), rgba(210, 204, 241, 0.015));
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 2rem 2rem 2rem;
+    transition: all 0.3s;
+  }
+  .pricing-card:hover{
+    border-color: var(--blue);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 50px rgba(0,0,0,0.3);
+  }
+  .pricing-card.featured{
+    border-color: var(--blue);
+  }
+  .pricing-tier{
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--blue);
+    margin-bottom: 0.5rem;
+  }
+  .pricing-title{
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
     color: white;
+    margin-bottom: 0.75rem;
   }
-  .why-body{
-    font-size: 15px;
+  .pricing-amount{
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    margin: 0.5rem 0;
+  }
+  .pricing-amount .period{
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--dim);
+  }
+  .pricing-desc{
+    font-size: 14px;
     color: var(--muted);
     line-height: 1.6;
-    margin: 0;
   }
-  .why-icon{
-    width: 44px; height: 44px;
-    margin-bottom: 24px;
-    border-radius: 11px;
-    background: linear-gradient(135deg, rgba(25,90,221,0.2), rgba(111,93,210,0.2));
-    border: 1px solid var(--line-strong);
-    display: flex; align-items: center; justify-content: center;
+
+  /* ---------- TIMELINE ---------- */
+  .timeline-section{
+    background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
   }
-  .why-icon svg{ width: 20px; height: 20px; color: var(--lavender); }
+  .timeline{
+    display: flex;
+    gap: 0;
+    margin: 3rem 0;
+    position: relative;
+  }
+  .timeline::before{
+    content: '';
+    position: absolute;
+    top: 32px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue), var(--purple), var(--blue));
+  }
+  .tl-step{
+    flex: 1;
+    text-align: center;
+    position: relative;
+    padding-top: 4.5rem;
+  }
+  .tl-step::before{
+    content: attr(data-num);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 64px;
+    height: 64px;
+    background: var(--navy);
+    color: var(--blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    border: 2px solid var(--blue);
+    z-index: 1;
+    box-shadow: 0 0 20px rgba(25, 90, 221, 0.3);
+  }
+  .tl-step h4{
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.25rem;
+  }
+  .tl-step p{
+    font-size: 13px;
+    color: var(--dim);
+  }
+
+  /* ---------- CASE STUDIES ---------- */
+  .filter-row{
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .fbtn{
+    padding: 8px 18px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: transparent;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+  .fbtn.active, .fbtn:hover{
+    background: var(--blue);
+    color: var(--navy);
+    border-color: var(--blue);
+  }
+  .cases-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .cc{
+    background: linear-gradient(180deg, rgba(210, 204, 241, 0.045), rgba(210, 204, 241, 0.015));
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .cc:hover{
+    border-color: var(--blue);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .cc.hidden{ display: none; }
+  .cc-metric{
+    padding: 1.25rem 1.5rem 0.5rem;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--blue);
+    line-height: 1.1;
+  }
+  .cc-head{
+    padding: 0.5rem 1.5rem 1rem;
+  }
+  .cc-head .client{
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--dim);
+  }
+  .cc-head h3{
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    margin-top: 0.25rem;
+    line-height: 1.3;
+  }
+  .cc-body{
+    padding: 0 1.5rem 1.25rem;
+  }
+  .cc-body p{
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.55;
+    font-weight: 300;
+  }
+  .cc-tags{
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    padding: 0 1.5rem 1.25rem;
+  }
+  .cc-tags span{
+    font-size: 10px;
+    background: rgba(25, 90, 221, 0.15);
+    color: var(--blue);
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-weight: 500;
+  }
+
+  /* ---------- MODAL ---------- */
+  .modal-bg{
+    position: fixed;
+    inset: 0;
+    background: rgba(6, 16, 26, 0.92);
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    backdrop-filter: blur(8px);
+  }
+  .modal-bg.active{ display: flex; }
+  .mdl{
+    background: var(--navy-deep);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    max-width: 750px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    animation: mdlIn 0.3s ease;
+  }
+  @keyframes mdlIn{
+    from{ opacity: 0; transform: scale(0.97) translateY(12px); }
+    to{ opacity: 1; transform: scale(1) translateY(0); }
+  }
+  .mdl-close{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: var(--navy);
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    transition: 0.2s;
+    z-index: 1;
+  }
+  .mdl-close:hover{
+    background: var(--blue);
+    color: var(--navy);
+    border-color: var(--blue);
+  }
+  .mdl-top{
+    padding: 2.5rem 2.5rem 1.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .mdl-top .metric{
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--blue);
+    margin-bottom: 0.5rem;
+  }
+  .mdl-top h2{
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.25;
+    margin-bottom: 0.35rem;
+  }
+  .mdl-top .ind{
+    font-size: 13px;
+    color: var(--dim);
+  }
+  .mdl-bod{
+    padding: 2rem 2.5rem 2.5rem;
+  }
+  .mdl-bod h4{
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--blue);
+    margin: 1.5rem 0 0.5rem;
+    font-family: 'Inter Tight', sans-serif;
+  }
+  .mdl-bod h4:first-child{ margin-top: 0; }
+  .mdl-bod p{
+    font-size: 15px;
+    color: var(--lavender);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .mdl-bod ul{
+    list-style: none;
+    padding: 0;
+  }
+  .mdl-bod li{
+    padding: 0.4rem 0 0.4rem 1.5rem;
+    font-size: 15px;
+    color: var(--lavender);
+    position: relative;
+    font-weight: 300;
+  }
+  .mdl-bod li::before{
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--blue);
+    font-weight: 700;
+  }
+  .mdl-tech{
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    background: var(--navy);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    border: 1px solid var(--line);
+  }
+
+  /* ---------- TEAM ---------- */
+  .team-section{
+    background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .team-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  .team-card{
+    background: var(--navy);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .team-card::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--purple));
+  }
+  .team-card h3{
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+  }
+  .team-card .role{
+    font-size: 13px;
+    color: var(--blue);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0.25rem 0 1rem;
+    font-family: 'Inter Tight', sans-serif;
+  }
+  .team-card p{
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 0.75rem;
+    font-weight: 300;
+  }
+  .team-card ul{
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+  }
+  .team-card li{
+    padding: 0.3rem 0 0.3rem 1.25rem;
+    font-size: 14px;
+    color: var(--muted);
+    position: relative;
+    font-weight: 300;
+  }
+  .team-card li::before{
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--blue);
+  }
+
+  /* ---------- INDUSTRIES ---------- */
+  .ind-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+  .ind-card{
+    background: linear-gradient(180deg, rgba(210, 204, 241, 0.045), rgba(210, 204, 241, 0.015));
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.75rem;
+    transition: all 0.3s;
+  }
+  .ind-card:hover{
+    border-color: var(--blue);
+    background: rgba(25, 90, 221, 0.04);
+  }
+  .ind-card h3{
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+  .ind-card p{
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+    font-weight: 300;
+    margin-bottom: 0.75rem;
+  }
+  .ind-card .clients{
+    font-size: 12px;
+    color: var(--blue);
+    font-weight: 500;
+  }
+
+  /* ---------- INSIGHTS ---------- */
+  .insights-section{
+    background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .insights-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .insight-card{
+    background: var(--navy);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.75rem;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .insight-card:hover{
+    border-color: var(--blue);
+    transform: translateY(-4px);
+  }
+  .insight-card .cat{
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--blue);
+    margin-bottom: 0.5rem;
+    font-family: 'Inter Tight', sans-serif;
+  }
+  .insight-card h3{
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    line-height: 1.35;
+    margin-bottom: 0.5rem;
+  }
+  .insight-card .meta{
+    font-size: 12px;
+    color: var(--dim);
+    font-family: 'Inter Tight', sans-serif;
+  }
 
   /* ---------- CTA ---------- */
   .cta-section{ padding: 80px 0 120px; }
@@ -631,31 +933,13 @@
     pointer-events: none;
   }
   .cta-content{ position: relative; z-index: 1; }
-  .cta-eyebrow{
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 14px;
-    border: 1px solid rgba(255,255,255,0.18);
-    background: rgba(255,255,255,0.05);
-    border-radius: 999px;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--lavender);
-    margin-bottom: 28px;
-  }
-  .cta-eyebrow::before{
-    content: "";
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: #4ee79b;
-    box-shadow: 0 0 10px #4ee79b;
-  }
-  h2.cta-title{
+  .cta-title{
+    font-family: 'Inter Tight', sans-serif;
     font-size: clamp(36px, 4.6vw, 58px);
     margin: 0 auto 20px;
     max-width: 720px;
     color: white;
+    font-weight: 700;
   }
   .cta-sub{
     font-size: 17px;
@@ -669,6 +953,49 @@
     gap: 12px;
     justify-content: center;
     flex-wrap: wrap;
+  }
+  .contact-info{
+    margin-top: 2rem;
+    color: var(--dim);
+    font-size: 14px;
+    position: relative;
+  }
+
+  /* ---------- FLOATING CTA ---------- */
+  .float-cta{
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 999;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s;
+    pointer-events: none;
+  }
+  .float-cta.show{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .float-cta a{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--blue);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 30px rgba(25, 90, 221, 0.4);
+    transition: all 0.25s;
+  }
+  .float-cta a:hover{
+    background: #2a6bee;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(25, 90, 221, 0.5);
   }
 
   /* ---------- FOOTER ---------- */
@@ -688,32 +1015,34 @@
   .foot-links a{ font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s ease; }
   .foot-links a:hover{ color: white; }
 
-  /* ---------- ANIMS ---------- */
-  @keyframes float-1 { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-10px); } }
-  @keyframes float-2 { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-14px); } }
-  @keyframes pulse-line {
-    0%{ stroke-dashoffset: 600; }
-    100%{ stroke-dashoffset: 0; }
+  /* ---------- SCROLL REVEAL ---------- */
+  .reveal{
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
   }
-  .hv-orbit{ animation: float-1 6s ease-in-out infinite; }
-  .hv-mini{ animation: float-2 7s ease-in-out infinite 0.5s; }
-
-  .reveal{ opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
-  .reveal.in{ opacity: 1; transform: translateY(0); }
+  .reveal.visible{
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 980px){
     .hero-grid{ grid-template-columns: 1fr; gap: 60px; }
-    .hero-visual{ height: 460px; }
-    .services-grid{ grid-template-columns: 1fr; }
-    .why-grid{ grid-template-columns: 1fr; border-left: none; }
-    .why-col{ border-right: none; border-bottom: 1px solid var(--line); padding: 32px 0; }
-    .why-col:last-child{ border-bottom: none; }
-    .section-header{ flex-direction: column; align-items: flex-start; gap: 20px; }
+    .services-grid, .cases-grid, .team-grid, .insights-grid{ grid-template-columns: 1fr; }
+    .pricing-grid{ grid-template-columns: 1fr; }
+    .proof-grid, .stats-row{ grid-template-columns: repeat(2, 1fr); }
+    .timeline{ flex-direction: column; gap: 1.5rem; }
+    .timeline::before{ display: none; }
+    .tl-step{ padding-top: 0; padding-left: 4.5rem; text-align: left; }
+    .tl-step::before{ left: 0; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; }
     .nav-links{ gap: 24px; }
     .nav-links a:not(.btn){ display: none; }
     .cta-card{ padding: 56px 28px; }
-    .hero-meta{ gap: 28px; flex-wrap: wrap; }
+    .foot-inner{ flex-direction: column; gap: 1rem; text-align: center; }
+    .foot-links{ flex-wrap: wrap; justify-content: center; }
+    .logo-track{ gap: 1.5rem; }
+    .float-cta{ bottom: 1rem; right: 1rem; }
   }
 </style>
 </head>
@@ -728,272 +1057,230 @@
       <img src="/BORION-02.png" alt="BorionAI" />
     </a>
     <div class="nav-links">
+      <a href="#about">About</a>
       <a href="#services">Services</a>
-      <a href="#why">About</a>
-      <a href="#contact">Contact</a>
-      <a href="#contact" class="btn btn-primary">Get Started</a>
+      <a href="#cases">Case Studies</a>
+      <a href="#industries">Industries</a>
+      <a href="#insights">Insights</a>
+      <a href="#contact" class="btn btn-primary">Book a Call</a>
     </div>
   </div>
 </nav>
 
 <!-- ============== HERO ============== -->
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <span class="eyebrow">
-        <span class="dot" aria-hidden="true"></span>
-        AI consulting for operators
-      </span>
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div class="hero-content">
       <h1 class="head hero-title">
-        Turn AI Into <span class="grad">Business Value</span>
+        AI That<em>Ships.</em>
       </h1>
       <p class="hero-sub">
-        We embed artificial intelligence into real workflows, delivering measurable operational impact.
+        We deploy production AI agents in 60–90 days. You don't pay in full until it works.
       </p>
       <div class="hero-ctas">
         <a href="#contact" class="btn btn-primary btn-lg">
-          Schedule a Call
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M5 12h14M13 5l7 7-7 7"/>
-          </svg>
+          Book a Discovery Call
         </a>
-        <a href="#services" class="btn btn-ghost btn-lg">See how we work</a>
-      </div>
-
-      <div class="hero-meta">
-        <div class="hero-meta-item">
-          <div class="num">40+</div>
-          <div class="lbl">Production Deployments</div>
-        </div>
-        <div class="hero-meta-item">
-          <div class="num">12wk</div>
-          <div class="lbl">Avg. Time to Value</div>
-        </div>
-        <div class="hero-meta-item">
-          <div class="num">SOC 2</div>
-          <div class="lbl">Aligned Engagements</div>
-        </div>
+        <a href="#cases" class="btn btn-ghost btn-lg">See Our Work</a>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- Hero Visual: composed dashboard mock, no stock imagery -->
-    <div class="hero-visual" aria-hidden="true">
-      <div class="hv-card hv-main">
-        <div class="hv-header">
-          <div>
-            <div class="label">Operations Console</div>
-            <div style="font-size: 18px; font-weight: 500; margin-top: 6px; font-family: 'Inter Tight', sans-serif; letter-spacing: -0.01em;">Workflow Health</div>
-          </div>
-          <span class="pill">Live</span>
-        </div>
+<!-- ============== LOGO BAR ============== -->
+<div class="logo-bar">
+  <div class="wrap">
+    <div class="logo-bar-label">Trusted by enterprises across 7 industries</div>
+    <div class="logo-track">
+      <span class="logo-item">Keurig Dr Pepper</span>
+      <span class="logo-item">AB InBev</span>
+      <span class="logo-item">Cencosud</span>
+      <span class="logo-item nda">Top-Tier U.S. Oil & Gas Co.</span>
+      <span class="logo-item">PhysioAge</span>
+      <span class="logo-item">Infobase</span>
+      <span class="logo-item nda">Top U.S. Manufacturer</span>
+    </div>
+  </div>
+</div>
 
-        <div class="hv-row">
-          <div class="hv-row-l">
-            <div class="hv-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
-            </div>
-            <div>
-              <div class="name">Triage Agent</div>
-              <div class="sub">Customer ops · 28k tickets</div>
-            </div>
-          </div>
-          <div class="val">94.2%<span class="delta">+6.1</span></div>
-        </div>
+<!-- ============== PROOF BAR ============== -->
+<div class="proof-bar">
+  <div class="proof-grid">
+    <div class="proof-item reveal"><div class="number" data-target="20">20+</div><div class="label">AI Projects Delivered</div></div>
+    <div class="proof-item reveal"><div class="number" data-target="90">90</div><div class="label">Days to Production</div></div>
+    <div class="proof-item reveal"><div class="number" data-target="12">12+</div><div class="label">Data Scientists on Bench</div></div>
+    <div class="proof-item reveal"><div class="number" data-target="6">6</div><div class="label">Languages · Global Delivery</div></div>
+  </div>
+</div>
 
-        <div class="hv-row">
-          <div class="hv-row-l">
-            <div class="hv-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-            </div>
-            <div>
-              <div class="name">Forecasting Pipeline</div>
-              <div class="sub">Demand planning · 14 SKUs</div>
-            </div>
-          </div>
-          <div class="val">$1.4M<span class="delta">+12.8</span></div>
-        </div>
-
-        <div class="hv-row">
-          <div class="hv-row-l">
-            <div class="hv-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-            </div>
-            <div>
-              <div class="name">Knowledge Retrieval</div>
-              <div class="sub">Internal RAG · 1.2M docs</div>
-            </div>
-          </div>
-          <div class="val">182ms<span class="delta">−24%</span></div>
-        </div>
-
-        <div class="hv-chart">
-          <svg viewBox="0 0 400 110" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="ga" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#195add" stop-opacity="0.45"/>
-                <stop offset="100%" stop-color="#195add" stop-opacity="0"/>
-              </linearGradient>
-              <linearGradient id="gl" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#195add"/>
-                <stop offset="100%" stop-color="#6f5dd2"/>
-              </linearGradient>
-            </defs>
-            <path d="M0,80 C40,72 70,60 110,55 C150,50 180,68 220,52 C260,36 290,20 330,28 C360,34 380,18 400,12 L400,110 L0,110 Z" fill="url(#ga)"/>
-            <path d="M0,80 C40,72 70,60 110,55 C150,50 180,68 220,52 C260,36 290,20 330,28 C360,34 380,18 400,12" fill="none" stroke="url(#gl)" stroke-width="2"/>
-            <circle cx="330" cy="28" r="4" fill="#fff"/>
-            <circle cx="330" cy="28" r="8" fill="none" stroke="#fff" stroke-opacity="0.4" stroke-width="1"/>
-          </svg>
-        </div>
-      </div>
-
-      <div class="hv-card hv-orbit">
-        <div class="o-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        </div>
-        <div>
-          <div class="ttl">3 models deployed</div>
-          <div class="sub">this quarter</div>
-        </div>
-      </div>
-
-      <div class="hv-card hv-mini">
-        <div class="ttl">Hours saved · Q2</div>
-        <div class="big">8,420</div>
-        <div class="row">
-          <div class="bar"><i></i></div>
-          <span>78%</span>
-        </div>
-      </div>
+<!-- ============== PROBLEM SECTION ============== -->
+<section class="problem-section">
+  <div class="wrap">
+    <div class="section-eyebrow reveal">The Market Reality</div>
+    <h2 class="head section-title reveal">The Delivery Gap<br>Nobody Talks About.</h2>
+    <p class="section-lede reveal">Corporations spend billions on AI consulting that produces strategy decks, not working systems. The reason is structural: large firms profit from delay, not delivery.</p>
+    <div class="stats-row">
+      <div class="stat-block reveal"><div class="val">95<span>%</span></div><div class="desc">of AI pilots never reach production</div></div>
+      <div class="stat-block reveal"><div class="val">56<span>%</span></div><div class="desc">of CEOs report zero return from AI</div></div>
+      <div class="stat-block reveal"><div class="val">$124<span>M</span></div><div class="desc">average annual enterprise AI budget</div></div>
+      <div class="stat-block reveal"><div class="val">40<span>%</span></div><div class="desc">of apps will embed AI agents this year</div></div>
     </div>
   </div>
 </section>
 
 <!-- ============== SERVICES ============== -->
-<section class="section" id="services">
+<section id="services">
   <div class="wrap">
-    <div class="section-header reveal">
-      <div>
-        <div class="section-eyebrow">Services</div>
-        <h2 class="head section-title">A full path from idea to operational AI.</h2>
-      </div>
-      <p class="section-lede">Three engagements designed to move you from experimentation to systems that compound value over time.</p>
-    </div>
-
+    <div class="section-eyebrow reveal">What We Deploy</div>
+    <h2 class="head section-title reveal">Three Capabilities.<br>One Standard: Production.</h2>
     <div class="services-grid">
-      <!-- 01 -->
-      <article class="service reveal">
-        <div class="svc-top">
-          <span class="svc-num">01 / Strategy</span>
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="3"/>
-              <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>
-            </svg>
-          </div>
-        </div>
-        <h3 class="head svc-title">AI Strategy &amp; Roadmap</h3>
-        <p class="svc-desc">From experimentation to a clear path to full AI integration.</p>
-        <div class="svc-foot">
-          <span class="svc-tag">Discovery · Prioritization · ROI modeling</span>
-          <span class="svc-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
-          </span>
-        </div>
-      </article>
-
-      <!-- 02 -->
-      <article class="service reveal">
-        <div class="svc-top">
-          <span class="svc-num">02 / Build</span>
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 18l6-6-6-6M8 6l-6 6 6 6M14 4l-4 16"/>
-            </svg>
-          </div>
-        </div>
-        <h3 class="head svc-title">Custom AI Development</h3>
-        <p class="svc-desc">Solutions designed for your workflows, not generic demos.</p>
-        <div class="svc-foot">
-          <span class="svc-tag">Agents · RAG · Fine-tuning · Evaluations</span>
-          <span class="svc-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
-          </span>
-        </div>
-      </article>
-
-      <!-- 03 -->
-      <article class="service reveal">
-        <div class="svc-top">
-          <span class="svc-num">03 / Operate</span>
-          <div class="svc-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              <path d="M12 7v5l3 3"/>
-            </svg>
-          </div>
-        </div>
-        <h3 class="head svc-title">AI Operations &amp; Scaling</h3>
-        <p class="svc-desc">Deploy, monitor, and scale AI systems that grow with your business.</p>
-        <div class="svc-foot">
-          <span class="svc-tag">Observability · Guardrails · Cost control</span>
-          <span class="svc-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
-          </span>
-        </div>
-      </article>
+      <div class="service reveal">
+        <h3 class="head svc-title">AI Agent Systems</h3>
+        <p class="svc-desc">Autonomous agents for customer service, operations, finance, and supply chain. From single-task automation to multi-agent orchestration. Governance from day one.</p>
+        <span class="price-tag">From $40K</span>
+      </div>
+      <div class="service reveal">
+        <h3 class="head svc-title">Intelligent Media Operations</h3>
+        <p class="svc-desc">Every corporation is now a media company. AI-powered content creation, social management, corporate training, and brand narrative engines at enterprise scale.</p>
+        <span class="price-tag">From $150K</span>
+      </div>
+      <div class="service reveal">
+        <h3 class="head svc-title">Data Science & Analytics</h3>
+        <p class="svc-desc">Predictive modeling, demand forecasting, pricing optimization, customer LTV, and executive dashboards that drive decisions — not just display data.</p>
+        <span class="price-tag">From $40K</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============== WHY ============== -->
-<section class="section why-section" id="why">
+<!-- ============== TIMELINE ============== -->
+<section class="timeline-section" id="timeline">
   <div class="wrap">
-    <div class="section-header reveal">
-      <div>
-        <div class="section-eyebrow">Why Borion</div>
-        <h2 class="head section-title">An engineering partner, not a slide deck.</h2>
-      </div>
-      <p class="section-lede">We work alongside your teams. Every engagement ends with systems running in production and your people equipped to own them.</p>
+    <div class="section-eyebrow reveal">How We Work</div>
+    <h2 class="head section-title reveal">The 90-Day Sprint.</h2>
+    <div class="timeline reveal">
+      <div class="tl-step" data-num="01"><h4>Discovery</h4><p>Weeks 1–2</p></div>
+      <div class="tl-step" data-num="02"><h4>Scope & Proposal</h4><p>Week 3</p></div>
+      <div class="tl-step" data-num="03"><h4>Prototype</h4><p>Weeks 4–6</p></div>
+      <div class="tl-step" data-num="04"><h4>Pilot</h4><p>Weeks 7–10</p></div>
+      <div class="tl-step" data-num="05"><h4>Production</h4><p>Weeks 10–14</p></div>
     </div>
+  </div>
+</section>
 
-    <div class="why-grid">
-      <div class="why-col reveal">
-        <div class="why-num">01</div>
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 3v18h18"/>
-            <path d="M7 14l4-4 4 4 5-5"/>
-          </svg>
-        </div>
-        <h3 class="head why-title">Practical Impact</h3>
-        <p class="why-body">We measure success in hours saved, revenue moved, and decisions improved — not model benchmarks. Every project ships with a defined business outcome and a way to verify it.</p>
+<!-- ============== PRICING ============== -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="section-eyebrow reveal">Pricing</div>
+    <h2 class="head section-title reveal">Transparent. Milestone-Based.<br>Tied to Delivery.</h2>
+    <p class="section-lede reveal">We don't profit from delay. Milestone-based payments mean if we can deliver in six weeks, we deliver in six weeks.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-tier">Entry</div>
+        <h3 class="pricing-title">Readiness Audit</h3>
+        <div class="pricing-amount">$15K–$25K <span class="period">/ 2 weeks</span></div>
+        <p class="pricing-desc">Data maturity, use-case prioritization, go/no-go. Fixed fee. The door-opener.</p>
       </div>
+      <div class="pricing-card reveal featured">
+        <div class="pricing-tier">Flagship</div>
+        <h3 class="pricing-title">90-Day AI Agent Sprint</h3>
+        <div class="pricing-amount">$90K–$175K <span class="period">/ 8–12 weeks</span></div>
+        <p class="pricing-desc">Contract to production. 25% signing, 25% prototype, 25% pilot, 25% production.</p>
+      </div>
+      <div class="pricing-card reveal">
+        <div class="pricing-tier">Growth</div>
+        <h3 class="pricing-title">Department Transformation</h3>
+        <div class="pricing-amount">$220K–$400K <span class="period">/ 12–20 weeks</span></div>
+        <p class="pricing-desc">Complete AI overhaul of customer service, supply chain, or finance operations.</p>
+      </div>
+      <div class="pricing-card reveal">
+        <div class="pricing-tier">Enterprise</div>
+        <h3 class="pricing-title">Organization-Wide</h3>
+        <div class="pricing-amount">$700K–$2M+ <span class="period">/ 24–40+ weeks</span></div>
+        <p class="pricing-desc">Full intelligent media op: social, training, content, CX, compliance, analytics.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <div class="why-col reveal">
-        <div class="why-num">02</div>
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/>
-            <path d="M9 12l2 2 4-4"/>
-          </svg>
-        </div>
-        <h3 class="head why-title">Trust Through Clarity</h3>
-        <p class="why-body">Plain language, weekly demos, and shared ownership. You always know what we're building, why it matters, and what it costs to run. No black boxes, no consulting theater.</p>
-      </div>
+<!-- ============== CASE STUDIES ============== -->
+<section id="cases" style="background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-eyebrow reveal">Case Studies</div>
+    <h2 class="head section-title reveal">20+ Projects. 7 Industries.<br>All in Production.</h2>
+    <p class="section-lede reveal">Working systems in live enterprise environments — not pilots, not decks, not concepts.</p>
+    <div class="filter-row reveal">
+      <button class="fbtn active" data-filter="all">All</button>
+      <button class="fbtn" data-filter="agentic">Agentic AI</button>
+      <button class="fbtn" data-filter="analytics">Analytics & ML</button>
+      <button class="fbtn" data-filter="enablement">Enablement</button>
+    </div>
+    <div class="cases-grid" id="cGrid"></div>
+  </div>
+</section>
 
-      <div class="why-col reveal">
-        <div class="why-num">03</div>
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="7" height="7" rx="1"/>
-            <rect x="14" y="3" width="7" height="7" rx="1"/>
-            <rect x="3" y="14" width="7" height="7" rx="1"/>
-            <path d="M14 17h7M17.5 14v7"/>
-          </svg>
-        </div>
-        <h3 class="head why-title">Built for Real Workflows</h3>
-        <p class="why-body">We start by mapping how your teams actually work — the systems, edge cases, and people involved. AI that ignores the messy middle never gets used. Ours is built to fit.</p>
+<!-- ============== TEAM ============== -->
+<section class="team-section" id="about">
+  <div class="wrap">
+    <div class="section-eyebrow reveal">About Borion AI</div>
+    <h2 class="head section-title reveal">Built to Deploy.<br>Not to Advise.</h2>
+    <p class="section-lede reveal">The technical capability and the commercial capability — both present, both proven, both committed to one outcome: working AI in production.</p>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <h3>Dr. Diego Bravo</h3>
+        <div class="role">Chief Scientist · Managing Partner</div>
+        <p>PhD in Mathematics. 11 published research papers. 20+ delivered AI projects for Shell, Keurig Dr Pepper, AB InBev, Cencosud, PhysioAge. Currently Chief Scientist Officer at Keurig Dr Pepper.</p>
+        <p>Diego doesn't advise on AI. He builds, deploys, and hardens AI systems in production — agentic AI, recommender systems, NLP, pricing optimization, computer vision, and multi-agent orchestration.</p>
+        <ul>
+          <li>Led 30+ data scientists at South America's largest retailer</li>
+          <li>Built training academy for 400+ scientists at top-tier oil & gas company</li>
+          <li>Microsoft & Databricks Certified</li>
+          <li>Published in Journal of Algebra, Proceedings of the AMS, and 9 other journals</li>
+        </ul>
       </div>
+      <div class="team-card reveal">
+        <h3>Claude Rodriguez</h3>
+        <div class="role">CSO · Managing Partner</div>
+        <p>Serial entrepreneur who built a Fortune 500 company from scratch: 47 countries, 165,000 channel partners, 7,500 employees, $1B in monthly revenue, 3rd largest in its industry worldwide.</p>
+        <p>Claude brings the commercial engine that technical co-founders rarely possess: enterprise sales instinct, operational discipline, and the pattern recognition to scale professional services firms internationally.</p>
+        <ul>
+          <li>Multilingual — six languages</li>
+          <li>Deep operational experience: US, Europe, Asia, Persian Gulf, India, Latin America</li>
+          <li>Zero-based budget discipline from day one</li>
+          <li>34 published books across multiple genres</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== INDUSTRIES ============== -->
+<section id="industries">
+  <div class="wrap">
+    <div class="section-eyebrow reveal">Industries</div>
+    <h2 class="head section-title reveal">7 Industries. One Standard:<br>Production-Deployed AI.</h2>
+    <div class="ind-grid">
+      <div class="ind-card reveal"><h3>CPG / Beverages</h3><p>Sales decomposition, LTV modeling, demand spaces, precision marketing, assortment optimization.</p><div class="clients">Keurig Dr Pepper · AB InBev</div></div>
+      <div class="ind-card reveal"><h3>Healthcare</h3><p>Agentic patient summaries, intervention alerts, treatment recommendations, clinical site selection.</p><div class="clients">PhysioAge · Healthcare Data Platform</div></div>
+      <div class="ind-card reveal"><h3>Energy / Oil & Gas</h3><p>Data science training academy for 400+ scientists. Standardized ML practices and cross-team knowledge architecture.</p><div class="clients">Top-Tier U.S. Oil & Gas Company</div></div>
+      <div class="ind-card reveal"><h3>Retail</h3><p>NLP feedback analysis, demand forecasting, inventory optimization, MLOps transformation, cloud cost reduction.</p><div class="clients">Cencosud (South America's largest retailer)</div></div>
+      <div class="ind-card reveal"><h3>Financial Services</h3><p>Legal document processing, loan approval automation, compliance-grade data extraction.</p><div class="clients">FinTech Company</div></div>
+      <div class="ind-card reveal"><h3>Manufacturing / Logistics</h3><p>Pricing optimization engines, truck route optimization, AI-powered enterprise sales intelligence agents.</p><div class="clients">Top U.S. Manufacturer · Logistics Co.</div></div>
+      <div class="ind-card reveal"><h3>EdTech / Real Estate</h3><p>Agentic content curation, multi-tenant recommender systems, analytics dashboards, price forecasting.</p><div class="clients">Infobase · Enterprise LMS · U.S. Real Estate Firm</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== INSIGHTS ============== -->
+<section class="insights-section" id="insights">
+  <div class="wrap">
+    <div class="section-eyebrow reveal">Latest from Borion</div>
+    <h2 class="head section-title reveal">Insights on AI That Ships.</h2>
+    <p class="section-lede reveal">Practical intelligence on enterprise AI deployment — from the team that builds production systems, not strategy decks.</p>
+    <div class="insights-grid">
+      <div class="insight-card reveal"><div class="cat">Market Analysis</div><h3>Why 95% of Enterprise AI Pilots Fail — And What the 5% Do Differently</h3><div class="meta">Coming Soon · 8 min read</div></div>
+      <div class="insight-card reveal"><div class="cat">Methodology</div><h3>The 90-Day AI Agent Sprint: Contract to Production in One Quarter</h3><div class="meta">Coming Soon · 12 min read</div></div>
+      <div class="insight-card reveal"><div class="cat">Strategy</div><h3>Every Corporation Is Now a Media Company — Here's Why AI Agents Are the Only Way to Scale</h3><div class="meta">Coming Soon · 10 min read</div></div>
     </div>
   </div>
 </section>
@@ -1003,22 +1290,23 @@
   <div class="wrap">
     <div class="cta-card reveal">
       <div class="cta-content">
-        <span class="cta-eyebrow">Now booking Q3 engagements</span>
-        <h2 class="head cta-title">Ready to operationalize AI?</h2>
-        <p class="cta-sub">A 30-minute conversation is enough to know whether we're a fit. We'll come prepared with hypotheses about where AI will pay off in your operation.</p>
+        <h2 class="cta-title">Ready to Deploy AI<br>That Actually Ships?</h2>
+        <p class="cta-sub">Start with a Readiness Audit — $15K–$25K, two weeks, fixed fee. No obligation.</p>
         <div class="cta-actions">
-          <a href="#" class="btn btn-primary btn-lg">
-            Let's Talk
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M5 12h14M13 5l7 7-7 7"/>
-            </svg>
+          <a href="mailto:team@borion.ai" class="btn btn-primary btn-lg">
+            Book a 30-Minute Discovery Call
           </a>
-          <a href="#services" class="btn btn-ghost btn-lg">Review Services</a>
         </div>
+        <div class="contact-info">team@borion.ai · Plano, TX · Mountain Village, CO · Global Remote</div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- ============== FLOATING CTA ============== -->
+<div class="float-cta" id="floatCta">
+  <a href="#contact">Book a Discovery Call →</a>
+</div>
 
 <!-- ============== FOOTER ============== -->
 <footer>
@@ -1027,40 +1315,145 @@
       <img src="/BORION-02.png" alt="BorionAI" />
     </a>
     <div class="foot-links">
+      <a href="#about">About</a>
       <a href="#services">Services</a>
-      <a href="#why">About</a>
+      <a href="#cases">Case Studies</a>
+      <a href="#industries">Industries</a>
       <a href="#contact">Contact</a>
-      <a href="#">Privacy</a>
     </div>
-    <div class="foot-cr">© BorionAI 2026. All rights reserved.</div>
+  </div>
+  <div class="wrap">
+    <div class="foot-cr">© 2026 Borion AI. All rights reserved.</div>
   </div>
 </footer>
 
-<script>
-  // Reveal-on-scroll
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+<!-- ============== MODAL ============== -->
+<div class="modal-bg" id="modalBg">
+  <div class="mdl">
+    <button class="mdl-close" onclick="closeMdl()">✕</button>
+    <div class="mdl-top"><div class="metric" id="mMetric"></div><h2 id="mTitle"></h2><div class="ind" id="mInd"></div></div>
+    <div class="mdl-bod" id="mBod"></div>
+  </div>
+</div>
 
-  // Smooth anchor scroll
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      const id = a.getAttribute('href');
-      if (id.length > 1) {
-        const t = document.querySelector(id);
-        if (t) {
-          e.preventDefault();
-          window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
-        }
-      }
-    });
-  });
+<script>
+// ═══ CASE DATA ═══
+const cases=[
+{cat:"agentic",client:"Infobase",title:"Intelligent Content Orchestration",industry:"EdTech",tags:["Agentic AI","Content Automation"],metric:"Millions of users served",
+challenge:"Content discovery was manual, curation slow, support workflows required constant human intervention.",
+solution:"Multi-agent AI system orchestrating content discovery, curation, and support autonomously through a unified data layer.",
+results:["Automated curation replacing a dedicated team","Measurable engagement improvement via personalized paths","Scalable to millions of concurrent users"],tech:"Python, LangChain, Azure OpenAI, RAG, Vector DBs, FastAPI, Docker"},
+{cat:"agentic",client:"PhysioAge",title:"Pre-Consultation Patient Intelligence",industry:"Healthcare",tags:["Agentic AI","Clinical Support"],metric:"Clinician prep time slashed",
+challenge:"Clinicians spent hours manually reviewing complex patient histories scattered across systems.",
+solution:"Agentic AI synthesizing patient data into structured pre-consultation summaries with risk factor identification.",
+results:["Preparation time reduced significantly per encounter","Higher consistency in risk identification","Seamless clinical system integration"],tech:"Python, LangChain, Azure OpenAI, HIPAA Infrastructure, RAG"},
+{cat:"agentic",client:"PhysioAge",title:"Predictive Intervention Alerts",industry:"Healthcare",tags:["ML","Agentic AI","Real-Time"],metric:"Proactive care enabled",
+challenge:"High-risk patients identified reactively — after escalation — rather than proactively.",
+solution:"Predictive ML with agent-based workflows for real-time monitoring and clinician alerts with graduated autonomy.",
+results:["Proactive detection before escalation","Reduced emergency interventions","Human-in-the-loop governance model"],tech:"Python, Scikit-Learn, XGBoost, LangChain, Azure, HIPAA"},
+{cat:"agentic",client:"PhysioAge",title:"Treatment Recommendation Engine",industry:"Healthcare",tags:["Agentic AI","Explainable AI"],metric:"Treatment consistency enhanced",
+challenge:"Variability across clinicians reduced consistency. Scaling personalized protocols required vast synthesis.",
+solution:"AI decision support with explainable recommendations — clinicians evaluate, accept, modify, or override transparently.",
+results:["Enhanced consistency across clinical team","Every recommendation traceable to source data","Reduced time-to-treatment-plan"],tech:"Python, LangChain, Azure OpenAI, RAG, Knowledge Graphs, XAI"},
+{cat:"agentic",client:"Leading AI Consultancy",title:"Enterprise Sales Agent",industry:"Technology",tags:["Agentic AI","GenAI","Finance"],metric:"25% engagement increase",
+challenge:"Sales team needed real-time intelligence on public companies. Manual research: hours per prospect, inconsistent quality.",
+solution:"Autonomous agent generating 20+ page financial reports on demand with text/audio/open-mic conversations.",
+results:["25% client engagement increase in Q1","Report generation: hours → minutes","Multimodal interface (text, audio, open-mic)"],tech:"Azure OpenAI, Gemini API, Cognitive Services, Yahoo Finance, SEC, FastAPI, Docker"},
+{cat:"agentic",client:"Logistics Company",title:"Route Optimization Intelligence",industry:"Transportation",tags:["AI Agents","Optimization","Big Data"],metric:"20% revenue increase",
+challenge:"Rising costs, static routing, manual dispatch eroding margins. No real-time response capability.",
+solution:"End-to-end AI for real-time route optimization with LangChain, Databricks pipelines, and A/B-tested deployment.",
+results:["20% revenue increase","40% operational efficiency improvement","Real-time adaptation to conditions"],tech:"Python, PySpark, Azure OpenAI, LangChain, Databricks, A/B Testing"},
+{cat:"analytics",client:"Keurig Dr Pepper",title:"Sales Decomposition & Attribution",industry:"CPG / Beverages",tags:["Statistical Modeling","Attribution"],metric:"Clear revenue attribution",
+challenge:"Needed to isolate true sales drivers — media, distribution, pricing, seasonality — to replace intuition.",
+solution:"Statistical framework decomposing sales into component drivers with incremental contribution isolation.",
+results:["Attribution across all revenue drivers","Evidence-based marketing reallocation","Framework adopted across business units"],tech:"Python, Pandas, NumPy, SciPy, Scikit-Learn, Statistical Modeling"},
+{cat:"analytics",client:"Keurig Dr Pepper",title:"Customer LTV Pipeline at Scale",industry:"CPG / Beverages",tags:["ML","Probabilistic Modeling"],metric:"Millions of LTV predictions",
+challenge:"No scalable system for customer-level LTV. Existing approaches too simplistic for precision targeting.",
+solution:"BG/NBD + Gamma-Gamma probabilistic models with XGBoost ensembles generating customer-level predictions at scale.",
+results:["Customer-level LTV across millions of records","Direct integration with media allocation","Automated refresh cycle"],tech:"Python, XGBoost, BG/NBD, Gamma-Gamma, Databricks, PySpark, MLflow"},
+{cat:"analytics",client:"Keurig Dr Pepper",title:"Demand Spaces Analysis",industry:"CPG / Beverages",tags:["ML","Consumer Insights"],metric:"Unmet demand identified",
+challenge:"Product-centric category management. Needed occasion-based demand understanding for innovation.",
+solution:"ML models mapping demand patterns across occasions, locations, channels into actionable demand spaces.",
+results:["High-value unmet demand spaces identified","Guided new product innovation","Framework adopted for portfolio planning"],tech:"Python, Scikit-Learn, Clustering, NLP, Consumer Analytics"},
+{cat:"analytics",client:"Keurig Dr Pepper",title:"Precision Marketing & Distribution",industry:"CPG / Beverages",tags:["Experimentation","Optimization"],metric:"ROI measurably improved",
+challenge:"Broad-segment marketing. No measurement of incremental impact, impossible to optimize ROI.",
+solution:"A/B and geo-lift testing with predictive modeling to quantify lift and optimize budget allocation.",
+results:["Quantified incremental lift per channel","Precision targeting improving ROI","Experimentation framework adopted as standard"],tech:"Python, Causal Inference, Geo-Lift, A/B Testing, XGBoost"},
+{cat:"analytics",client:"AB InBev",title:"Assortment Optimization at Scale",industry:"CPG / Beverages",tags:["Optimization","Big Data"],metric:"$10M profit lift in 6 months",
+challenge:"Assortment decisions across 300K stores driven by tradition. Sub-optimal SKUs costing millions.",
+solution:"Discrete Choice Models predicting purchase probability by store/occasion. Processing 500GB+ datasets.",
+results:["$10M profit lift in first 6 months","Supports 300,000 retail locations","Store-level demand-based optimization"],tech:"Python, PySpark, Discrete Choice Models, Big Data, Cloud"},
+{cat:"analytics",client:"Top U.S. Manufacturer",title:"Pricing Optimization Engine",industry:"Manufacturing",tags:["ML","Pricing","Automation"],metric:"97% on-time quotes",
+challenge:"24-hour quote turnaround, inconsistent pricing, lost deals. Needed real-time ML-driven pricing.",
+solution:"XGBoost + automated hyperparameter optimization analyzing historical data for instant optimized quotes.",
+results:["24hrs → <2hrs turnaround (97% on-time)","12% estimated profit lift","~20% productivity gain"],tech:"Python, XGBoost, Optuna, FastAPI, Docker, MLflow, Azure"},
+{cat:"analytics",client:"Infobase",title:"Executive Analytics Dashboards",industry:"EdTech",tags:["Data Engineering","Analytics"],metric:"Real-time visibility achieved",
+challenge:"No real-time visibility into content usage or product performance. Decisions based on delayed reports.",
+solution:"End-to-end pipelines and dashboards delivering actionable metrics for content strategy and retention.",
+results:["Real-time executive visibility","Self-service analytics reducing requests","Scales to millions of interactions"],tech:"Python, Pandas, SQL, Azure Data Pipelines, Power BI / Plotly"},
+{cat:"analytics",client:"U.S. Real Estate Firm",title:"Price Forecasting",industry:"Real Estate",tags:["ML","Forecasting","A/B Testing"],metric:"20% sales conversion lift",
+challenge:"Broker-intuition pricing. Over/under-priced listings extending time-on-market or losing margin.",
+solution:"Forecasting API with property features, location, trends, comparables. A/B tested vs. broker pricing.",
+results:["20% increase in sales conversions","3% profit margin uplift in year one","AI consistently outperformed manual"],tech:"Python, Scikit-Learn, XGBoost, LightGBM, A/B Testing, API"},
+{cat:"enablement",client:"Top-Tier Oil & Gas Co.",title:"DS Academy for 400+ Scientists",industry:"Energy",tags:["Training","Enablement"],metric:"400+ scientists trained",
+challenge:"400+ data scientists in silos. No standardized practices, shared knowledge, or consistent skill paths.",
+solution:"30+ courses, standardized methodologies, hands-on workshops, cross-team collaboration frameworks.",
+results:["400+ scientists trained and standardized","30+ production-quality courses","Cross-team silos eliminated"],tech:"Python, Scikit-Learn, PyTorch, TensorFlow, NLP, Knowledge Mgmt"},
+{cat:"enablement",client:"Cencosud",title:"MLOps Transformation",industry:"Retail",tags:["MLOps","CI/CD","Cloud"],metric:"$160K annual savings",
+challenge:"MLOps Level 0: manual everything, spiraling cloud costs. 30+ scientists producing models that never shipped.",
+solution:"Level 0 → Level 1: automated retraining, CI/CD, containerization, monitoring. Serverless optimization.",
+results:["$120K annual cloud savings (15% spend)","$40K additional from serverless","30+ scientists deploying reliably"],tech:"Python, Azure, Databricks, Docker, CI/CD, MLflow, Serverless"},
+{cat:"enablement",client:"Enterprise LMS Platform",title:"Multi-Tenant Recommender",industry:"EdTech / SaaS",tags:["ML","Recommender Systems"],metric:"95% user coverage",
+challenge:"267K users, 395K courses, 2.8M interactions — personalization needed while respecting tenant boundaries.",
+solution:"Hybrid ALS + NLP + popularity pipeline with multi-tenant isolation, cold-start handling, multi-cloud readiness.",
+results:["95% user coverage with personalized recs","Multi-tenant architecture","Cloud-agnostic (AWS/Azure/GCP)"],tech:"Python, PySpark, Databricks, ALS, NLP, Multi-Cloud, Docker"},
+];
+
+// ═══ RENDER CASE CARDS ═══
+const cGrid=document.getElementById('cGrid');
+cases.forEach((c,i)=>{const d=document.createElement('div');d.className='cc reveal';d.dataset.category=c.cat;d.onclick=()=>openMdl(i);
+d.innerHTML=`<div class="cc-metric">${c.metric}</div><div class="cc-head"><div class="client">${c.client} · ${c.industry}</div><h3>${c.title}</h3></div><div class="cc-body"><p>${c.challenge.substring(0,100)}…</p></div><div class="cc-tags">${c.tags.map(t=>`<span>${t}</span>`).join('')}</div>`;
+cGrid.appendChild(d)});
+
+// ═══ FILTER ═══
+document.querySelectorAll('.fbtn').forEach(b=>{b.addEventListener('click',()=>{
+document.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('active'));b.classList.add('active');
+const f=b.dataset.filter;document.querySelectorAll('.cc').forEach(c=>{c.classList.toggle('hidden',f!=='all'&&c.dataset.category!==f)})})});
+
+// ═══ MODAL ═══
+function openMdl(i){const c=cases[i];document.getElementById('mMetric').textContent=c.metric;
+document.getElementById('mTitle').textContent=c.title;document.getElementById('mInd').textContent=c.client+' · '+c.industry+' · '+c.tags.join(' · ');
+document.getElementById('mBod').innerHTML=`<h4>The Challenge</h4><p>${c.challenge}</p><h4>What We Deployed</h4><p>${c.solution}</p><h4>Measurable Results</h4><ul>${c.results.map(r=>`<li>${r}</li>`).join('')}</ul><h4>Technology Stack</h4><div class="mdl-tech">${c.tech}</div>`;
+document.getElementById('modalBg').classList.add('active');document.body.style.overflow='hidden'}
+function closeMdl(){document.getElementById('modalBg').classList.remove('active');document.body.style.overflow=''}
+document.getElementById('modalBg').addEventListener('click',e=>{if(e.target===e.currentTarget)closeMdl()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMdl()});
+
+// ═══ SCROLL REVEALS ═══
+const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible')}})},{threshold:0.15,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// ═══ FLOATING CTA ═══
+const floatCta=document.getElementById('floatCta');
+const heroSection=document.getElementById('hero');
+const contactSection=document.getElementById('contact');
+window.addEventListener('scroll',()=>{const heroBottom=heroSection.getBoundingClientRect().bottom;
+const contactTop=contactSection.getBoundingClientRect().top;
+floatCta.classList.toggle('show',heroBottom<0&&contactTop>window.innerHeight)});
+
+// ═══ SMOOTH SCROLL ═══
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+a.addEventListener('click',(e)=>{
+const id=a.getAttribute('href');
+if(id.length>1){
+const t=document.querySelector(id);
+if(t){
+e.preventDefault();
+window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-80,behavior:'smooth'});
+}
+}
+});
+});
 </script>
 </body>
 </html>
