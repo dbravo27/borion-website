@@ -159,6 +159,11 @@
     display: flex;
     align-items: center;
   }
+  #heroCanvas{
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
   .hero::before{
     content: "";
     position: absolute;
@@ -1086,6 +1091,7 @@
 
 <!-- ============== HERO ============== -->
 <section class="hero" id="hero">
+  <canvas id="heroCanvas"></canvas>
   <div class="wrap">
     <div class="hero-content">
       <h1 class="head hero-title">
@@ -1123,10 +1129,10 @@
 <!-- ============== PROOF BAR ============== -->
 <div class="proof-bar">
   <div class="proof-grid">
-    <div class="proof-item reveal"><div class="number" data-target="20">20+</div><div class="label">AI Projects Delivered</div></div>
-    <div class="proof-item reveal"><div class="number" data-target="90">90</div><div class="label">Days to Production</div></div>
-    <div class="proof-item reveal"><div class="number" data-target="12">12+</div><div class="label">Data Scientists on Bench</div></div>
-    <div class="proof-item reveal"><div class="number" data-target="6">6</div><div class="label">Languages · Global Delivery</div></div>
+    <div class="proof-item reveal"><div class="number" data-target="20">0</div><div class="label">AI Projects Delivered</div></div>
+    <div class="proof-item reveal"><div class="number" data-target="90">0</div><div class="label">Days to Production</div></div>
+    <div class="proof-item reveal"><div class="number" data-target="12">0</div><div class="label">Data Scientists on Bench</div></div>
+    <div class="proof-item reveal"><div class="number" data-target="6">0</div><div class="label">Languages · Global Delivery</div></div>
   </div>
 </div>
 
@@ -1354,6 +1360,22 @@
 </div>
 
 <script>
+// ═══ PARTICLE CANVAS ═══
+const canvas=document.getElementById('heroCanvas'),ctx=canvas.getContext('2d');
+let W,H,particles=[];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
+window.addEventListener('resize',resize);resize();
+class P{constructor(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.4;this.vy=(Math.random()-.5)*.4;this.r=Math.random()*1.5+.5}
+update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W)this.vx*=-1;if(this.y<0||this.y>H)this.vy*=-1}
+draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fillStyle='rgba(20,184,166,.5)';ctx.fill()}}
+for(let i=0;i<80;i++)particles.push(new P);
+function animate(){ctx.clearRect(0,0,W,H);particles.forEach(p=>{p.update();p.draw()});
+for(let i=0;i<particles.length;i++)for(let j=i+1;j<particles.length;j++){
+const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,d=Math.sqrt(dx*dx+dy*dy);
+if(d<150){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);
+ctx.strokeStyle=`rgba(20,184,166,${(.15*(1-d/150)).toFixed(3)})`;ctx.lineWidth=.5;ctx.stroke()}}
+requestAnimationFrame(animate)}animate();
+
 // ═══ CASE DATA ═══
 const cases=[
 {cat:"agentic",client:"Infobase",title:"Intelligent Content Orchestration",industry:"EdTech",tags:["Agentic AI","Content Automation"],metric:"Millions of users served",
@@ -1447,8 +1469,17 @@ document.getElementById('modalBg').addEventListener('click',e=>{if(e.target===e.
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMdl()});
 
 // ═══ SCROLL REVEALS ═══
-const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible')}})},{threshold:0.15,rootMargin:'0px 0px -50px 0px'});
+const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');
+if(e.target.querySelector('[data-target]')){animateCounter(e.target.querySelector('[data-target]'))}}})},{threshold:0.15,rootMargin:'0px 0px -50px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// ═══ COUNTER ANIMATION ═══
+function animateCounter(el){const target=parseInt(el.dataset.target);let current=0;const step=Math.ceil(target/40);
+const prefix=el.closest('.proof-item')?.querySelector('.label')?.textContent.includes('Days')?'':'';
+const suffix=el.closest('.proof-item')?.querySelector('.label')?.textContent.includes('Delivered')?'+':
+el.closest('.proof-item')?.querySelector('.label')?.textContent.includes('Bench')?'+':'';
+const timer=setInterval(()=>{current+=step;if(current>=target){current=target;clearInterval(timer)}
+el.textContent=prefix+current+suffix},30)}
 
 // ═══ FLOATING CTA ═══
 const floatCta=document.getElementById('floatCta');
