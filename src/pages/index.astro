@@ -2,18 +2,1065 @@
 
 ---
 
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Hello World - Borion AI</title>
-	</head>
-	<body>
-		<div style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: system-ui, -apple-system, sans-serif;">
-			<h1>Hello World - Borion AI</h1>
-		</div>
-	</body>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BorionAI — Turn AI Into Business Value</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* Roobert isn't free; use a clean geometric stack as a stand-in for the headings.
+     Inter Tight + system geometric is the closest visual match for Roobert Medium. */
+  :root{
+    --navy: #141e42;
+    --navy-deep: #0b1230;
+    --navy-mid: #0d3084;
+    --blue: #195add;
+    --purple: #6f5dd2;
+    --lavender: #d2ccf1;
+    --white: #ffffff;
+    --line: rgba(210, 204, 241, 0.12);
+    --line-strong: rgba(210, 204, 241, 0.22);
+    --muted: rgba(210, 204, 241, 0.72);
+    --dim: rgba(210, 204, 241, 0.55);
+  }
+
+  *{ box-sizing: border-box; }
+  html, body{ margin: 0; padding: 0; }
+  body{
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Manrope', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  .head{
+    font-family: 'Inter Tight', 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  /* ---------- LAYOUT ---------- */
+  .wrap{
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- BACKGROUND TEXTURE ---------- */
+  .bg-grid{
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(210,204,241,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(210,204,241,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 90% 60% at 50% 30%, black 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 60% at 50% 30%, black 30%, transparent 75%);
+    z-index: 0;
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background: rgba(20, 30, 66, 0.72);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+  }
+  .logo{
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    line-height: 0;
+  }
+  .logo img{
+    height: 28px;
+    width: auto;
+    display: block;
+  }
+  .foot-inner .logo img{ height: 26px; }
+  .nav-links{
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+  .nav-links a{
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  .nav-links a:hover{ color: var(--white); }
+
+  .btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    padding: 11px 20px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    white-space: nowrap;
+  }
+  .btn-primary{
+    background: var(--blue);
+    color: white;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.18) inset, 0 8px 24px -8px rgba(25, 90, 221, 0.6);
+  }
+  .btn-primary:hover{
+    background: #2a6bee;
+    transform: translateY(-1px);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.22) inset, 0 14px 28px -10px rgba(25, 90, 221, 0.75);
+  }
+  .btn-ghost{
+    background: rgba(210, 204, 241, 0.06);
+    color: white;
+    border-color: var(--line-strong);
+  }
+  .btn-ghost:hover{
+    background: rgba(210, 204, 241, 0.12);
+    border-color: rgba(210, 204, 241, 0.32);
+  }
+  .btn-lg{ padding: 15px 26px; font-size: 15px; border-radius: 12px; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position: relative;
+    padding: 96px 0 120px;
+    overflow: hidden;
+    z-index: 1;
+  }
+  .hero::before{
+    content: "";
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1100px;
+    height: 700px;
+    background: radial-gradient(ellipse at center, rgba(25, 90, 221, 0.35) 0%, rgba(13, 48, 132, 0.1) 50%, transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .hero::after{
+    content: "";
+    position: absolute;
+    bottom: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(111, 93, 210, 0.25) 0%, transparent 60%);
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .hero-grid{
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .eyebrow{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 14px 7px 8px;
+    border: 1px solid var(--line-strong);
+    background: rgba(210, 204, 241, 0.04);
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--lavender);
+    letter-spacing: 0.01em;
+    margin-bottom: 28px;
+  }
+  .eyebrow .dot{
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--blue);
+    position: relative;
+    box-shadow: 0 0 0 3px rgba(25, 90, 221, 0.25);
+  }
+  .eyebrow .dot::after{
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border-radius: 50%;
+    background: white;
+  }
+  h1.hero-title{
+    font-size: clamp(48px, 6vw, 76px);
+    margin: 0 0 24px;
+    color: white;
+  }
+  h1.hero-title .grad{
+    background: linear-gradient(120deg, #ffffff 0%, #d2ccf1 50%, #6f5dd2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero-sub{
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--muted);
+    max-width: 540px;
+    margin: 0 0 40px;
+    font-weight: 400;
+  }
+  .hero-ctas{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .hero-meta{
+    margin-top: 56px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    gap: 48px;
+  }
+  .hero-meta-item .num{
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    letter-spacing: -0.02em;
+    color: white;
+    line-height: 1;
+  }
+  .hero-meta-item .lbl{
+    font-size: 12.5px;
+    color: var(--dim);
+    margin-top: 8px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* ---- HERO VISUAL ---- */
+  .hero-visual{
+    position: relative;
+    height: 520px;
+  }
+  .hv-card{
+    position: absolute;
+    background: linear-gradient(180deg, rgba(20, 30, 66, 0.9), rgba(13, 18, 48, 0.85));
+    border: 1px solid var(--line-strong);
+    border-radius: 16px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 18px;
+    box-shadow: 0 24px 48px -16px rgba(0,0,0,0.4);
+  }
+  .hv-main{
+    inset: 30px 30px 30px 30px;
+    padding: 24px;
+    overflow: hidden;
+  }
+  .hv-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+  }
+  .hv-header .label{
+    font-size: 11px;
+    color: var(--dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .hv-header .pill{
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    font-size: 11px;
+    color: var(--lavender);
+    background: rgba(25, 90, 221, 0.18);
+    border: 1px solid rgba(25, 90, 221, 0.35);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  .hv-header .pill::before{
+    content: "";
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #4ee79b;
+    box-shadow: 0 0 8px #4ee79b;
+  }
+  .hv-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .hv-row:last-of-type{ border-bottom: none; }
+  .hv-row-l{ display: flex; align-items: center; gap: 12px; }
+  .hv-icon{
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgba(25,90,221,0.3), rgba(111,93,210,0.3));
+    border: 1px solid var(--line-strong);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hv-icon svg{ width: 16px; height: 16px; color: var(--lavender); }
+  .hv-row .name{ font-size: 13.5px; font-weight: 500; color: white; }
+  .hv-row .sub{ font-size: 11.5px; color: var(--dim); margin-top: 2px; }
+  .hv-row .val{
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 14px; font-weight: 500;
+    color: var(--lavender);
+    letter-spacing: -0.01em;
+  }
+  .hv-row .val .delta{ color: #4ee79b; font-size: 11.5px; margin-left: 6px; }
+
+  .hv-chart{
+    margin-top: 18px;
+    height: 110px;
+    border-radius: 10px;
+    background:
+      linear-gradient(180deg, rgba(25,90,221,0.08), transparent 70%),
+      linear-gradient(rgba(210,204,241,0.05) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 22px;
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .hv-chart svg{ width: 100%; height: 100%; display: block; }
+
+  .hv-mini{
+    width: 220px;
+    bottom: -10px;
+    left: -20px;
+    padding: 16px;
+  }
+  .hv-mini .ttl{ font-size: 11px; color: var(--dim); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; }
+  .hv-mini .big{
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    margin-top: 6px;
+    letter-spacing: -0.02em;
+  }
+  .hv-mini .row{ display: flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 12px; color: var(--lavender); }
+  .hv-mini .bar{
+    flex: 1;
+    height: 4px;
+    background: rgba(210,204,241,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .hv-mini .bar i{
+    display: block;
+    height: 100%;
+    width: 78%;
+    background: linear-gradient(90deg, var(--blue), var(--purple));
+    border-radius: 2px;
+  }
+
+  .hv-orbit{
+    width: 200px;
+    top: -20px;
+    right: -30px;
+    padding: 14px 16px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .hv-orbit .o-icon{
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 8px 18px -6px rgba(25,90,221,0.5);
+  }
+  .hv-orbit .o-icon svg{ width: 18px; height: 18px; color: white; }
+  .hv-orbit .ttl{ font-size: 12.5px; font-weight: 600; color: white; }
+  .hv-orbit .sub{ font-size: 11px; color: var(--dim); margin-top: 2px; }
+
+  /* ---------- SECTIONS ---------- */
+  section{ position: relative; z-index: 1; }
+  .section{
+    padding: 120px 0;
+  }
+  .section-header{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 64px;
+  }
+  .section-eyebrow{
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-eyebrow::before{
+    content: "";
+    width: 24px; height: 1px;
+    background: var(--blue);
+  }
+  h2.section-title{
+    font-size: clamp(36px, 4.4vw, 54px);
+    margin: 0;
+    max-width: 640px;
+    color: white;
+  }
+  .section-lede{
+    font-size: 16.5px;
+    color: var(--muted);
+    max-width: 380px;
+    line-height: 1.55;
+    margin: 0;
+    padding-bottom: 8px;
+  }
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .service{
+    position: relative;
+    padding: 36px 32px 32px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(210, 204, 241, 0.045), rgba(210, 204, 241, 0.015));
+    border: 1px solid var(--line);
+    overflow: hidden;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    cursor: default;
+  }
+  .service::before{
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(210,204,241,0.4), transparent);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  .service:hover{
+    transform: translateY(-4px);
+    border-color: var(--line-strong);
+    background: linear-gradient(180deg, rgba(25, 90, 221, 0.08), rgba(210, 204, 241, 0.02));
+  }
+  .service:hover::before{ opacity: 1; }
+  .service:hover .svc-num{ color: var(--lavender); }
+  .service:hover .svc-arrow{ transform: translate(2px, -2px); color: white; }
+
+  .svc-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 60px;
+  }
+  .svc-num{
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 13px;
+    color: var(--dim);
+    letter-spacing: 0.04em;
+    transition: color 0.25s ease;
+  }
+  .svc-icon{
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(25,90,221,0.18), rgba(111,93,210,0.18));
+    border: 1px solid var(--line-strong);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .svc-icon svg{ width: 22px; height: 22px; color: var(--lavender); }
+  .svc-title{
+    font-size: 22px;
+    margin: 0 0 12px;
+    color: white;
+  }
+  .svc-desc{
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 0 0 28px;
+  }
+  .svc-foot{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+  }
+  .svc-tag{
+    font-size: 12px;
+    color: var(--lavender);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .svc-arrow{
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 1px solid var(--line-strong);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--lavender);
+    transition: transform 0.25s ease, color 0.25s ease;
+  }
+  .svc-arrow svg{ width: 12px; height: 12px; }
+
+  /* ---------- WHY ---------- */
+  .why-section{
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(25, 90, 221, 0.18), transparent 60%),
+      radial-gradient(ellipse at 80% 100%, rgba(111, 93, 210, 0.15), transparent 60%);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .why-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-left: 1px solid var(--line);
+  }
+  .why-col{
+    padding: 8px 36px 8px 36px;
+    border-right: 1px solid var(--line);
+  }
+  .why-col:first-child{ padding-left: 0; }
+  .why-col:first-child{ padding-left: 0; }
+  .why-num{
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 13px;
+    color: var(--blue);
+    letter-spacing: 0.06em;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .why-num::after{
+    content: "";
+    flex: 1; height: 1px;
+    background: var(--line);
+  }
+  .why-title{
+    font-size: 26px;
+    margin: 0 0 16px;
+    color: white;
+  }
+  .why-body{
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .why-icon{
+    width: 44px; height: 44px;
+    margin-bottom: 24px;
+    border-radius: 11px;
+    background: linear-gradient(135deg, rgba(25,90,221,0.2), rgba(111,93,210,0.2));
+    border: 1px solid var(--line-strong);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .why-icon svg{ width: 20px; height: 20px; color: var(--lavender); }
+
+  /* ---------- CTA ---------- */
+  .cta-section{ padding: 80px 0 120px; }
+  .cta-card{
+    position: relative;
+    border-radius: 28px;
+    padding: 80px 64px;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse at 0% 100%, rgba(111, 93, 210, 0.4), transparent 60%),
+      radial-gradient(ellipse at 100% 0%, rgba(25, 90, 221, 0.45), transparent 60%),
+      linear-gradient(135deg, #141e42 0%, #0d3084 100%);
+    border: 1px solid var(--line-strong);
+    text-align: center;
+  }
+  .cta-card::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%);
+    pointer-events: none;
+  }
+  .cta-card::after{
+    content: "";
+    position: absolute;
+    top: -50%; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 400px;
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.06), transparent 60%);
+    filter: blur(40px);
+    pointer-events: none;
+  }
+  .cta-content{ position: relative; z-index: 1; }
+  .cta-eyebrow{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.05);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--lavender);
+    margin-bottom: 28px;
+  }
+  .cta-eyebrow::before{
+    content: "";
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #4ee79b;
+    box-shadow: 0 0 10px #4ee79b;
+  }
+  h2.cta-title{
+    font-size: clamp(36px, 4.6vw, 58px);
+    margin: 0 auto 20px;
+    max-width: 720px;
+    color: white;
+  }
+  .cta-sub{
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto 40px;
+    line-height: 1.55;
+  }
+  .cta-actions{
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top: 1px solid var(--line);
+    padding: 48px 0 56px;
+  }
+  .foot-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .foot-cr{ font-size: 13px; color: var(--dim); }
+  .foot-links{ display: flex; gap: 28px; }
+  .foot-links a{ font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s ease; }
+  .foot-links a:hover{ color: white; }
+
+  /* ---------- ANIMS ---------- */
+  @keyframes float-1 { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-10px); } }
+  @keyframes float-2 { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-14px); } }
+  @keyframes pulse-line {
+    0%{ stroke-dashoffset: 600; }
+    100%{ stroke-dashoffset: 0; }
+  }
+  .hv-orbit{ animation: float-1 6s ease-in-out infinite; }
+  .hv-mini{ animation: float-2 7s ease-in-out infinite 0.5s; }
+
+  .reveal{ opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.in{ opacity: 1; transform: translateY(0); }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 980px){
+    .hero-grid{ grid-template-columns: 1fr; gap: 60px; }
+    .hero-visual{ height: 460px; }
+    .services-grid{ grid-template-columns: 1fr; }
+    .why-grid{ grid-template-columns: 1fr; border-left: none; }
+    .why-col{ border-right: none; border-bottom: 1px solid var(--line); padding: 32px 0; }
+    .why-col:last-child{ border-bottom: none; }
+    .section-header{ flex-direction: column; align-items: flex-start; gap: 20px; }
+    .nav-links{ gap: 24px; }
+    .nav-links a:not(.btn){ display: none; }
+    .cta-card{ padding: 56px 28px; }
+    .hero-meta{ gap: 28px; flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+
+<!-- ============== NAV ============== -->
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="#" class="logo" aria-label="BorionAI home">
+      <img src="/borion-logo-white.png" alt="BorionAI" />
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#why">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="btn btn-primary">Get Started</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============== HERO ============== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">
+        <span class="dot" aria-hidden="true"></span>
+        AI consulting for operators
+      </span>
+      <h1 class="head hero-title">
+        Turn AI Into <span class="grad">Business Value</span>
+      </h1>
+      <p class="hero-sub">
+        We embed artificial intelligence into real workflows, delivering measurable operational impact.
+      </p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary btn-lg">
+          Schedule a Call
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="#services" class="btn btn-ghost btn-lg">See how we work</a>
+      </div>
+
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <div class="num">40+</div>
+          <div class="lbl">Production Deployments</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="num">12wk</div>
+          <div class="lbl">Avg. Time to Value</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="num">SOC 2</div>
+          <div class="lbl">Aligned Engagements</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Visual: composed dashboard mock, no stock imagery -->
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hv-card hv-main">
+        <div class="hv-header">
+          <div>
+            <div class="label">Operations Console</div>
+            <div style="font-size: 18px; font-weight: 500; margin-top: 6px; font-family: 'Inter Tight', sans-serif; letter-spacing: -0.01em;">Workflow Health</div>
+          </div>
+          <span class="pill">Live</span>
+        </div>
+
+        <div class="hv-row">
+          <div class="hv-row-l">
+            <div class="hv-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
+            </div>
+            <div>
+              <div class="name">Triage Agent</div>
+              <div class="sub">Customer ops · 28k tickets</div>
+            </div>
+          </div>
+          <div class="val">94.2%<span class="delta">+6.1</span></div>
+        </div>
+
+        <div class="hv-row">
+          <div class="hv-row-l">
+            <div class="hv-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+            </div>
+            <div>
+              <div class="name">Forecasting Pipeline</div>
+              <div class="sub">Demand planning · 14 SKUs</div>
+            </div>
+          </div>
+          <div class="val">$1.4M<span class="delta">+12.8</span></div>
+        </div>
+
+        <div class="hv-row">
+          <div class="hv-row-l">
+            <div class="hv-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            </div>
+            <div>
+              <div class="name">Knowledge Retrieval</div>
+              <div class="sub">Internal RAG · 1.2M docs</div>
+            </div>
+          </div>
+          <div class="val">182ms<span class="delta">−24%</span></div>
+        </div>
+
+        <div class="hv-chart">
+          <svg viewBox="0 0 400 110" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="ga" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#195add" stop-opacity="0.45"/>
+                <stop offset="100%" stop-color="#195add" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="gl" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#195add"/>
+                <stop offset="100%" stop-color="#6f5dd2"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,80 C40,72 70,60 110,55 C150,50 180,68 220,52 C260,36 290,20 330,28 C360,34 380,18 400,12 L400,110 L0,110 Z" fill="url(#ga)"/>
+            <path d="M0,80 C40,72 70,60 110,55 C150,50 180,68 220,52 C260,36 290,20 330,28 C360,34 380,18 400,12" fill="none" stroke="url(#gl)" stroke-width="2"/>
+            <circle cx="330" cy="28" r="4" fill="#fff"/>
+            <circle cx="330" cy="28" r="8" fill="none" stroke="#fff" stroke-opacity="0.4" stroke-width="1"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="hv-card hv-orbit">
+        <div class="o-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div>
+          <div class="ttl">3 models deployed</div>
+          <div class="sub">this quarter</div>
+        </div>
+      </div>
+
+      <div class="hv-card hv-mini">
+        <div class="ttl">Hours saved · Q2</div>
+        <div class="big">8,420</div>
+        <div class="row">
+          <div class="bar"><i></i></div>
+          <span>78%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SERVICES ============== -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div>
+        <div class="section-eyebrow">Services</div>
+        <h2 class="head section-title">A full path from idea to operational AI.</h2>
+      </div>
+      <p class="section-lede">Three engagements designed to move you from experimentation to systems that compound value over time.</p>
+    </div>
+
+    <div class="services-grid">
+      <!-- 01 -->
+      <article class="service reveal">
+        <div class="svc-top">
+          <span class="svc-num">01 / Strategy</span>
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>
+            </svg>
+          </div>
+        </div>
+        <h3 class="head svc-title">AI Strategy &amp; Roadmap</h3>
+        <p class="svc-desc">From experimentation to a clear path to full AI integration.</p>
+        <div class="svc-foot">
+          <span class="svc-tag">Discovery · Prioritization · ROI modeling</span>
+          <span class="svc-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
+        </div>
+      </article>
+
+      <!-- 02 -->
+      <article class="service reveal">
+        <div class="svc-top">
+          <span class="svc-num">02 / Build</span>
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 18l6-6-6-6M8 6l-6 6 6 6M14 4l-4 16"/>
+            </svg>
+          </div>
+        </div>
+        <h3 class="head svc-title">Custom AI Development</h3>
+        <p class="svc-desc">Solutions designed for your workflows, not generic demos.</p>
+        <div class="svc-foot">
+          <span class="svc-tag">Agents · RAG · Fine-tuning · Evaluations</span>
+          <span class="svc-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
+        </div>
+      </article>
+
+      <!-- 03 -->
+      <article class="service reveal">
+        <div class="svc-top">
+          <span class="svc-num">03 / Operate</span>
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              <path d="M12 7v5l3 3"/>
+            </svg>
+          </div>
+        </div>
+        <h3 class="head svc-title">AI Operations &amp; Scaling</h3>
+        <p class="svc-desc">Deploy, monitor, and scale AI systems that grow with your business.</p>
+        <div class="svc-foot">
+          <span class="svc-tag">Observability · Guardrails · Cost control</span>
+          <span class="svc-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============== WHY ============== -->
+<section class="section why-section" id="why">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div>
+        <div class="section-eyebrow">Why Borion</div>
+        <h2 class="head section-title">An engineering partner, not a slide deck.</h2>
+      </div>
+      <p class="section-lede">We work alongside your teams. Every engagement ends with systems running in production and your people equipped to own them.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-col reveal">
+        <div class="why-num">01</div>
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 3v18h18"/>
+            <path d="M7 14l4-4 4 4 5-5"/>
+          </svg>
+        </div>
+        <h3 class="head why-title">Practical Impact</h3>
+        <p class="why-body">We measure success in hours saved, revenue moved, and decisions improved — not model benchmarks. Every project ships with a defined business outcome and a way to verify it.</p>
+      </div>
+
+      <div class="why-col reveal">
+        <div class="why-num">02</div>
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+        </div>
+        <h3 class="head why-title">Trust Through Clarity</h3>
+        <p class="why-body">Plain language, weekly demos, and shared ownership. You always know what we're building, why it matters, and what it costs to run. No black boxes, no consulting theater.</p>
+      </div>
+
+      <div class="why-col reveal">
+        <div class="why-num">03</div>
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/>
+            <path d="M14 17h7M17.5 14v7"/>
+          </svg>
+        </div>
+        <h3 class="head why-title">Built for Real Workflows</h3>
+        <p class="why-body">We start by mapping how your teams actually work — the systems, edge cases, and people involved. AI that ignores the messy middle never gets used. Ours is built to fit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CTA ============== -->
+<section class="cta-section" id="contact">
+  <div class="wrap">
+    <div class="cta-card reveal">
+      <div class="cta-content">
+        <span class="cta-eyebrow">Now booking Q3 engagements</span>
+        <h2 class="head cta-title">Ready to operationalize AI?</h2>
+        <p class="cta-sub">A 30-minute conversation is enough to know whether we're a fit. We'll come prepared with hypotheses about where AI will pay off in your operation.</p>
+        <div class="cta-actions">
+          <a href="#" class="btn btn-primary btn-lg">
+            Let's Talk
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="#services" class="btn btn-ghost btn-lg">Review Services</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer>
+  <div class="wrap foot-inner">
+    <a href="#" class="logo" aria-label="BorionAI home">
+      <img src="/borion-logo-white.png" alt="BorionAI" />
+    </a>
+    <div class="foot-links">
+      <a href="#services">Services</a>
+      <a href="#why">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#">Privacy</a>
+    </div>
+    <div class="foot-cr">© BorionAI 2026. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // Reveal-on-scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Smooth anchor scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (id.length > 1) {
+        const t = document.querySelector(id);
+        if (t) {
+          e.preventDefault();
+          window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+        }
+      }
+    });
+  });
+</script>
+</body>
 </html>
