@@ -219,14 +219,27 @@ import CaseStudies from '../components/CaseStudies.astro';
     font-size: clamp(48px, 8vw, 90px);
     margin: 0 0 24px;
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .rotating-container{
+    position: relative;
+    height: 1.2em;
+    width: 100%;
+    text-align: center;
   }
   h1.hero-title .rotating-word{
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
     font-style: normal;
     background: linear-gradient(120deg, #195add 0%, #6f5dd2 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    display: inline-block;
+    white-space: nowrap;
     transition: opacity 0.5s ease;
   }
   h1.hero-title .rotating-word.fade-out{
@@ -257,10 +270,11 @@ import CaseStudies from '../components/CaseStudies.astro';
 
   /* ---------- LOGO BAR ---------- */
   .logo-bar{
-    padding: 2.5rem 2rem;
+    padding: 2.5rem 0;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
     background: var(--navy-deep);
+    overflow: hidden;
   }
   .logo-bar-label{
     font-size: 11px;
@@ -272,12 +286,25 @@ import CaseStudies from '../components/CaseStudies.astro';
     margin-bottom: 1.5rem;
     font-family: 'Inter Tight', sans-serif;
   }
-  .logo-track{
+  .marquee{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+  .marquee-content{
     display: flex;
-    gap: 3rem;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    gap: 4rem;
+    animation: marquee 30s linear infinite;
+    width: fit-content;
+  }
+  .marquee:hover .marquee-content{
+    animation-play-state: paused;
+  }
+  @keyframes marquee{
+    0%{ transform: translateX(0); }
+    100%{ transform: translateX(-50%); }
   }
   .logo-item{
     font-family: 'Inter Tight', sans-serif;
@@ -399,6 +426,78 @@ import CaseStudies from '../components/CaseStudies.astro';
     font-size: 14px;
     color: var(--muted);
     margin-top: 0.5rem;
+  }
+
+  /* ---------- WHY US ---------- */
+  .why-us-section{
+    padding: 100px 0;
+    background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%);
+  }
+  .why-us-subtext{
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    font-size: 0.95rem;
+    color: var(--dim);
+    font-weight: 300;
+  }
+  .pillars-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  @media (max-width: 980px){
+    .pillars-grid{
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (min-width: 981px){
+    .pillars-grid .pillar-card:nth-child(4){
+      margin-left: 25%;
+    }
+  }
+  .pillar-card{
+    position: relative;
+    background: var(--navy);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    transition: all 0.3s ease;
+  }
+  .pillar-card:hover{
+    border-color: var(--blue);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(25, 90, 221, 0.2);
+  }
+  .pillar-number{
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--purple) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    opacity: 0.3;
+    line-height: 1;
+  }
+  .pillar-title{
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 1rem;
+    padding-right: 3rem;
+  }
+  .pillar-text{
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.65;
+    font-weight: 300;
+    margin: 0;
   }
 
   /* ---------- SERVICES ---------- */
@@ -1133,6 +1232,7 @@ import CaseStudies from '../components/CaseStudies.astro';
     </a>
     <div class="nav-links">
       <a href="#about">About</a>
+      <a href="#why-us">Why Us</a>
       <a href="#services">Services</a>
       <a href="#cases">Case Studies</a>
       <a href="#industries">Industries</a>
@@ -1152,7 +1252,10 @@ import CaseStudies from '../components/CaseStudies.astro';
         Now booking Q3 engagements
       </div>
       <h1 class="head hero-title">
-        AI That <em class="rotating-word" id="rotatingWord">Ships.</em>
+        <span>AI That</span>
+        <div class="rotating-container">
+          <em class="rotating-word" id="rotatingWord">Ships</em>
+        </div>
       </h1>
       <p class="hero-sub">
         We deploy production AI agents in 60–90 days. You don't pay in full until it works.
@@ -1174,7 +1277,17 @@ import CaseStudies from '../components/CaseStudies.astro';
 <div class="logo-bar">
   <div class="wrap">
     <div class="logo-bar-label">Trusted by enterprises across 7 industries</div>
-    <div class="logo-track">
+  </div>
+  <div class="marquee">
+    <div class="marquee-content">
+      <span class="logo-item">Keurig Dr Pepper</span>
+      <span class="logo-item">AB InBev</span>
+      <span class="logo-item">Cencosud</span>
+      <span class="logo-item nda">Top-Tier U.S. Oil & Gas Co.</span>
+      <span class="logo-item">PhysioAge</span>
+      <span class="logo-item">Infobase</span>
+      <span class="logo-item nda">Top U.S. Manufacturer</span>
+      <!-- Duplicate for seamless loop -->
       <span class="logo-item">Keurig Dr Pepper</span>
       <span class="logo-item">AB InBev</span>
       <span class="logo-item">Cencosud</span>
@@ -1207,6 +1320,53 @@ import CaseStudies from '../components/CaseStudies.astro';
       <div class="stat-block reveal"><div class="val">56<span>%</span></div><div class="desc">of CEOs report zero return from AI</div></div>
       <div class="stat-block reveal"><div class="val">$124<span>M</span></div><div class="desc">average annual enterprise AI budget</div></div>
       <div class="stat-block reveal"><div class="val">40<span>%</span></div><div class="desc">of apps will embed AI agents this year</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== WHY US ============== -->
+<section id="why-us" class="why-us-section">
+  <div class="wrap">
+    <h2 class="head section-title reveal" style="text-align: center; max-width: 900px; margin: 0 auto 1.5rem;">
+      We Are in the Business of Deployment.<br>Not Consultation.
+    </h2>
+    <p class="section-lede reveal" style="text-align: center; max-width: 900px; margin: 0 auto 1rem;">
+      We do not sell strategy documents. We do not sell assessments that lead to assessments. We do not sell recommendations that require another engagement to act upon. We sell working AI systems, deployed into live production environments, delivering measurable business outcomes — and we do not consider the work finished until that standard is met.
+    </p>
+    <p class="why-us-subtext reveal">
+      We are a group of Data Scientists, Machine Learning Engineers, and Data Engineers — led by a Chief Scientist and Chief Strategy Officer — ready to take on your business problem and deliver a solution in days.
+    </p>
+
+    <div class="pillars-grid">
+      <div class="pillar-card reveal">
+        <div class="pillar-number">01</div>
+        <h3 class="pillar-title">Delivery Is the Only Metric That Matters</h3>
+        <p class="pillar-text">We define 'done' in writing before work begins. Not as a formality — as a mutual commitment. We scope around deployable outcomes, not billable hours. When the system runs in production and produces the result you needed, we are done. Not before.</p>
+      </div>
+
+      <div class="pillar-card reveal">
+        <div class="pillar-number">02</div>
+        <h3 class="pillar-title">Speed as a Structural Advantage</h3>
+        <p class="pillar-text">No junior analysts. No internal approval chains. No account team separate from the delivery team. The person who leads your engagement has twenty completed projects behind them and is personally accountable for this one. We complete in 8–12 weeks what a large firm structures as 6–18 months.</p>
+      </div>
+
+      <div class="pillar-card reveal">
+        <div class="pillar-number">03</div>
+        <h3 class="pillar-title">A Proven, Current Team</h3>
+        <p class="pillar-text">Our practitioners have deployed working solutions in production for global companies across multiple industries. Twenty AI projects running in production — not started, not in staging. Running. When you ask if we can do this, the answer is not a capability statement. It is a reference list.</p>
+      </div>
+
+      <div class="pillar-card reveal">
+        <div class="pillar-number">04</div>
+        <h3 class="pillar-title">Built From Inside the Market</h3>
+        <p class="pillar-text">Our Chief Scientist operates inside one of the largest consumer goods companies in the United States. He sits in the room where AI investment decisions are made and where implementation failures are examined. We engage around problems we know clients have — because we have them ourselves.</p>
+      </div>
+
+      <div class="pillar-card reveal">
+        <div class="pillar-number">05</div>
+        <h3 class="pillar-title">Performance-Based Compensation</h3>
+        <p class="pillar-text">We offer what no large consulting firm will offer: milestone-based payments tied to delivery. We do not invoice for time. We invoice for outcomes. For skeptical buyers, we structure engagements where a significant portion of our fee is contingent on successful deployment. No large firm will accept this model. Their business cannot function on it. Ours is built for it.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1480,7 +1640,7 @@ ctx.strokeStyle=`rgba(25,90,221,${(.15*(1-d/150)).toFixed(3)})`;ctx.lineWidth=.5
 requestAnimationFrame(animate)}animate();
 
 // ═══ ROTATING HEADLINE ═══
-const words=['Ships.','Scales.','Works.','Delivers.'];
+const words=['Ships','Scales','Works','Delivers'];
 let wordIndex=0;
 const rotatingWord=document.getElementById('rotatingWord');
 setInterval(()=>{
