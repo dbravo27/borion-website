@@ -1141,79 +1141,130 @@ import CaseStudies from '../components/CaseStudies.astro';
     color: var(--blue);
   }
 
-  /* ---------- INDUSTRIES MARQUEE ---------- */
-  .industries-section{
+  /* ============== Industries — marquee ============== */
+  .industries-section {
     padding: 80px 0;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
+    overflow: hidden;
   }
-  .industries-header{
-    text-align: center;
-    margin-bottom: 56px;
+
+  .industries-section .wrap {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 56px;
   }
-  .marquee-container{
+
+  .industries-header {
+    margin-bottom: 48px;
+    max-width: 720px;
+  }
+  .industries-header h2 {
+    font-size: clamp(32px, 3vw, 44px);
+    line-height: 1.1;
+  }
+
+  /* Marquee tracks */
+  .marquee-container {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    overflow: hidden;
   }
-  .marquee-wrap{
+
+  .marquee-wrap {
     position: relative;
     overflow: hidden;
-    mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
-    -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+            mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
   }
-  .marquee-row{
+
+  .marquee-row {
     display: flex;
-    gap: 0;
+    width: max-content;
+    height: 88px;
+    align-items: center;
     animation: marquee 40s linear infinite;
+    will-change: transform;
   }
-  .marquee-row.reverse{
+  .marquee-row.reverse {
     animation-direction: reverse;
     animation-duration: 50s;
   }
-  @keyframes marquee{
-    from{ transform: translateX(0); }
-    to{ transform: translateX(-50%); }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
   }
-  .industry-pill{
-    flex: none;
-    display: flex;
+
+  /* Pills — THIS is what's missing */
+  .industry-pill {
+    display: inline-flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
+    flex: none;
     height: 88px;
     padding: 0 32px;
     border-right: 1px solid var(--line);
     white-space: nowrap;
-    transition: all .25s;
-  }
-  .industry-pill svg{
-    width: 28px;
-    height: 28px;
-    opacity: 0.5;
-    transition: all .25s;
-  }
-  .industry-pill .name{
     font-family: 'Inter Tight', sans-serif;
-    font-size: 18px;
     font-weight: 500;
+    font-size: 18px;
+    letter-spacing: -0.01em;
     color: rgba(210, 204, 241, 0.5);
-    transition: color .25s;
+    text-decoration: none;
+    transition: color .25s ease;
+    cursor: pointer;
   }
-  .industry-pill .outcome{
+
+  .industry-pill svg {
+    width: 24px;
+    height: 24px;
+    flex: none;
+    opacity: 0.7;
+    color: currentColor;
+    transition: color .25s ease, opacity .25s ease;
+  }
+
+  .industry-pill .name {
+    /* hereda fuente del pill */
+  }
+
+  .industry-pill .outcome {
+    font-size: 13px;
+    font-weight: 400;
     color: rgba(210, 204, 241, 0.4);
-    font-size: 16px;
-    transition: color .25s;
+    margin-left: 4px;
+    transition: color .25s ease;
   }
-  .industry-pill:hover .name{
-    color: var(--white);
+
+  /* Hover state */
+  .industry-pill:hover {
+    color: #ffffff;
   }
-  .industry-pill:hover svg{
+  .industry-pill:hover svg {
+    color: #195add;
     opacity: 1;
-    color: var(--blue);
   }
-  .industry-pill:hover .outcome{
-    color: var(--muted);
+  .industry-pill:hover .outcome {
+    color: rgba(247, 247, 247, 0.72);
+  }
+
+  /* Pause on hover */
+  .marquee-wrap:hover .marquee-row {
+    animation-play-state: paused;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-row { animation: none; transform: translateX(-12%); }
+  }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    .industries-section .wrap { padding: 0 24px; }
+    .industry-pill { font-size: 16px; padding: 0 24px; gap: 12px; }
+    .industry-pill .outcome { display: none; }
+    .marquee-row { height: 72px; }
   }
 
   /* ---------- INSIGHTS ---------- */
@@ -1488,33 +1539,24 @@ import CaseStudies from '../components/CaseStudies.astro';
   </div>
 </section>
 
-<!-- ============== LOGO BAR ============== -->
-<div class="logo-bar">
+<!-- ============== INDUSTRIES ============== -->
+<section id="industries" class="industries-section">
   <div class="wrap">
-    <div class="logo-bar-label">INDUSTRIES WE'VE DELIVERED IN</div>
-  </div>
-  <div class="marquee">
-    <div class="marquee-content">
-      <span class="logo-item">CPG</span>
-      <span class="logo-item">Retail</span>
-      <span class="logo-item">Healthcare</span>
-      <span class="logo-item">Energy</span>
-      <span class="logo-item">Financial Services</span>
-      <span class="logo-item">EdTech</span>
-      <span class="logo-item">Manufacturing</span>
-      <span class="logo-item">Real Estate</span>
-      <!-- Duplicate for seamless loop -->
-      <span class="logo-item">CPG</span>
-      <span class="logo-item">Retail</span>
-      <span class="logo-item">Healthcare</span>
-      <span class="logo-item">Energy</span>
-      <span class="logo-item">Financial Services</span>
-      <span class="logo-item">EdTech</span>
-      <span class="logo-item">Manufacturing</span>
-      <span class="logo-item">Real Estate</span>
+    <div class="industries-header">
+      <span class="eyebrow">Industries</span>
+      <h2 class="head section-title">7 industries. One standard:<br>production-deployed AI.</h2>
     </div>
   </div>
-</div>
+
+  <div class="marquee-container">
+    <div class="marquee-wrap">
+      <div class="marquee-row" id="marquee1"></div>
+    </div>
+    <div class="marquee-wrap">
+      <div class="marquee-row reverse" id="marquee2"></div>
+    </div>
+  </div>
+</section>
 
 <!-- ============== PROOF BAR ============== -->
 <div class="proof-bar">
@@ -1799,25 +1841,6 @@ import CaseStudies from '../components/CaseStudies.astro';
           <li>34 published books across multiple genres</li>
         </ul>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== INDUSTRIES ============== -->
-<section id="industries" class="industries-section">
-  <div class="wrap">
-    <div class="industries-header">
-      <span class="eyebrow">Industries</span>
-      <h2 class="head section-title">7 industries. One standard:<br>production-deployed AI.</h2>
-    </div>
-  </div>
-
-  <div class="marquee-container">
-    <div class="marquee-wrap">
-      <div class="marquee-row" id="marquee1"></div>
-    </div>
-    <div class="marquee-wrap">
-      <div class="marquee-row reverse" id="marquee2"></div>
     </div>
   </div>
 </section>
