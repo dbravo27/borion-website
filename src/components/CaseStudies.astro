@@ -24,198 +24,141 @@ interface CaseStudy {
 
 const cases: CaseStudy[] = [
   {
-    "cat": "agentic",
-    "metric": "Millions of users served",
-    "client": "EdTech",
-    "title": "Intelligent Content at Scale",
-    "challenge": "Manual curation replaced by an AI agent serving millions — autonomously.",
-    "tags": [
-      "Agentic AI",
-      "Content Automation"
-    ]
+    cat: 'agentic',
+    metric: '11M+ users served',
+    client: 'EdTech',
+    title: 'Autonomous Content Curation Pipeline',
+    challenge: 'Replaced a 12-person manual curation team with an LLM-driven agent stack handling personalization, moderation, and re-ranking at platform scale.',
+    tags: ['Agentic AI', 'LLM Orchestration', 'RAG'],
   },
   {
-    "cat": "agentic",
-    "metric": "Clinician prep time slashed",
-    "client": "Healthcare",
-    "title": "Clinical Intelligence, Pre-Visit",
-    "challenge": "AI synthesizes patient history before the doctor walks in.",
-    "tags": [
-      "Agentic AI",
-      "Clinical Support"
-    ]
+    cat: 'agentic',
+    metric: '70% prep time reduction',
+    client: 'Healthcare',
+    title: 'Pre-Visit Clinical Summarization Agent',
+    challenge: 'Multi-source EHR ingestion + structured summarization agent. HIPAA-compliant, deployed inside the EHR, sub-3s latency on 8-page chart synthesis.',
+    tags: ['Agentic AI', 'Clinical NLP', 'HIPAA'],
   },
   {
-    "cat": "agentic",
-    "metric": "Proactive care enabled",
-    "client": "Healthcare",
-    "title": "From Reactive to Predictive Care",
-    "challenge": "High-risk patients flagged before escalation — not after.",
-    "tags": [
-      "ML",
-      "Agentic AI",
-      "Real-Time"
-    ]
+    cat: 'agentic',
+    metric: '6–8wk earlier escalation flag',
+    client: 'Healthcare',
+    title: 'Predictive Risk Stratification Engine',
+    challenge: 'Real-time scoring pipeline over longitudinal patient data. Streaming features, drift monitoring, and clinician-facing explanations on every prediction.',
+    tags: ['ML', 'Streaming', 'Explainable AI'],
   },
   {
-    "cat": "agentic",
-    "metric": "Treatment consistency enhanced",
-    "client": "Healthcare",
-    "title": "AI-Guided Treatment Decisions",
-    "challenge": "Explainable recommendations. Clinicians decide. AI informs.",
-    "tags": [
-      "Agentic AI",
-      "Explainable AI"
-    ]
+    cat: 'agentic',
+    metric: '3x guideline adherence',
+    client: 'Healthcare',
+    title: 'Treatment Decision Support System',
+    challenge: 'Retrieval-grounded recommendations with citation traceback. Every output links to the underlying clinical evidence — no black-box predictions in the loop.',
+    tags: ['RAG', 'Explainable AI', 'Evaluation Harness'],
   },
   {
-    "cat": "agentic",
-    "metric": "25% engagement increase",
-    "client": "Technology",
-    "title": "Enterprise Sales, Supercharged",
-    "challenge": "Real-time financial intelligence on any public company, on demand.",
-    "tags": [
-      "Agentic AI",
-      "GenAI",
-      "Finance"
-    ]
+    cat: 'agentic',
+    metric: '25% pipeline conversion lift',
+    client: 'Technology',
+    title: 'Real-Time Financial Intelligence Agent',
+    challenge: 'Multi-tool agent over SEC filings, transcripts, and live market data. Sub-2s response, citation-grounded, embedded directly in the AE workflow.',
+    tags: ['Agentic AI', 'Multi-Tool RAG', 'Live Data'],
   },
   {
-    "cat": "agentic",
-    "metric": "20% revenue increase",
-    "client": "Transportation",
-    "title": "Routes That Think",
-    "challenge": "AI reroutes in real time. 40% efficiency gain. 20% revenue lift.",
-    "tags": [
-      "AI Agents",
-      "Optimization",
-      "Big Data"
-    ]
+    cat: 'agentic',
+    metric: '40% efficiency, 20% revenue',
+    client: 'Transportation',
+    title: 'Dynamic Routing Agent',
+    challenge: 'Real-time reoptimization over a fleet graph with traffic, demand, and SLA constraints. Decisions in <500ms; 12M+ events/day through the optimization loop.',
+    tags: ['AI Agents', 'Optimization', 'Real-Time'],
   },
   {
-    "cat": "analytics",
-    "metric": "Clear revenue attribution",
-    "client": "CPG",
-    "title": "What's Actually Driving Sales",
-    "challenge": "Every revenue driver isolated — media, pricing, distribution, seasonality.",
-    "tags": [
-      "Statistical Modeling",
-      "Attribution"
-    ]
+    cat: 'analytics',
+    metric: '8 isolated revenue drivers',
+    client: 'CPG',
+    title: 'Marketing Mix Modeling Platform',
+    challenge: 'Bayesian MMM with hierarchical priors across brands, regions, and channels. Replaces vendor MMM that took 6 months per refresh — now weekly.',
+    tags: ['Bayesian Modeling', 'Causal Inference', 'Attribution'],
   },
   {
-    "cat": "analytics",
-    "metric": "Millions of LTV predictions",
-    "client": "CPG",
-    "title": "Customer Value, at Scale",
-    "challenge": "Probabilistic LTV for millions of customers. Precision targeting, finally.",
-    "tags": [
-      "ML",
-      "Probabilistic Modeling"
-    ]
+    cat: 'analytics',
+    metric: '2.4M LTV predictions/day',
+    client: 'CPG',
+    title: 'Probabilistic LTV Engine',
+    challenge: 'BG/NBD + Gamma-Gamma at population scale, refreshed nightly. Powers segmentation, retention triggers, and lookalike targeting across martech surface area.',
+    tags: ['Probabilistic Modeling', 'Big Data', 'Spark'],
   },
   {
-    "cat": "analytics",
-    "metric": "Unmet demand identified",
-    "client": "CPG",
-    "title": "Where Demand Is. Before Competitors.",
-    "challenge": "ML maps purchase occasions brands didn't know existed.",
-    "tags": [
-      "ML",
-      "Consumer Insights"
-    ]
+    cat: 'analytics',
+    metric: '14 unmet demand spaces',
+    client: 'CPG',
+    title: 'Consumer Occasion Discovery',
+    challenge: 'Unsupervised clustering on transaction + diary panel data revealed purchase contexts the brand had no SKUs for. Three NPDs launched against the findings.',
+    tags: ['Unsupervised ML', 'Consumer Insights', 'NLP'],
   },
   {
-    "cat": "analytics",
-    "metric": "ROI measurably improved",
-    "client": "CPG",
-    "title": "Marketing Budget That Pays Back",
-    "challenge": "Geo-lift testing proves incremental impact. Every dollar justified.",
-    "tags": [
-      "Experimentation",
-      "Optimization"
-    ]
+    cat: 'analytics',
+    metric: '+22% measured ROI',
+    client: 'CPG',
+    title: 'Geo-Lift Experimentation Platform',
+    challenge: 'Synthetic control + matched-market design at scale. Every campaign now ships with a pre-registered test plan and a measured incremental lift.',
+    tags: ['Experimentation', 'Causal Inference', 'A/B Testing'],
   },
   {
-    "cat": "analytics",
-    "metric": "$10M profit lift in 6 months",
-    "client": "CPG",
-    "title": "$10M More. Same Stores.",
-    "challenge": "Assortment optimized across 300K locations. Profit, not just revenue.",
-    "tags": [
-      "Optimization",
-      "Big Data"
-    ]
+    cat: 'analytics',
+    metric: '$10M profit / 6 months',
+    client: 'CPG',
+    title: 'Assortment Optimization at 300K SKU-Stores',
+    challenge: 'MIP solver over demand transfer matrices, refreshed weekly. Replaced category-manager intuition with auditable optimization — same shelf, more profit.',
+    tags: ['MIP Optimization', 'Big Data', 'Demand Modeling'],
   },
   {
-    "cat": "analytics",
-    "metric": "97% on-time quotes",
-    "client": "Manufacturing",
-    "title": "Quotes in Hours, Not Days",
-    "challenge": "ML pricing engine: 24hrs → 2hrs. 97% on time. 12% profit lift.",
-    "tags": [
-      "ML",
-      "Pricing",
-      "Automation"
-    ]
+    cat: 'analytics',
+    metric: '24h → 2h, 97% on-time',
+    client: 'Manufacturing',
+    title: 'ML Pricing Engine for Custom Quoting',
+    challenge: 'Gradient-boosted price model + feasibility classifier. Replaced 2-day estimator workflow with a 2-hour SLA — and lifted margin 12% on accepted quotes.',
+    tags: ['ML', 'Pricing', 'Margin Optimization'],
   },
   {
-    "cat": "analytics",
-    "metric": "Real-time visibility achieved",
-    "client": "EdTech",
-    "title": "Dashboards Executives Actually Use",
-    "challenge": "From delayed reports to real-time decisions. Self-service analytics.",
-    "tags": [
-      "Data Engineering",
-      "Analytics"
-    ]
+    cat: 'analytics',
+    metric: '14d → real-time',
+    client: 'EdTech',
+    title: 'Self-Service Analytics Platform',
+    challenge: 'Replaced a quarterly-report culture with a streaming warehouse + semantic layer. Execs query in natural language; data team stops being a ticket queue.',
+    tags: ['Data Platform', 'Streaming', 'Semantic Layer'],
   },
   {
-    "cat": "analytics",
-    "metric": "20% sales conversion lift",
-    "client": "Real Estate",
-    "title": "Price It Right. Every Time.",
-    "challenge": "ML consistently outperforms broker intuition. 20% more conversions.",
-    "tags": [
-      "ML",
-      "Forecasting",
-      "A/B Testing"
-    ]
+    cat: 'analytics',
+    metric: '+20% conversion',
+    client: 'Real Estate',
+    title: 'Listing Price ML Model',
+    challenge: 'Hedonic regression + gradient boosting on transaction history beat broker pricing intuition in head-to-head A/B. Now the default for new listings.',
+    tags: ['ML', 'Forecasting', 'A/B Testing'],
   },
   {
-    "cat": "enablement",
-    "metric": "400+ scientists trained",
-    "client": "Energy",
-    "title": "A Data Science Academy. Built from Scratch.",
-    "challenge": "30+ courses. 100+ scientists. Silos eliminated.",
-    "tags": [
-      "Training",
-      "Enablement"
-    ]
+    cat: 'enablement',
+    metric: '400+ scientists trained',
+    client: 'Energy',
+    title: 'Internal Data Science Academy',
+    challenge: '32-course curriculum + 6 cohorts + shared MLOps stack. Standardized practice across 4 previously siloed business units; graduates ship to the same platform.',
+    tags: ['Enablement', 'Curriculum', 'Platform'],
   },
   {
-    "cat": "enablement",
-    "metric": "$160K annual savings",
-    "client": "Retail",
-    "title": "MLOps That Actually Works",
-    "challenge": "Level 0 → Level 1. $160K saved. 30+ scientists finally shipping.",
-    "tags": [
-      "MLOps",
-      "CI/CD",
-      "Cloud"
-    ]
+    cat: 'enablement',
+    metric: '$160K/yr saved, weeks → days',
+    client: 'Retail',
+    title: 'MLOps Platform: L0 → L1',
+    challenge: 'Built model registry, automated CI/CD for training pipelines, and cost-aware compute scheduling. 30+ scientists went from "blocked on infra" to shipping weekly.',
+    tags: ['MLOps', 'CI/CD', 'Cloud Cost'],
   },
   {
-    "cat": "enablement",
-    "metric": "95% user coverage",
-    "client": "EdTech",
-    "title": "Recommendations for 300K Users",
-    "challenge": "Hybrid ML with multi-tenant isolation. 95% coverage from day one.",
-    "tags": [
-      "ML",
-      "Recommender Systems"
-    ]
-  }
+    cat: 'enablement',
+    metric: '95% user coverage, day 1',
+    client: 'EdTech',
+    title: 'Multi-Tenant Recommendation System',
+    challenge: 'Hybrid recall (collaborative + content) with strict per-tenant isolation, cold-start handling, and online evaluation. 300K users across 80 tenants on the same stack.',
+    tags: ['Recommender Systems', 'Multi-Tenant', 'Online Eval'],
+  },
 ];
 
 const counts = {
@@ -232,9 +175,9 @@ const counts = {
     <div class="section-header">
       <div>
         <div class="section-eyebrow">Case Studies</div>
-        <h2 class="head section-title">20+ projects. 7 industries. All in production.</h2>
+        <h2 class="head section-title">17 systems in production. 7 industries. Zero pilots stuck in PowerPoint.</h2>
       </div>
-      <p class="section-lede">Working systems in live enterprise environments — not pilots, not decks, not concepts.</p>
+      <p class="section-lede">What we ship: working AI systems integrated into your stack — owned, observable, and operated by your team after handoff.</p>
     </div>
 
     <div class="cases-filterbar">
