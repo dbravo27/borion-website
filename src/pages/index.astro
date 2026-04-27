@@ -1141,41 +1141,79 @@ import CaseStudies from '../components/CaseStudies.astro';
     color: var(--blue);
   }
 
-  /* ---------- INDUSTRIES ---------- */
-  .ind-grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.25rem;
+  /* ---------- INDUSTRIES MARQUEE ---------- */
+  .industries-section{
+    padding: var(--section-pad-tight) 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
   }
-  .ind-card{
-    background: linear-gradient(180deg, rgba(210, 204, 241, 0.045), rgba(210, 204, 241, 0.015));
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 1.75rem;
-    transition: all 0.3s;
+  .industries-header{
+    text-align: center;
+    margin-bottom: 56px;
   }
-  .ind-card:hover{
-    border-color: var(--blue);
-    background: rgba(25, 90, 221, 0.04);
+  .marquee-container{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow: hidden;
   }
-  .ind-card h3{
+  .marquee-wrap{
+    position: relative;
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  }
+  .marquee-row{
+    display: flex;
+    gap: 0;
+    animation: marquee 40s linear infinite;
+  }
+  .marquee-row.reverse{
+    animation-direction: reverse;
+    animation-duration: 50s;
+  }
+  @keyframes marquee{
+    from{ transform: translateX(0); }
+    to{ transform: translateX(-50%); }
+  }
+  .industry-pill{
+    flex: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 88px;
+    padding: 0 32px;
+    border-right: 1px solid var(--line);
+    white-space: nowrap;
+    transition: all .25s;
+  }
+  .industry-pill svg{
+    width: 28px;
+    height: 28px;
+    opacity: 0.5;
+    transition: all .25s;
+  }
+  .industry-pill .name{
     font-family: 'Inter Tight', sans-serif;
     font-size: 18px;
-    font-weight: 600;
-    color: white;
-    margin-bottom: 0.5rem;
-  }
-  .ind-card p{
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.6;
-    font-weight: 300;
-    margin-bottom: 0.75rem;
-  }
-  .ind-card .clients{
-    font-size: 12px;
-    color: var(--blue);
     font-weight: 500;
+    color: rgba(210, 204, 241, 0.5);
+    transition: color .25s;
+  }
+  .industry-pill .outcome{
+    color: rgba(210, 204, 241, 0.4);
+    font-size: 16px;
+    transition: color .25s;
+  }
+  .industry-pill:hover .name{
+    color: var(--white);
+  }
+  .industry-pill:hover svg{
+    opacity: 1;
+    color: var(--blue);
+  }
+  .industry-pill:hover .outcome{
+    color: var(--muted);
   }
 
   /* ---------- INSIGHTS ---------- */
@@ -1766,18 +1804,20 @@ import CaseStudies from '../components/CaseStudies.astro';
 </section>
 
 <!-- ============== INDUSTRIES ============== -->
-<section id="industries">
+<section id="industries" class="industries-section">
   <div class="wrap">
-    <div class="section-eyebrow reveal">Industries</div>
-    <h2 class="head section-title reveal">7 Industries. One Standard:<br>Production-Deployed AI.</h2>
-    <div class="ind-grid">
-      <div class="ind-card reveal"><h3>CPG / Beverages</h3><p>Sales decomposition, LTV modeling, demand spaces, precision marketing, assortment optimization.</p><div class="clients">Keurig Dr Pepper · AB InBev</div></div>
-      <div class="ind-card reveal"><h3>Healthcare</h3><p>Agentic patient summaries, intervention alerts, treatment recommendations, clinical site selection.</p><div class="clients">PhysioAge · Healthcare Data Platform</div></div>
-      <div class="ind-card reveal"><h3>Energy / Oil & Gas</h3><p>Data science training academy for 400+ scientists. Standardized ML practices and cross-team knowledge architecture.</p><div class="clients">Top-Tier U.S. Oil & Gas Company</div></div>
-      <div class="ind-card reveal"><h3>Retail</h3><p>NLP feedback analysis, demand forecasting, inventory optimization, MLOps transformation, cloud cost reduction.</p><div class="clients">Cencosud (South America's largest retailer)</div></div>
-      <div class="ind-card reveal"><h3>Financial Services</h3><p>Legal document processing, loan approval automation, compliance-grade data extraction.</p><div class="clients">FinTech Company</div></div>
-      <div class="ind-card reveal"><h3>Manufacturing / Logistics</h3><p>Pricing optimization engines, truck route optimization, AI-powered enterprise sales intelligence agents.</p><div class="clients">Top U.S. Manufacturer · Logistics Co.</div></div>
-      <div class="ind-card reveal"><h3>EdTech / Real Estate</h3><p>Agentic content curation, multi-tenant recommender systems, analytics dashboards, price forecasting.</p><div class="clients">Infobase · Enterprise LMS · U.S. Real Estate Firm</div></div>
+    <div class="industries-header">
+      <span class="eyebrow">Industries</span>
+      <h2 class="head section-title">7 industries. One standard:<br>production-deployed AI.</h2>
+    </div>
+  </div>
+
+  <div class="marquee-container">
+    <div class="marquee-wrap">
+      <div class="marquee-row" id="marquee1"></div>
+    </div>
+    <div class="marquee-wrap">
+      <div class="marquee-row reverse" id="marquee2"></div>
     </div>
   </div>
 </section>
@@ -1959,6 +1999,32 @@ link.addEventListener('click',()=>{
 closeMobileMenu();
 });
 });
+
+// ═══ INDUSTRIES MARQUEE ═══
+(function(){
+const industries=[
+{name:'CPG',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',outcome:'31% forecast error ↓'},
+{name:'Retail',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>',outcome:'18% margin ↑'},
+{name:'Healthcare',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',outcome:'27% capacity gain'},
+{name:'Energy',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>',outcome:'$2.4M downtime saved'},
+{name:'Financial Services',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',outcome:'94% false positives ↓'},
+{name:'EdTech',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>',outcome:'3.2x engagement lift'},
+{name:'Manufacturing',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2v6m6-6v6M9 18c0 1.657 2.686 3 6 3s6-1.343 6-3M3 10h18M4 10c0-1.105 3.582-2 8-2s8 .895 8 2v8c0 1.105-3.582 2-8 2s-8-.895-8-2v-8z"/></svg>',outcome:'68% defects ↓'},
+{name:'Real Estate',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',outcome:'$18M portfolio value ↑'}
+];
+function pill(item){
+return `<a class="industry-pill">${item.icon}<span class="name">${item.name}</span><span class="outcome">— ${item.outcome}</span></a>`;
+}
+const html=industries.map(pill).join('')+industries.map(pill).join('');
+const m1=document.getElementById('marquee1');
+const m2=document.getElementById('marquee2');
+if(m1)m1.innerHTML=html;
+if(m2){
+const rotated=industries.slice(4).concat(industries.slice(0,4));
+const html2=rotated.map(pill).join('')+rotated.map(pill).join('');
+m2.innerHTML=html2;
+}
+})();
 </script>
 </body>
 </html>
