@@ -431,7 +431,7 @@ import CaseStudies from '../components/CaseStudies.astro';
   /* ---------- WHY US ---------- */
   .why-us-section{
     padding: 100px 0;
-    background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%);
+    background: #0a1628;
   }
   .why-us-subtext{
     text-align: center;
@@ -441,63 +441,103 @@ import CaseStudies from '../components/CaseStudies.astro';
     color: var(--dim);
     font-weight: 300;
   }
-  .pillars-grid{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 3rem;
+  .accordion-list{
+    max-width: 1200px;
+    margin: 3rem auto 0;
   }
-  @media (max-width: 980px){
-    .pillars-grid{
-      grid-template-columns: 1fr;
-    }
-  }
-  @media (min-width: 981px){
-    .pillars-grid .pillar-card:nth-child(4){
-      margin-left: 25%;
-    }
-  }
-  .pillar-card{
-    position: relative;
-    background: var(--navy);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 2.5rem 2rem;
+  .accordion-item{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    cursor: pointer;
     transition: all 0.3s ease;
   }
-  .pillar-card:hover{
-    border-color: var(--blue);
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(25, 90, 221, 0.2);
+  .accordion-item.active{
+    border-left: 3px solid #195add;
+  }
+  .accordion-header{
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+  .accordion-header:hover{
+    background: rgba(255, 255, 255, 0.02);
+  }
+  .accordion-left{
+    flex: 0 0 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .accordion-right{
+    flex: 1;
+    overflow: hidden;
   }
   .pillar-number{
-    position: absolute;
-    top: 1.5rem;
-    left: 1.5rem;
     font-family: 'Inter Tight', sans-serif;
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 800;
-    background: linear-gradient(135deg, var(--blue) 0%, var(--purple) 100%);
+    background: linear-gradient(135deg, #195add 0%, #6f5dd2 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    opacity: 0.3;
+    opacity: 0.2;
     line-height: 1;
+    margin-bottom: 0.5rem;
+    transition: opacity 0.3s ease;
+  }
+  .accordion-item.active .pillar-number{
+    opacity: 1;
   }
   .pillar-title{
     font-family: 'Inter Tight', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: white;
-    margin: 0 0 1rem;
-    padding-right: 3rem;
+    margin: 0 0 0.5rem;
   }
-  .pillar-text{
+  .pillar-teaser{
     font-size: 0.9rem;
-    color: var(--muted);
-    line-height: 1.65;
-    font-weight: 300;
+    color: #999;
+    line-height: 1.5;
     margin: 0;
+  }
+  .accordion-expand-icon{
+    font-size: 1.5rem;
+    color: #195add;
+    transition: transform 0.3s ease;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  .accordion-item.active .accordion-expand-icon{
+    transform: rotate(45deg);
+  }
+  .accordion-content{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .accordion-item.active .accordion-content{
+    max-height: 500px;
+  }
+  .pillar-full-text{
+    font-size: 0.9rem;
+    color: #999;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0 2rem 2rem 2rem;
+  }
+  @media (max-width: 980px){
+    .accordion-header{
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .accordion-left{
+      flex: 1;
+    }
+    .pillar-number{
+      font-size: 3rem;
+    }
   }
 
   /* ---------- SERVICES ---------- */
@@ -1276,25 +1316,27 @@ import CaseStudies from '../components/CaseStudies.astro';
 <!-- ============== LOGO BAR ============== -->
 <div class="logo-bar">
   <div class="wrap">
-    <div class="logo-bar-label">Trusted by enterprises across 7 industries</div>
+    <div class="logo-bar-label">INDUSTRIES WE'VE DELIVERED IN</div>
   </div>
   <div class="marquee">
     <div class="marquee-content">
-      <span class="logo-item">Keurig Dr Pepper</span>
-      <span class="logo-item">AB InBev</span>
-      <span class="logo-item">Cencosud</span>
-      <span class="logo-item nda">Top-Tier U.S. Oil & Gas Co.</span>
-      <span class="logo-item">PhysioAge</span>
-      <span class="logo-item">Infobase</span>
-      <span class="logo-item nda">Top U.S. Manufacturer</span>
+      <span class="logo-item">CPG</span>
+      <span class="logo-item">Retail</span>
+      <span class="logo-item">Healthcare</span>
+      <span class="logo-item">Energy</span>
+      <span class="logo-item">Financial Services</span>
+      <span class="logo-item">EdTech</span>
+      <span class="logo-item">Manufacturing</span>
+      <span class="logo-item">Real Estate</span>
       <!-- Duplicate for seamless loop -->
-      <span class="logo-item">Keurig Dr Pepper</span>
-      <span class="logo-item">AB InBev</span>
-      <span class="logo-item">Cencosud</span>
-      <span class="logo-item nda">Top-Tier U.S. Oil & Gas Co.</span>
-      <span class="logo-item">PhysioAge</span>
-      <span class="logo-item">Infobase</span>
-      <span class="logo-item nda">Top U.S. Manufacturer</span>
+      <span class="logo-item">CPG</span>
+      <span class="logo-item">Retail</span>
+      <span class="logo-item">Healthcare</span>
+      <span class="logo-item">Energy</span>
+      <span class="logo-item">Financial Services</span>
+      <span class="logo-item">EdTech</span>
+      <span class="logo-item">Manufacturing</span>
+      <span class="logo-item">Real Estate</span>
     </div>
   </div>
 </div>
@@ -1337,35 +1379,85 @@ import CaseStudies from '../components/CaseStudies.astro';
       We are a group of Data Scientists, Machine Learning Engineers, and Data Engineers — led by a Chief Scientist and Chief Strategy Officer — ready to take on your business problem and deliver a solution in days.
     </p>
 
-    <div class="pillars-grid">
-      <div class="pillar-card reveal">
-        <div class="pillar-number">01</div>
-        <h3 class="pillar-title">Delivery Is the Only Metric That Matters</h3>
-        <p class="pillar-text">We define 'done' in writing before work begins. Not as a formality — as a mutual commitment. We scope around deployable outcomes, not billable hours. When the system runs in production and produces the result you needed, we are done. Not before.</p>
+    <div class="accordion-list reveal">
+      <div class="accordion-item active">
+        <div class="accordion-header">
+          <div class="accordion-left">
+            <div class="pillar-number">01</div>
+            <h3 class="pillar-title">Delivery Is the Only Metric</h3>
+            <p class="pillar-teaser">We define 'done' before work begins. Not a formality — a commitment.</p>
+          </div>
+          <div class="accordion-right">
+            <span class="accordion-expand-icon">+</span>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <p class="pillar-full-text">We scope around deployable outcomes, not billable hours. When the system runs in production and produces the result you needed, we are done. Not before. No padding timelines. No manufacturing complexity. No extending engagements that should be finished.</p>
+        </div>
       </div>
 
-      <div class="pillar-card reveal">
-        <div class="pillar-number">02</div>
-        <h3 class="pillar-title">Speed as a Structural Advantage</h3>
-        <p class="pillar-text">No junior analysts. No internal approval chains. No account team separate from the delivery team. The person who leads your engagement has twenty completed projects behind them and is personally accountable for this one. We complete in 8–12 weeks what a large firm structures as 6–18 months.</p>
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <div class="accordion-left">
+            <div class="pillar-number">02</div>
+            <h3 class="pillar-title">Speed as a Structural Advantage</h3>
+            <p class="pillar-teaser">8–12 weeks. Not 6–18 months.</p>
+          </div>
+          <div class="accordion-right">
+            <span class="accordion-expand-icon">+</span>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <p class="pillar-full-text">No junior analysts. No internal approval chains. No account team separate from delivery. The person leading your engagement has twenty completed projects behind them and is personally accountable for this one. We eliminate everything that serves the firm rather than the client.</p>
+        </div>
       </div>
 
-      <div class="pillar-card reveal">
-        <div class="pillar-number">03</div>
-        <h3 class="pillar-title">A Proven, Current Team</h3>
-        <p class="pillar-text">Our practitioners have deployed working solutions in production for global companies across multiple industries. Twenty AI projects running in production — not started, not in staging. Running. When you ask if we can do this, the answer is not a capability statement. It is a reference list.</p>
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <div class="accordion-left">
+            <div class="pillar-number">03</div>
+            <h3 class="pillar-title">A Proven, Current Team</h3>
+            <p class="pillar-teaser">Twenty projects in production. Not in staging. Running.</p>
+          </div>
+          <div class="accordion-right">
+            <span class="accordion-expand-icon">+</span>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <p class="pillar-full-text">Our practitioners have deployed solutions for global companies across industries. The AI tooling landscape changes faster than any curriculum. Our team works in this environment daily — at enterprise level. When you ask if we can do this, the answer is not a capability statement. It is a reference list.</p>
+        </div>
       </div>
 
-      <div class="pillar-card reveal">
-        <div class="pillar-number">04</div>
-        <h3 class="pillar-title">Built From Inside the Market</h3>
-        <p class="pillar-text">Our Chief Scientist operates inside one of the largest consumer goods companies in the United States. He sits in the room where AI investment decisions are made and where implementation failures are examined. We engage around problems we know clients have — because we have them ourselves.</p>
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <div class="accordion-left">
+            <div class="pillar-number">04</div>
+            <h3 class="pillar-title">Built From Inside the Market</h3>
+            <p class="pillar-teaser">We know what you're struggling with. Because we have the same problem.</p>
+          </div>
+          <div class="accordion-right">
+            <span class="accordion-expand-icon">+</span>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <p class="pillar-full-text">Our Chief Scientist operates inside one of the largest consumer goods companies in the US. He sits in the room where AI investment decisions are made and where implementation failures are examined. We engage around problems we know clients have — because we have them ourselves.</p>
+        </div>
       </div>
 
-      <div class="pillar-card reveal">
-        <div class="pillar-number">05</div>
-        <h3 class="pillar-title">Performance-Based Compensation</h3>
-        <p class="pillar-text">We offer what no large consulting firm will offer: milestone-based payments tied to delivery. We do not invoice for time. We invoice for outcomes. For skeptical buyers, we structure engagements where a significant portion of our fee is contingent on successful deployment. No large firm will accept this model. Their business cannot function on it. Ours is built for it.</p>
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <div class="accordion-left">
+            <div class="pillar-number">05</div>
+            <h3 class="pillar-title">Performance-Based Compensation</h3>
+            <p class="pillar-teaser">We don't invoice for time. We invoice for outcomes.</p>
+          </div>
+          <div class="accordion-right">
+            <span class="accordion-expand-icon">+</span>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <p class="pillar-full-text">Milestone-based payments tied to delivery. A defined payment at signing, prototype, production, and client sign-off. For skeptical buyers, we structure engagements where a significant portion of our fee is contingent on successful deployment. No large firm will accept this model. Their business cannot function on it. Ours is built for it.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1684,6 +1776,20 @@ e.preventDefault();
 window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-80,behavior:'smooth'});
 }
 }
+});
+});
+
+// ═══ ACCORDION ═══
+document.querySelectorAll('.accordion-item').forEach(item=>{
+item.addEventListener('click',()=>{
+// Close all other items
+document.querySelectorAll('.accordion-item').forEach(other=>{
+if(other!==item){
+other.classList.remove('active');
+}
+});
+// Toggle current item
+item.classList.toggle('active');
 });
 });
 </script>
