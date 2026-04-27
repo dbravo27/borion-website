@@ -542,21 +542,21 @@
   }
   .fbtn{
     padding: 10px 20px;
-    border: 1px solid rgba(20, 184, 166, 0.2);
+    border: 1px solid var(--line);
     border-radius: 24px;
     background: transparent;
     font-family: 'Inter Tight', sans-serif;
     font-size: 13px;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--muted);
     cursor: pointer;
     transition: all 0.3s;
   }
   .fbtn.active, .fbtn:hover{
-    background: #14B8A6;
-    color: #0C1926;
-    border-color: #14B8A6;
-    box-shadow: 0 4px 16px rgba(20, 184, 166, 0.3);
+    background: var(--blue);
+    color: white;
+    border-color: var(--blue);
+    box-shadow: 0 4px 16px rgba(25, 90, 221, 0.4);
   }
   .cases-grid{
     display: grid;
@@ -564,8 +564,8 @@
     gap: 1.5rem;
   }
   .cc{
-    background: #0C1926;
-    border: 1px solid rgba(20, 184, 166, 0.15);
+    background: var(--navy-deep);
+    border: 1px solid var(--line);
     border-radius: 16px;
     padding: 2rem 1.75rem;
     overflow: hidden;
@@ -576,16 +576,19 @@
     gap: 1rem;
   }
   .cc:hover{
-    border-color: #14B8A6;
+    border-color: var(--blue);
     transform: translateY(-8px);
-    box-shadow: 0 24px 48px rgba(20, 184, 166, 0.2), 0 0 0 1px #14B8A6;
+    box-shadow: 0 24px 48px rgba(25, 90, 221, 0.25), 0 0 0 1px var(--blue);
   }
   .cc.hidden{ display: none; }
   .cc-metric{
     font-family: 'Inter Tight', sans-serif;
     font-size: 26px;
     font-weight: 800;
-    color: #14B8A6;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--purple) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     line-height: 1.2;
     margin-bottom: 0.5rem;
   }
@@ -594,7 +597,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--dim);
     margin-bottom: 0.5rem;
   }
   .cc-head h3{
@@ -607,7 +610,7 @@
   }
   .cc-body p{
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.65);
+    color: var(--muted);
     line-height: 1.6;
     font-weight: 400;
     margin: 0;
@@ -621,19 +624,19 @@
   }
   .cc-tags span{
     font-size: 11px;
-    background: rgba(20, 184, 166, 0.15);
-    color: #14B8A6;
+    background: rgba(25, 90, 221, 0.15);
+    color: var(--blue);
     padding: 6px 12px;
     border-radius: 12px;
     font-weight: 600;
-    border: 1px solid rgba(20, 184, 166, 0.2);
+    border: 1px solid rgba(25, 90, 221, 0.25);
   }
 
   /* ---------- MODAL ---------- */
   .modal-bg{
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(6, 16, 26, 0.92);
     z-index: 2000;
     display: none;
     align-items: center;
@@ -644,8 +647,8 @@
   }
   .modal-bg.active{ display: flex; }
   .mdl{
-    background: #0C1926;
-    border: 1px solid rgba(20, 184, 166, 0.2);
+    background: var(--navy-deep);
+    border: 1px solid var(--line);
     border-radius: 20px;
     max-width: 800px;
     width: 100%;
@@ -653,7 +656,7 @@
     overflow-y: auto;
     position: relative;
     animation: mdlIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(20, 184, 166, 0.1);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
   }
   @keyframes mdlIn{
     from{ opacity: 0; transform: scale(0.95) translateY(20px); }
@@ -666,32 +669,32 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--line);
+    background: var(--navy);
     cursor: pointer;
     font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--muted);
     transition: all 0.2s;
     z-index: 1;
   }
   .mdl-close:hover{
-    background: #14B8A6;
-    color: #0C1926;
-    border-color: #14B8A6;
+    background: var(--blue);
+    color: white;
+    border-color: var(--blue);
     transform: rotate(90deg);
   }
   .mdl-top{
     padding: 3rem 3rem 2rem;
-    border-bottom: 1px solid rgba(20, 184, 166, 0.15);
+    border-bottom: 1px solid var(--line);
   }
   .mdl-top .metric{
     font-family: 'Inter Tight', sans-serif;
     font-size: 32px;
     font-weight: 800;
-    color: #14B8A6;
+    color: var(--blue);
     margin-bottom: 1rem;
     line-height: 1.2;
   }
@@ -705,7 +708,7 @@
   }
   .mdl-top .ind{
     font-size: 13px;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--dim);
     font-weight: 500;
   }
   .mdl-bod{
@@ -716,14 +719,14 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: #14B8A6;
+    color: var(--blue);
     margin: 2rem 0 0.75rem;
     font-family: 'Inter Tight', sans-serif;
   }
   .mdl-bod h4:first-child{ margin-top: 0; }
   .mdl-bod p{
     font-size: 15px;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--lavender);
     line-height: 1.7;
     font-weight: 400;
     margin: 0;
@@ -736,7 +739,7 @@
   .mdl-bod li{
     padding: 0.5rem 0 0.5rem 1.5rem;
     font-size: 15px;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--lavender);
     position: relative;
     font-weight: 400;
     line-height: 1.6;
@@ -745,19 +748,19 @@
     content: '→';
     position: absolute;
     left: 0;
-    color: #14B8A6;
+    color: var(--blue);
     font-weight: 700;
     font-size: 16px;
   }
   .mdl-tech{
     font-family: 'JetBrains Mono', 'Courier New', monospace;
     font-size: 13px;
-    color: rgba(255, 255, 255, 0.9);
-    background: rgba(0, 0, 0, 0.3);
+    color: var(--muted);
+    background: var(--navy);
     padding: 1rem 1.25rem;
     border-radius: 10px;
     margin-top: 0.5rem;
-    border: 1px solid rgba(20, 184, 166, 0.15);
+    border: 1px solid var(--line);
     line-height: 1.6;
   }
 
@@ -1365,15 +1368,15 @@ const canvas=document.getElementById('heroCanvas'),ctx=canvas.getContext('2d');
 let W,H,particles=[];
 function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
 window.addEventListener('resize',resize);resize();
-class P{constructor(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.4;this.vy=(Math.random()-.5)*.4;this.r=Math.random()*1.5+.5}
+class P{constructor(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.4;this.vy=(Math.random()-.5)*.4;this.r=Math.random()*1.5+.5;this.hue=Math.random()>.5?210:260}
 update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W)this.vx*=-1;if(this.y<0||this.y>H)this.vy*=-1}
-draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fillStyle='rgba(20,184,166,.5)';ctx.fill()}}
+draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fillStyle=`hsla(${this.hue},80%,60%,.5)`;ctx.fill()}}
 for(let i=0;i<80;i++)particles.push(new P);
 function animate(){ctx.clearRect(0,0,W,H);particles.forEach(p=>{p.update();p.draw()});
 for(let i=0;i<particles.length;i++)for(let j=i+1;j<particles.length;j++){
 const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,d=Math.sqrt(dx*dx+dy*dy);
 if(d<150){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);
-ctx.strokeStyle=`rgba(20,184,166,${(.15*(1-d/150)).toFixed(3)})`;ctx.lineWidth=.5;ctx.stroke()}}
+ctx.strokeStyle=`rgba(25,90,221,${(.15*(1-d/150)).toFixed(3)})`;ctx.lineWidth=.5;ctx.stroke()}}
 requestAnimationFrame(animate)}animate();
 
 // ═══ CASE DATA ═══
