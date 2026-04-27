@@ -139,13 +139,14 @@ import CaseStudies from '../components/CaseStudies.astro';
     box-shadow: 0 1px 0 rgba(255,255,255,0.22) inset, 0 14px 28px -10px rgba(25, 90, 221, 0.75);
   }
   .btn-ghost{
-    background: rgba(210, 204, 241, 0.06);
+    background: transparent;
     color: white;
-    border-color: var(--line-strong);
+    border-color: white;
   }
   .btn-ghost:hover{
-    background: rgba(210, 204, 241, 0.12);
-    border-color: rgba(210, 204, 241, 0.32);
+    background: transparent;
+    color: var(--blue);
+    border-color: var(--blue);
   }
   .btn-lg{ padding: 15px 26px; font-size: 15px; border-radius: 12px; }
 
@@ -190,18 +191,46 @@ import CaseStudies from '../components/CaseStudies.astro';
     z-index: -1;
   }
   .hero-content{ text-align: center; max-width: 850px; margin: 0 auto; }
+  .hero-badge{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(25, 90, 221, 0.3);
+    background: rgba(25, 90, 221, 0.1);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--lavender);
+    margin-bottom: 24px;
+  }
+  .pulse-dot{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%, 100%{ opacity: 1; transform: scale(1); }
+    50%{ opacity: 0.6; transform: scale(0.9); }
+  }
   h1.hero-title{
     font-size: clamp(48px, 8vw, 90px);
     margin: 0 0 24px;
     color: white;
   }
-  h1.hero-title em{
+  h1.hero-title .rotating-word{
     font-style: normal;
-    background: linear-gradient(120deg, #ffffff 0%, #d2ccf1 50%, #6f5dd2 100%);
+    background: linear-gradient(120deg, #195add 0%, #6f5dd2 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    display: block;
+    display: inline-block;
+    transition: opacity 0.5s ease;
+  }
+  h1.hero-title .rotating-word.fade-out{
+    opacity: 0;
   }
   .hero-sub{
     font-size: clamp(18px, 2.5vw, 22px);
@@ -217,6 +246,13 @@ import CaseStudies from '../components/CaseStudies.astro';
     justify-content: center;
     gap: 14px;
     flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .hero-trust{
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+    font-weight: 400;
   }
 
   /* ---------- LOGO BAR ---------- */
@@ -375,32 +411,46 @@ import CaseStudies from '../components/CaseStudies.astro';
     position: relative;
     padding: 36px 32px 32px;
     border-radius: 20px;
-    background: linear-gradient(180deg, rgba(210, 204, 241, 0.045), rgba(210, 204, 241, 0.015));
+    background: var(--navy);
     border: 1px solid var(--line);
     overflow: hidden;
-    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     cursor: default;
   }
   .service::before{
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(210,204,241,0.4), transparent);
-    opacity: 0;
-    transition: opacity 0.25s ease;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue), var(--purple));
+    opacity: 1;
   }
   .service:hover{
-    transform: translateY(-4px);
+    transform: translateY(-6px);
     border-color: var(--line-strong);
-    background: linear-gradient(180deg, rgba(25, 90, 221, 0.08), rgba(210, 204, 241, 0.02));
+    box-shadow: 0 20px 40px -20px rgba(25, 90, 221, 0.4);
   }
-  .service:hover::before{ opacity: 1; }
-
+  .service-icon{
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+  }
+  .service-icon svg{
+    width: 100%;
+    height: 100%;
+  }
   .svc-title{
     font-size: 22px;
-    margin: 0 0 12px;
+    margin: 0 0 6px;
     color: white;
+  }
+  .svc-subtitle{
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--blue);
+    margin-bottom: 16px;
   }
   .svc-desc{
     font-size: 15px;
@@ -1097,8 +1147,12 @@ import CaseStudies from '../components/CaseStudies.astro';
   <canvas id="heroCanvas"></canvas>
   <div class="wrap">
     <div class="hero-content">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        Now booking Q3 engagements
+      </div>
       <h1 class="head hero-title">
-        AI That<em>Ships.</em>
+        AI That <em class="rotating-word" id="rotatingWord">Ships.</em>
       </h1>
       <p class="hero-sub">
         We deploy production AI agents in 60–90 days. You don't pay in full until it works.
@@ -1108,6 +1162,9 @@ import CaseStudies from '../components/CaseStudies.astro';
           Book a Discovery Call
         </a>
         <a href="#cases" class="btn btn-ghost btn-lg">See Our Work</a>
+      </div>
+      <div class="hero-trust">
+        20+ Projects Delivered · 90 Days to Production · 7 Industries
       </div>
     </div>
   </div>
@@ -1161,18 +1218,74 @@ import CaseStudies from '../components/CaseStudies.astro';
     <h2 class="head section-title reveal">Three Capabilities.<br>One Standard: Production.</h2>
     <div class="services-grid">
       <div class="service reveal">
-        <h3 class="head svc-title">AI Agent Systems</h3>
-        <p class="svc-desc">Autonomous agents for customer service, operations, finance, and supply chain. From single-task automation to multi-agent orchestration. Governance from day one.</p>
+        <div class="service-icon">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#195add;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#6f5dd2;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+            <circle cx="30" cy="30" r="6" fill="url(#grad1)"><animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/></circle>
+            <circle cx="70" cy="30" r="6" fill="url(#grad1)"><animate attributeName="opacity" values="1;0.4;1" dur="2s" begin="0.5s" repeatCount="indefinite"/></circle>
+            <circle cx="50" cy="50" r="8" fill="url(#grad1)"><animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite"/></circle>
+            <circle cx="30" cy="70" r="6" fill="url(#grad1)"><animate attributeName="opacity" values="1;0.4;1" dur="2s" begin="1s" repeatCount="indefinite"/></circle>
+            <circle cx="70" cy="70" r="6" fill="url(#grad1)"><animate attributeName="opacity" values="1;0.4;1" dur="2s" begin="1.5s" repeatCount="indefinite"/></circle>
+            <line x1="30" y1="30" x2="50" y2="50" stroke="url(#grad1)" stroke-width="2" opacity="0.6"/>
+            <line x1="70" y1="30" x2="50" y2="50" stroke="url(#grad1)" stroke-width="2" opacity="0.6"/>
+            <line x1="30" y1="70" x2="50" y2="50" stroke="url(#grad1)" stroke-width="2" opacity="0.6"/>
+            <line x1="70" y1="70" x2="50" y2="50" stroke="url(#grad1)" stroke-width="2" opacity="0.6"/>
+          </svg>
+        </div>
+        <h3 class="head svc-title">AgentCore</h3>
+        <div class="svc-subtitle">Agentic AI</div>
+        <p class="svc-desc">Your operations, running on autopilot. We design and deploy multi-agent AI systems that think, decide, and act — handling complex workflows across customer service, finance, supply chain, and beyond. From a single agent to a fully orchestrated AI workforce.</p>
         <span class="price-tag">From $40K</span>
       </div>
       <div class="service reveal">
-        <h3 class="head svc-title">Intelligent Media Operations</h3>
-        <p class="svc-desc">Every corporation is now a media company. AI-powered content creation, social management, corporate training, and brand narrative engines at enterprise scale.</p>
-        <span class="price-tag">From $150K</span>
+        <div class="service-icon">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#195add;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#6f5dd2;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+            <path d="M 10 80 L 30 60 L 50 40 L 70 30 L 90 20" stroke="url(#grad2)" stroke-width="3" fill="none" stroke-linecap="round">
+              <animate attributeName="stroke-dasharray" values="0,200;200,0" dur="3s" repeatCount="indefinite"/>
+            </path>
+            <circle cx="10" cy="80" r="4" fill="url(#grad2)"><animate attributeName="cy" values="80;75;80" dur="1.5s" repeatCount="indefinite"/></circle>
+            <circle cx="30" cy="60" r="4" fill="url(#grad2)"><animate attributeName="cy" values="60;55;60" dur="1.5s" begin="0.2s" repeatCount="indefinite"/></circle>
+            <circle cx="50" cy="40" r="5" fill="url(#grad2)"><animate attributeName="cy" values="40;35;40" dur="1.5s" begin="0.4s" repeatCount="indefinite"/></circle>
+            <circle cx="70" cy="30" r="5" fill="url(#grad2)"><animate attributeName="cy" values="30;25;30" dur="1.5s" begin="0.6s" repeatCount="indefinite"/></circle>
+            <circle cx="90" cy="20" r="6" fill="url(#grad2)"><animate attributeName="r" values="6;8;6" dur="2s" repeatCount="indefinite"/></circle>
+          </svg>
+        </div>
+        <h3 class="head svc-title">Predict Engine</h3>
+        <div class="svc-subtitle">Predictive ML</div>
+        <p class="svc-desc">Stop reacting. Start knowing. We build production-grade machine learning models that forecast demand, optimize pricing, predict churn, and surface decisions before your competitors even see the signal.</p>
+        <span class="price-tag">From $40K</span>
       </div>
       <div class="service reveal">
-        <h3 class="head svc-title">Data Science & Analytics</h3>
-        <p class="svc-desc">Predictive modeling, demand forecasting, pricing optimization, customer LTV, and executive dashboards that drive decisions — not just display data.</p>
+        <div class="service-icon">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#195add;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#6f5dd2;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+            <rect x="10" y="40" width="15" height="15" fill="url(#grad3)" opacity="0.8"/>
+            <rect x="35" y="40" width="15" height="15" fill="url(#grad3)" opacity="0.6"><animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/></rect>
+            <rect x="60" y="40" width="15" height="15" fill="url(#grad3)" opacity="0.8"/>
+            <path d="M 27.5 47.5 L 35 47.5" stroke="url(#grad3)" stroke-width="2"><animate attributeName="x2" values="35;60;35" dur="3s" repeatCount="indefinite"/></path>
+            <path d="M 52.5 47.5 L 60 47.5" stroke="url(#grad3)" stroke-width="2"/>
+            <circle cx="85" cy="47.5" r="8" fill="url(#grad3)"><animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite"/></circle>
+          </svg>
+        </div>
+        <h3 class="head svc-title">DataForge</h3>
+        <div class="svc-subtitle">Data Engineering</div>
+        <p class="svc-desc">AI is only as powerful as the data beneath it. We architect your Data Lake, design ETL pipelines, and build the scalable data infrastructure that makes every model, dashboard, and decision possible.</p>
         <span class="price-tag">From $40K</span>
       </div>
     </div>
@@ -1242,7 +1355,7 @@ import CaseStudies from '../components/CaseStudies.astro';
       <div class="team-card reveal">
         <h3>Dr. Diego Bravo</h3>
         <div class="role">Chief Scientist · Managing Partner</div>
-        <p>PhD in Mathematics. 11 published research papers. 20+ delivered AI projects for Shell, Keurig Dr Pepper, AB InBev, Cencosud, PhysioAge. Currently Chief Scientist Officer at Keurig Dr Pepper.</p>
+        <p>PhD in Mathematics. 11 published research papers. 20+ delivered AI projects for Shell, Keurig Dr Pepper, AB InBev, Cencosud, PhysioAge. Principal Data Scientist at Keurig Dr Pepper.</p>
         <p>Diego doesn't advise on AI. He builds, deploys, and hardens AI systems in production — agentic AI, recommender systems, NLP, pricing optimization, computer vision, and multi-agent orchestration.</p>
         <ul>
           <li>Led 30+ data scientists at South America's largest retailer</li>
@@ -1355,9 +1468,9 @@ const canvas=document.getElementById('heroCanvas'),ctx=canvas.getContext('2d');
 let W,H,particles=[];
 function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
 window.addEventListener('resize',resize);resize();
-class P{constructor(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.4;this.vy=(Math.random()-.5)*.4;this.r=Math.random()*1.5+.5;this.hue=Math.random()>.5?210:260}
+class P{constructor(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.4;this.vy=(Math.random()-.5)*.4;this.r=Math.random()*1.5+.5;this.isBlue=Math.random()>.5}
 update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W)this.vx*=-1;if(this.y<0||this.y>H)this.vy*=-1}
-draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fillStyle=`hsla(${this.hue},80%,60%,.5)`;ctx.fill()}}
+draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fillStyle=this.isBlue?'rgba(25,90,221,0.6)':'rgba(111,93,210,0.4)';ctx.fill()}}
 for(let i=0;i<80;i++)particles.push(new P);
 function animate(){ctx.clearRect(0,0,W,H);particles.forEach(p=>{p.update();p.draw()});
 for(let i=0;i<particles.length;i++)for(let j=i+1;j<particles.length;j++){
@@ -1365,6 +1478,19 @@ const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,d=Math.s
 if(d<150){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);
 ctx.strokeStyle=`rgba(25,90,221,${(.15*(1-d/150)).toFixed(3)})`;ctx.lineWidth=.5;ctx.stroke()}}
 requestAnimationFrame(animate)}animate();
+
+// ═══ ROTATING HEADLINE ═══
+const words=['Ships.','Scales.','Works.','Delivers.'];
+let wordIndex=0;
+const rotatingWord=document.getElementById('rotatingWord');
+setInterval(()=>{
+rotatingWord.classList.add('fade-out');
+setTimeout(()=>{
+wordIndex=(wordIndex+1)%words.length;
+rotatingWord.textContent=words[wordIndex];
+rotatingWord.classList.remove('fade-out');
+},500);
+},2500);
 
 // ═══ SCROLL REVEALS ═══
 const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');

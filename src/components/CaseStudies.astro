@@ -375,7 +375,7 @@ const counts = {
         mApproach.textContent = approachFor(item);
   
         mResults.innerHTML = outcomesFor(item).map(o =>
-          '<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg><span>' + o + '</span></li>'
+          '<li>→ ' + o + '</li>'
         ).join('');
   
         mTags.innerHTML = item.tags.map(t => '<span class="case-tag">' + t + '</span>').join('');
@@ -797,18 +797,10 @@ const counts = {
       gap: 10px;
     }
     .modal-results li{
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
       color: var(--bai-muted);
-      font-size: 14.5px;
-      line-height: 1.55;
-    }
-    .modal-results li svg{
-      flex-shrink: 0;
-      width: 16px; height: 16px;
-      color: var(--bai-blue);
-      margin-top: 4px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      padding: 4px 0;
     }
     .modal-tags{
       display: flex;
