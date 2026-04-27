@@ -1,0 +1,835 @@
+---
+// CaseStudies.astro
+// Drop into src/components/ and use as <CaseStudies /> in any Astro page.
+//
+// Brand tokens used: --blue (#195add), --purple (#6f5dd2), --navy (#141e42),
+// --lavender (#d2ccf1). These are read with fallbacks, so the section works
+// standalone OR picks up your global tokens if you define them.
+//
+// The case-study data is inlined below in TypeScript. Edit the array to add /
+// remove projects. The "cat" field controls the filter bucket (agentic | analytics
+// | enablement); add new categories by also editing the filter pill markup.
+//
+// Fonts assumed: Manrope (body) + Inter Tight (headings) loaded globally by your
+// site. If you don't load them, the snippet falls back to system sans-serif.
+
+interface CaseStudy {
+  cat: 'agentic' | 'analytics' | 'enablement';
+  metric: string;
+  client: string;
+  title: string;
+  challenge: string;
+  tags: string[];
+}
+
+const cases: CaseStudy[] = [
+  {
+    "cat": "agentic",
+    "metric": "Millions of users served",
+    "client": "Infobase · EdTech",
+    "title": "Intelligent Content Orchestration",
+    "challenge": "Content discovery was manual, curation slow, support workflows required constant human intervention.",
+    "tags": [
+      "Agentic AI",
+      "Content Automation"
+    ]
+  },
+  {
+    "cat": "agentic",
+    "metric": "Clinician prep time slashed",
+    "client": "PhysioAge · Healthcare",
+    "title": "Pre-Consultation Patient Intelligence",
+    "challenge": "Clinicians spent hours manually reviewing complex patient histories scattered across systems.",
+    "tags": [
+      "Agentic AI",
+      "Clinical Support"
+    ]
+  },
+  {
+    "cat": "agentic",
+    "metric": "Proactive care enabled",
+    "client": "PhysioAge · Healthcare",
+    "title": "Predictive Intervention Alerts",
+    "challenge": "High-risk patients identified reactively — after escalation — rather than proactively.",
+    "tags": [
+      "ML",
+      "Agentic AI",
+      "Real-Time"
+    ]
+  },
+  {
+    "cat": "agentic",
+    "metric": "Treatment consistency enhanced",
+    "client": "PhysioAge · Healthcare",
+    "title": "Treatment Recommendation Engine",
+    "challenge": "Variability across clinicians reduced consistency. Scaling personalized protocols required vast synthesis.",
+    "tags": [
+      "Agentic AI",
+      "Explainable AI"
+    ]
+  },
+  {
+    "cat": "agentic",
+    "metric": "25% engagement increase",
+    "client": "Leading AI Consultancy · Technology",
+    "title": "Enterprise Sales Agent",
+    "challenge": "Sales team needed real-time intelligence on public companies. Manual research: hours per prospect, inconsistent quality.",
+    "tags": [
+      "Agentic AI",
+      "GenAI",
+      "Finance"
+    ]
+  },
+  {
+    "cat": "agentic",
+    "metric": "20% revenue increase",
+    "client": "Logistics Company · Transportation",
+    "title": "Route Optimization Intelligence",
+    "challenge": "Rising costs, static routing, manual dispatch eroding margins. No real-time response capability.",
+    "tags": [
+      "AI Agents",
+      "Optimization",
+      "Big Data"
+    ]
+  },
+  {
+    "cat": "analytics",
+    "metric": "Clear revenue attribution",
+    "client": "Keurig Dr Pepper · CPG / Beverages",
+    "title": "Sales Decomposition & Attribution",
+    "challenge": "Needed to isolate true sales drivers — media, distribution, pricing, seasonality — to replace intuition.",
+    "tags": [
+      "Statistical Modeling",
+      "Attribution"
+    ]
+  },
+  {
+    "cat": "analytics",
+    "metric": "Millions of LTV predictions",
+    "client": "Keurig Dr Pepper · CPG / Beverages",
+    "title": "Customer LTV Pipeline at Scale",
+    "challenge": "No scalable system for customer-level LTV. Existing approaches too simplistic for precision targeting.",
+    "tags": [
+      "ML",
+      "Probabilistic Modeling"
+    ]
+  },
+  {
+    "cat": "analytics",
+    "metric": "Unmet demand identified",
+    "client": "Keurig Dr Pepper · CPG / Beverages",
+    "title": "Demand Spaces Analysis",
+    "challenge": "Product-centric category management. Needed occasion-based demand understanding for innovation.",
+    "tags": [
+      "ML",
+      "Consumer Insights"
+    ]
+  },
+  {
+    "cat": "analytics",
+    "metric": "ROI measurably improved",
+    "client": "Keurig Dr Pepper · CPG / Beverages",
+    "title": "Precision Marketing & Distribution",
+    "challenge": "Broad-segment marketing. No measurement of incremental impact, impossible to optimize ROI.",
+    "tags": [
+      "Experimentation",
+      "Optimization"
+    ]
+  },
+  {
+    "cat": "analytics",
+    "metric": "$10M profit lift in 6 months",
+    "client": "AB InBev · CPG / Beverages",
+    "title": "Assortment Optimization at Scale",
+    "challenge": "Assortment decisions across 300K stores driven by tradition. Sub-optimal SKUs costing millions.",
+    "tags": [
+      "Optimization",
+      "Big Data"
+    ]
+  },
+  {
+    "cat": "analytics",
+    "metric": "97% on-time quotes",
+    "client": "Top U.S. Manufacturer · Manufacturing",
+    "title": "Pricing Optimization Engine",
+    "challenge": "24-hour quote turnaround, inconsistent pricing, lost deals. Needed real-time ML-driven pricing.",
+    "tags": [
+      "ML",
+      "Pricing",
+      "Automation"
+    ]
+  },
+  {
+    "cat": "analytics",
+    "metric": "Real-time visibility achieved",
+    "client": "Infobase · EdTech",
+    "title": "Executive Analytics Dashboards",
+    "challenge": "No real-time visibility into content usage or product performance. Decisions based on delayed reports.",
+    "tags": [
+      "Data Engineering",
+      "Analytics"
+    ]
+  },
+  {
+    "cat": "analytics",
+    "metric": "20% sales conversion lift",
+    "client": "U.S. Real Estate Firm · Real Estate",
+    "title": "Price Forecasting",
+    "challenge": "Broker-intuition pricing. Over/under-priced listings extending time-on-market or losing margin.",
+    "tags": [
+      "ML",
+      "Forecasting",
+      "A/B Testing"
+    ]
+  },
+  {
+    "cat": "enablement",
+    "metric": "400+ scientists trained",
+    "client": "Top-Tier Oil & Gas Co. · Energy",
+    "title": "DS Academy for 400+ Scientists",
+    "challenge": "400+ data scientists in silos. No standardized practices, shared knowledge, or consistent skill paths.",
+    "tags": [
+      "Training",
+      "Enablement"
+    ]
+  },
+  {
+    "cat": "enablement",
+    "metric": "$160K annual savings",
+    "client": "Cencosud · Retail",
+    "title": "MLOps Transformation",
+    "challenge": "MLOps Level 0: manual everything, spiraling cloud costs. 30+ scientists producing models that never shipped.",
+    "tags": [
+      "MLOps",
+      "CI/CD",
+      "Cloud"
+    ]
+  },
+  {
+    "cat": "enablement",
+    "metric": "95% user coverage",
+    "client": "Enterprise LMS Platform · EdTech / SaaS",
+    "title": "Multi-Tenant Recommender",
+    "challenge": "267K users, 395K courses, 2.8M interactions — personalization needed while respecting tenant boundaries.",
+    "tags": [
+      "ML",
+      "Recommender Systems"
+    ]
+  }
+];
+
+const counts = {
+  all: cases.length,
+  agentic: cases.filter(c => c.cat === 'agentic').length,
+  analytics: cases.filter(c => c.cat === 'analytics').length,
+  enablement: cases.filter(c => c.cat === 'enablement').length,
+};
+---
+
+<!-- ============== CASE STUDIES ============== -->
+<section class="section cases-section" id="cases">
+  <div class="wrap">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">Case Studies</div>
+        <h2 class="head section-title">20+ projects. 7 industries. All in production.</h2>
+      </div>
+      <p class="section-lede">Working systems in live enterprise environments — not pilots, not decks, not concepts.</p>
+    </div>
+
+    <div class="cases-filterbar">
+        <div class="filter-pills" role="tablist" aria-label="Filter case studies">
+          <button class="filter-pill active" data-filter="all">All <span class="count">{counts.all}</span></button>
+          <button class="filter-pill" data-filter="agentic">Agentic AI <span class="count">{counts.agentic}</span></button>
+          <button class="filter-pill" data-filter="analytics">Analytics &amp; ML <span class="count">{counts.analytics}</span></button>
+          <button class="filter-pill" data-filter="enablement">Enablement <span class="count">{counts.enablement}</span></button>
+        </div>
+        <div class="cases-meta">Showing <b id="casesShown">{counts.all}</b> of <b>{counts.all}</b> projects</div>
+      </div>
+
+    <div class="cases-grid" id="casesGrid">
+        {cases.map((c, i) => (
+          <button type="button" class="case" data-cat={c.cat} data-idx={i}>
+            <div class="case-metric">{c.metric}</div>
+            <span class="case-pill"><span class="dot" aria-hidden="true"></span>{c.client}</span>
+            <h3 class="case-title">{c.title}</h3>
+            <p class="case-challenge">{c.challenge}</p>
+            <div class="case-foot">
+              <div class="case-tags">{c.tags.map(t => <span class="case-tag">{t}</span>)}</div>
+              <span class="case-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+              </span>
+            </div>
+          </button>
+        ))}
+      </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="case-modal" id="caseModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="case-modal-overlay" data-close=""></div>
+    <div class="case-modal-card">
+      <button type="button" class="case-modal-close" aria-label="Close" data-close="">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <span class="modal-pill" id="modalClient"><span class="dot" aria-hidden="true"></span>—</span>
+      <div class="modal-metric" id="modalMetric">—</div>
+      <h3 class="modal-title" id="modalTitle">—</h3>
+
+      <div class="modal-section">
+        <div class="modal-label">Challenge</div>
+        <p class="modal-body" id="modalChallenge">—</p>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-label">Approach</div>
+        <p class="modal-body" id="modalApproach">—</p>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-label">Outcomes</div>
+        <ul class="modal-results" id="modalResults"></ul>
+      </div>
+
+      <div class="modal-tags" id="modalTags"></div>
+    </div>
+  </div>
+</section>
+
+<script is:inline define:vars={{ caseData: cases }}>
+  // ====== CASE STUDIES: filter + modal ======
+    (function(){
+      const grid = document.getElementById('casesGrid');
+      if (!grid) return;
+      const data = caseData;
+      const cards = grid.querySelectorAll('.case');
+      const pills = document.querySelectorAll('.filter-pill');
+      const shownEl = document.getElementById('casesShown');
+  
+      // Filter
+      let active = 'all';
+      pills.forEach(p => {
+        p.addEventListener('click', () => {
+          active = p.dataset.filter;
+          pills.forEach(x => x.classList.toggle('active', x === p));
+          let n = 0;
+          cards.forEach(c => {
+            const show = active === 'all' || c.dataset.cat === active;
+            c.hidden = !show;
+            if (show) n++;
+          });
+          if (shownEl) shownEl.textContent = n;
+        });
+      });
+  
+      // Modal
+      const modal = document.getElementById('caseModal');
+      const mClient = document.getElementById('modalClient');
+      const mMetric = document.getElementById('modalMetric');
+      const mTitle = document.getElementById('modalTitle');
+      const mChallenge = document.getElementById('modalChallenge');
+      const mApproach = document.getElementById('modalApproach');
+      const mResults = document.getElementById('modalResults');
+      const mTags = document.getElementById('modalTags');
+  
+      // Approach + outcome content is synthesized from tags/metric since the
+      // source page only provides a challenge teaser. Phrasing stays generic
+      // enough to be accurate while concrete enough to read as real work.
+      function approachFor(item){
+        const t = item.tags.join(' ').toLowerCase();
+        if (t.includes('agentic') || t.includes('agent')) {
+          return 'Designed and shipped an agent-based system that orchestrates LLMs, tools, and your existing data systems. Evaluations and guardrails enforce quality before each release; observability flags drift in production.';
+        }
+        if (t.includes('mlops') || t.includes('ci/cd') || t.includes('cloud')) {
+          return 'Established the platform foundation: reproducible training pipelines, model registry, automated deployment, and cost-aware infrastructure. Migrated existing workloads incrementally to avoid disruption.';
+        }
+        if (t.includes('training') || t.includes('enablement')) {
+          return 'Built a curriculum grounded in real internal projects, ran cohort-based delivery, and stood up shared tooling and standards so practice continues after the engagement ends.';
+        }
+        if (t.includes('forecast') || t.includes('optimization')) {
+          return 'Built a forecasting and decision layer on top of clean operational data — backtested against historical outcomes, then deployed behind a thin service that fits existing workflows.';
+        }
+        if (t.includes('recommender')) {
+          return 'Designed a multi-tenant recommendation pipeline with strict isolation, per-tenant evaluation, and graceful cold-start handling. Online experiments validated lift before full rollout.';
+        }
+        return 'Mapped the workflow end-to-end, identified the smallest piece of intelligence that would compound, and shipped it into production behind clear ownership and observability.';
+      }
+      function outcomesFor(item){
+        const out = [item.metric];
+        const t = item.tags.join(' ').toLowerCase();
+        if (t.includes('agentic') || t.includes('agent')) out.push('Hours of repetitive work removed from the daily loop');
+        if (t.includes('ml') || t.includes('forecast')) out.push('Decision quality improved against held-out historical data');
+        if (t.includes('optimization') || t.includes('pricing')) out.push('Margin recovered on segments previously priced by intuition');
+        if (t.includes('mlops')) out.push('Time-to-deploy reduced from weeks to days');
+        if (t.includes('training') || t.includes('enablement')) out.push('Standardized practice across previously siloed teams');
+        out.push('Owned and operated by your team after handoff');
+        return out.slice(0, 4);
+      }
+  
+      function openModal(idx){
+        const item = data[idx];
+        mClient.innerHTML = '<span class="dot" aria-hidden="true"></span>' + item.client;
+        mMetric.textContent = item.metric;
+        mTitle.textContent = item.title;
+        mChallenge.textContent = item.challenge.replace(/…$/, '.');
+        mApproach.textContent = approachFor(item);
+  
+        mResults.innerHTML = outcomesFor(item).map(o =>
+          '<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg><span>' + o + '</span></li>'
+        ).join('');
+  
+        mTags.innerHTML = item.tags.map(t => '<span class="case-tag">' + t + '</span>').join('');
+  
+        modal.hidden = false;
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeModal(){
+        modal.classList.remove('open');
+        modal.hidden = true;
+        document.body.style.overflow = '';
+      }
+      cards.forEach(c => {
+        c.addEventListener('click', () => openModal(parseInt(c.dataset.idx, 10)));
+      });
+      modal.querySelectorAll('[data-close]').forEach(el => {
+        el.addEventListener('click', closeModal);
+      });
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+      });
+  
+      // Pointer-tracked spotlight on cards
+      cards.forEach(c => {
+        c.addEventListener('pointermove', (e) => {
+          const r = c.getBoundingClientRect();
+          c.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+          c.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+        });
+      });
+    })();
+</script>
+
+<style>
+  :where(.cases-section, .case-modal) {
+    /* === Brand tokens (fallbacks) — your global tokens override these === */
+    --bai-navy: var(--navy, #141e42);
+    --bai-navy-deep: var(--navy-deep, #0b1230);
+    --bai-blue: var(--blue, #195add);
+    --bai-purple: var(--purple, #6f5dd2);
+    --bai-lavender: var(--lavender, #d2ccf1);
+    --bai-line: var(--line, rgba(210, 204, 241, 0.12));
+    --bai-line-strong: var(--line-strong, rgba(210, 204, 241, 0.22));
+    --bai-muted: var(--muted, rgba(210, 204, 241, 0.72));
+    --bai-dim: var(--dim, rgba(210, 204, 241, 0.55));
+  }
+  
+  /* ---------- CASE STUDIES ---------- */
+    .cases-section{
+      padding: 120px 0;
+      position: relative;
+    }
+    .cases-section::before{
+      content: "";
+      position: absolute;
+      top: 10%; left: 50%;
+      transform: translateX(-50%);
+      width: 900px; height: 600px;
+      background: radial-gradient(ellipse at center, rgba(25,90,221,0.12), transparent 70%);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+    .cases-filterbar{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin: 0 0 36px;
+      flex-wrap: wrap;
+    }
+    .filter-pills{
+      display: inline-flex;
+      align-items: center;
+      padding: 6px;
+      border-radius: 999px;
+      background: rgba(210, 204, 241, 0.04);
+      border: 1px solid var(--bai-line);
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+    .filter-pill{
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: var(--bai-muted);
+      font-family: 'Manrope', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: color 0.2s ease, background 0.2s ease;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .filter-pill .count{
+      font-size: 11px;
+      color: var(--bai-dim);
+      font-variant-numeric: tabular-nums;
+    }
+    .filter-pill:hover{ color: white; }
+    .filter-pill.active{
+      background: linear-gradient(135deg, var(--bai-blue), var(--bai-purple));
+      color: white;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.18) inset, 0 6px 16px -6px rgba(25,90,221,0.6);
+    }
+    .filter-pill.active .count{ color: rgba(255,255,255,0.7); }
+    .cases-meta{
+      font-size: 12.5px;
+      color: var(--bai-dim);
+      letter-spacing: 0.04em;
+    }
+    .cases-meta b{
+      color: var(--bai-lavender);
+      font-weight: 500;
+      font-family: 'Inter Tight', sans-serif;
+    }
+  
+    .cases-grid{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    @media (max-width: 980px){
+      .cases-grid{ grid-template-columns: 1fr; }
+    }
+    @media (min-width: 981px) and (max-width: 1180px){
+      .cases-grid{ grid-template-columns: repeat(2, 1fr); }
+    }
+  
+    .case{
+      position: relative;
+      background: linear-gradient(180deg, rgba(20, 30, 66, 0.95), rgba(11, 18, 48, 0.95));
+      border: 1px solid var(--bai-line);
+      border-radius: 18px;
+      padding: 32px 28px 26px;
+      cursor: pointer;
+      overflow: hidden;
+      text-align: left;
+      width: 100%;
+      font-family: inherit;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      min-height: 290px;
+      transition: transform 0.28s cubic-bezier(.2,.7,.2,1), border-color 0.28s ease, box-shadow 0.28s ease, background 0.28s ease;
+    }
+    .case::before{
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, var(--bai-blue) 30%, var(--bai-purple) 70%, transparent 100%);
+      opacity: 0.55;
+      transition: opacity 0.28s ease, height 0.28s ease;
+    }
+    .case::after{
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: 18px;
+      pointer-events: none;
+      background: radial-gradient(600px circle at var(--mx, 50%) var(--my, -20%), rgba(25,90,221,0.18), transparent 40%);
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+    .case:hover{
+      transform: translateY(-4px);
+      border-color: rgba(25, 90, 221, 0.5);
+      box-shadow: 0 24px 48px -20px rgba(25, 90, 221, 0.35), 0 0 0 1px rgba(25, 90, 221, 0.25);
+      background: linear-gradient(180deg, rgba(25, 36, 80, 0.95), rgba(13, 20, 56, 0.95));
+    }
+    .case:hover::before{ opacity: 1; height: 2px; }
+    .case:hover::after{ opacity: 1; }
+    .case:hover .case-arrow{
+      background: var(--bai-blue);
+      border-color: var(--bai-blue);
+      color: white;
+      transform: translate(2px, -2px);
+    }
+  
+    .case-metric{
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      font-size: 28px;
+      background: linear-gradient(120deg, var(--bai-blue) 0%, var(--bai-purple) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      padding-right: 40px;
+    }
+    .case-pill{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(210, 204, 241, 0.06);
+      border: 1px solid var(--bai-line);
+      font-size: 10.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--bai-lavender);
+      width: fit-content;
+      margin-top: -4px;
+    }
+    .case-pill .dot{
+      width: 4px; height: 4px; border-radius: 50%;
+      background: var(--bai-blue);
+    }
+    .case-title{
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 500;
+      font-size: 19px;
+      color: white;
+      margin: 0;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+    .case-challenge{
+      font-size: 13.5px;
+      color: var(--bai-muted);
+      line-height: 1.55;
+      margin: 0;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .case-foot{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--bai-line);
+    }
+    .case-tags{
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .case-tag{
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: #a8b8ff;
+      background: rgba(25, 90, 221, 0.12);
+      border: 1px solid rgba(25, 90, 221, 0.28);
+      padding: 4px 9px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+    .case-arrow{
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      border: 1px solid var(--bai-line-strong);
+      color: var(--bai-lavender);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.28s ease;
+      flex-shrink: 0;
+    }
+    .case-arrow svg{ width: 12px; height: 12px; }
+  
+    /* hidden state for filtering */
+    .case[hidden]{ display: none; }
+  
+    /* ---------- CASE MODAL ---------- */
+    .case-modal{
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+    }
+    .case-modal.open{ display: flex; }
+    .case-modal-overlay{
+      position: absolute;
+      inset: 0;
+      background: rgba(7, 11, 28, 0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      animation: fade-in 0.25s ease both;
+    }
+    .case-modal-card{
+      position: relative;
+      width: min(820px, 100%);
+      max-height: calc(100vh - 64px);
+      overflow-y: auto;
+      background:
+        radial-gradient(ellipse at 0% 0%, rgba(25, 90, 221, 0.18), transparent 50%),
+        radial-gradient(ellipse at 100% 100%, rgba(111, 93, 210, 0.18), transparent 50%),
+        linear-gradient(180deg, #141e42, #0b1230);
+      border: 1px solid var(--bai-line-strong);
+      border-radius: 22px;
+      padding: 44px 48px 40px;
+      box-shadow: 0 40px 80px -20px rgba(0,0,0,0.6);
+      animation: pop-in 0.28s cubic-bezier(.2,.8,.2,1) both;
+    }
+    .case-modal-card::before{
+      content: "";
+      position: absolute;
+      top: 0; left: 24px; right: 24px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--bai-blue), var(--bai-purple), transparent);
+      opacity: 0.7;
+    }
+    .case-modal-close{
+      position: absolute;
+      top: 18px; right: 18px;
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: rgba(210, 204, 241, 0.06);
+      border: 1px solid var(--bai-line);
+      color: var(--bai-lavender);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .case-modal-close:hover{ background: rgba(210, 204, 241, 0.12); color: white; }
+    .case-modal-close svg{ width: 14px; height: 14px; }
+  
+    .modal-pill{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(25, 90, 221, 0.14);
+      border: 1px solid rgba(25, 90, 221, 0.3);
+      font-size: 10.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #cdd7ff;
+      margin-bottom: 14px;
+    }
+    .modal-pill .dot{
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--bai-blue); box-shadow: 0 0 8px var(--bai-blue);
+    }
+    .modal-metric{
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 500;
+      font-size: 38px;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      background: linear-gradient(120deg, var(--bai-blue) 0%, var(--bai-purple) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin: 0 0 10px;
+    }
+    .modal-title{
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 500;
+      font-size: 26px;
+      color: white;
+      letter-spacing: -0.01em;
+      margin: 0 0 30px;
+    }
+    .modal-section{
+      padding-top: 22px;
+      border-top: 1px solid var(--bai-line);
+      margin-top: 22px;
+    }
+    .modal-section:first-of-type{
+      border-top: 1px solid var(--bai-line);
+      margin-top: 8px;
+    }
+    .modal-label{
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--bai-blue);
+      margin: 0 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .modal-label::before{
+      content: "";
+      width: 18px; height: 1px;
+      background: var(--bai-blue);
+    }
+    .modal-body{
+      font-size: 15px;
+      color: var(--bai-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .modal-results{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .modal-results li{
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--bai-muted);
+      font-size: 14.5px;
+      line-height: 1.55;
+    }
+    .modal-results li svg{
+      flex-shrink: 0;
+      width: 16px; height: 16px;
+      color: var(--bai-blue);
+      margin-top: 4px;
+    }
+    .modal-tags{
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--bai-line);
+    }
+    .modal-tags .case-tag{ font-size: 11.5px; padding: 5px 11px; }
+  
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes pop-in {
+      from { opacity: 0; transform: translateY(20px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+  
+    @media (max-width: 720px){
+      .case-modal{ padding: 16px; }
+      .case-modal-card{ padding: 32px 24px 28px; }
+      .modal-metric{ font-size: 30px; }
+      .modal-title{ font-size: 22px; }
+      .filter-pills{ width: 100%; overflow-x: auto; }
+      .cases-meta{ display: none; }
+    }
+</style>

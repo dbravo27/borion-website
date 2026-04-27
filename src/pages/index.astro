@@ -1,5 +1,5 @@
 ---
-
+import CaseStudies from '../components/CaseStudies.astro';
 ---
 
 <!DOCTYPE html>
@@ -1230,20 +1230,7 @@
 </section>
 
 <!-- ============== CASE STUDIES ============== -->
-<section id="cases" style="background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
-  <div class="wrap">
-    <div class="section-eyebrow reveal">Case Studies</div>
-    <h2 class="head section-title reveal">20+ Projects. 7 Industries.<br>All in Production.</h2>
-    <p class="section-lede reveal">Working systems in live enterprise environments — not pilots, not decks, not concepts.</p>
-    <div class="filter-row reveal">
-      <button class="fbtn active" data-filter="all">All</button>
-      <button class="fbtn" data-filter="agentic">Agentic AI</button>
-      <button class="fbtn" data-filter="analytics">Analytics & ML</button>
-      <button class="fbtn" data-filter="enablement">Enablement</button>
-    </div>
-    <div class="cases-grid" id="cGrid"></div>
-  </div>
-</section>
+<CaseStudies />
 
 <!-- ============== TEAM ============== -->
 <section class="team-section" id="about">
@@ -1378,98 +1365,6 @@ const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,d=Math.s
 if(d<150){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);
 ctx.strokeStyle=`rgba(25,90,221,${(.15*(1-d/150)).toFixed(3)})`;ctx.lineWidth=.5;ctx.stroke()}}
 requestAnimationFrame(animate)}animate();
-
-// ═══ CASE DATA ═══
-const cases=[
-{cat:"agentic",client:"Infobase",title:"Intelligent Content Orchestration",industry:"EdTech",tags:["Agentic AI","Content Automation"],metric:"Millions of users served",
-challenge:"Content discovery was manual, curation slow, support workflows required constant human intervention.",
-solution:"Multi-agent AI system orchestrating content discovery, curation, and support autonomously through a unified data layer.",
-results:["Automated curation replacing a dedicated team","Measurable engagement improvement via personalized paths","Scalable to millions of concurrent users"],tech:"Python, LangChain, Azure OpenAI, RAG, Vector DBs, FastAPI, Docker"},
-{cat:"agentic",client:"PhysioAge",title:"Pre-Consultation Patient Intelligence",industry:"Healthcare",tags:["Agentic AI","Clinical Support"],metric:"Clinician prep time slashed",
-challenge:"Clinicians spent hours manually reviewing complex patient histories scattered across systems.",
-solution:"Agentic AI synthesizing patient data into structured pre-consultation summaries with risk factor identification.",
-results:["Preparation time reduced significantly per encounter","Higher consistency in risk identification","Seamless clinical system integration"],tech:"Python, LangChain, Azure OpenAI, HIPAA Infrastructure, RAG"},
-{cat:"agentic",client:"PhysioAge",title:"Predictive Intervention Alerts",industry:"Healthcare",tags:["ML","Agentic AI","Real-Time"],metric:"Proactive care enabled",
-challenge:"High-risk patients identified reactively — after escalation — rather than proactively.",
-solution:"Predictive ML with agent-based workflows for real-time monitoring and clinician alerts with graduated autonomy.",
-results:["Proactive detection before escalation","Reduced emergency interventions","Human-in-the-loop governance model"],tech:"Python, Scikit-Learn, XGBoost, LangChain, Azure, HIPAA"},
-{cat:"agentic",client:"PhysioAge",title:"Treatment Recommendation Engine",industry:"Healthcare",tags:["Agentic AI","Explainable AI"],metric:"Treatment consistency enhanced",
-challenge:"Variability across clinicians reduced consistency. Scaling personalized protocols required vast synthesis.",
-solution:"AI decision support with explainable recommendations — clinicians evaluate, accept, modify, or override transparently.",
-results:["Enhanced consistency across clinical team","Every recommendation traceable to source data","Reduced time-to-treatment-plan"],tech:"Python, LangChain, Azure OpenAI, RAG, Knowledge Graphs, XAI"},
-{cat:"agentic",client:"Leading AI Consultancy",title:"Enterprise Sales Agent",industry:"Technology",tags:["Agentic AI","GenAI","Finance"],metric:"25% engagement increase",
-challenge:"Sales team needed real-time intelligence on public companies. Manual research: hours per prospect, inconsistent quality.",
-solution:"Autonomous agent generating 20+ page financial reports on demand with text/audio/open-mic conversations.",
-results:["25% client engagement increase in Q1","Report generation: hours → minutes","Multimodal interface (text, audio, open-mic)"],tech:"Azure OpenAI, Gemini API, Cognitive Services, Yahoo Finance, SEC, FastAPI, Docker"},
-{cat:"agentic",client:"Logistics Company",title:"Route Optimization Intelligence",industry:"Transportation",tags:["AI Agents","Optimization","Big Data"],metric:"20% revenue increase",
-challenge:"Rising costs, static routing, manual dispatch eroding margins. No real-time response capability.",
-solution:"End-to-end AI for real-time route optimization with LangChain, Databricks pipelines, and A/B-tested deployment.",
-results:["20% revenue increase","40% operational efficiency improvement","Real-time adaptation to conditions"],tech:"Python, PySpark, Azure OpenAI, LangChain, Databricks, A/B Testing"},
-{cat:"analytics",client:"Keurig Dr Pepper",title:"Sales Decomposition & Attribution",industry:"CPG / Beverages",tags:["Statistical Modeling","Attribution"],metric:"Clear revenue attribution",
-challenge:"Needed to isolate true sales drivers — media, distribution, pricing, seasonality — to replace intuition.",
-solution:"Statistical framework decomposing sales into component drivers with incremental contribution isolation.",
-results:["Attribution across all revenue drivers","Evidence-based marketing reallocation","Framework adopted across business units"],tech:"Python, Pandas, NumPy, SciPy, Scikit-Learn, Statistical Modeling"},
-{cat:"analytics",client:"Keurig Dr Pepper",title:"Customer LTV Pipeline at Scale",industry:"CPG / Beverages",tags:["ML","Probabilistic Modeling"],metric:"Millions of LTV predictions",
-challenge:"No scalable system for customer-level LTV. Existing approaches too simplistic for precision targeting.",
-solution:"BG/NBD + Gamma-Gamma probabilistic models with XGBoost ensembles generating customer-level predictions at scale.",
-results:["Customer-level LTV across millions of records","Direct integration with media allocation","Automated refresh cycle"],tech:"Python, XGBoost, BG/NBD, Gamma-Gamma, Databricks, PySpark, MLflow"},
-{cat:"analytics",client:"Keurig Dr Pepper",title:"Demand Spaces Analysis",industry:"CPG / Beverages",tags:["ML","Consumer Insights"],metric:"Unmet demand identified",
-challenge:"Product-centric category management. Needed occasion-based demand understanding for innovation.",
-solution:"ML models mapping demand patterns across occasions, locations, channels into actionable demand spaces.",
-results:["High-value unmet demand spaces identified","Guided new product innovation","Framework adopted for portfolio planning"],tech:"Python, Scikit-Learn, Clustering, NLP, Consumer Analytics"},
-{cat:"analytics",client:"Keurig Dr Pepper",title:"Precision Marketing & Distribution",industry:"CPG / Beverages",tags:["Experimentation","Optimization"],metric:"ROI measurably improved",
-challenge:"Broad-segment marketing. No measurement of incremental impact, impossible to optimize ROI.",
-solution:"A/B and geo-lift testing with predictive modeling to quantify lift and optimize budget allocation.",
-results:["Quantified incremental lift per channel","Precision targeting improving ROI","Experimentation framework adopted as standard"],tech:"Python, Causal Inference, Geo-Lift, A/B Testing, XGBoost"},
-{cat:"analytics",client:"AB InBev",title:"Assortment Optimization at Scale",industry:"CPG / Beverages",tags:["Optimization","Big Data"],metric:"$10M profit lift in 6 months",
-challenge:"Assortment decisions across 300K stores driven by tradition. Sub-optimal SKUs costing millions.",
-solution:"Discrete Choice Models predicting purchase probability by store/occasion. Processing 500GB+ datasets.",
-results:["$10M profit lift in first 6 months","Supports 300,000 retail locations","Store-level demand-based optimization"],tech:"Python, PySpark, Discrete Choice Models, Big Data, Cloud"},
-{cat:"analytics",client:"Top U.S. Manufacturer",title:"Pricing Optimization Engine",industry:"Manufacturing",tags:["ML","Pricing","Automation"],metric:"97% on-time quotes",
-challenge:"24-hour quote turnaround, inconsistent pricing, lost deals. Needed real-time ML-driven pricing.",
-solution:"XGBoost + automated hyperparameter optimization analyzing historical data for instant optimized quotes.",
-results:["24hrs → <2hrs turnaround (97% on-time)","12% estimated profit lift","~20% productivity gain"],tech:"Python, XGBoost, Optuna, FastAPI, Docker, MLflow, Azure"},
-{cat:"analytics",client:"Infobase",title:"Executive Analytics Dashboards",industry:"EdTech",tags:["Data Engineering","Analytics"],metric:"Real-time visibility achieved",
-challenge:"No real-time visibility into content usage or product performance. Decisions based on delayed reports.",
-solution:"End-to-end pipelines and dashboards delivering actionable metrics for content strategy and retention.",
-results:["Real-time executive visibility","Self-service analytics reducing requests","Scales to millions of interactions"],tech:"Python, Pandas, SQL, Azure Data Pipelines, Power BI / Plotly"},
-{cat:"analytics",client:"U.S. Real Estate Firm",title:"Price Forecasting",industry:"Real Estate",tags:["ML","Forecasting","A/B Testing"],metric:"20% sales conversion lift",
-challenge:"Broker-intuition pricing. Over/under-priced listings extending time-on-market or losing margin.",
-solution:"Forecasting API with property features, location, trends, comparables. A/B tested vs. broker pricing.",
-results:["20% increase in sales conversions","3% profit margin uplift in year one","AI consistently outperformed manual"],tech:"Python, Scikit-Learn, XGBoost, LightGBM, A/B Testing, API"},
-{cat:"enablement",client:"Top-Tier Oil & Gas Co.",title:"DS Academy for 400+ Scientists",industry:"Energy",tags:["Training","Enablement"],metric:"400+ scientists trained",
-challenge:"400+ data scientists in silos. No standardized practices, shared knowledge, or consistent skill paths.",
-solution:"30+ courses, standardized methodologies, hands-on workshops, cross-team collaboration frameworks.",
-results:["400+ scientists trained and standardized","30+ production-quality courses","Cross-team silos eliminated"],tech:"Python, Scikit-Learn, PyTorch, TensorFlow, NLP, Knowledge Mgmt"},
-{cat:"enablement",client:"Cencosud",title:"MLOps Transformation",industry:"Retail",tags:["MLOps","CI/CD","Cloud"],metric:"$160K annual savings",
-challenge:"MLOps Level 0: manual everything, spiraling cloud costs. 30+ scientists producing models that never shipped.",
-solution:"Level 0 → Level 1: automated retraining, CI/CD, containerization, monitoring. Serverless optimization.",
-results:["$120K annual cloud savings (15% spend)","$40K additional from serverless","30+ scientists deploying reliably"],tech:"Python, Azure, Databricks, Docker, CI/CD, MLflow, Serverless"},
-{cat:"enablement",client:"Enterprise LMS Platform",title:"Multi-Tenant Recommender",industry:"EdTech / SaaS",tags:["ML","Recommender Systems"],metric:"95% user coverage",
-challenge:"267K users, 395K courses, 2.8M interactions — personalization needed while respecting tenant boundaries.",
-solution:"Hybrid ALS + NLP + popularity pipeline with multi-tenant isolation, cold-start handling, multi-cloud readiness.",
-results:["95% user coverage with personalized recs","Multi-tenant architecture","Cloud-agnostic (AWS/Azure/GCP)"],tech:"Python, PySpark, Databricks, ALS, NLP, Multi-Cloud, Docker"},
-];
-
-// ═══ RENDER CASE CARDS ═══
-const cGrid=document.getElementById('cGrid');
-cases.forEach((c,i)=>{const d=document.createElement('div');d.className='cc reveal';d.dataset.category=c.cat;d.onclick=()=>openMdl(i);
-d.innerHTML=`<div class="cc-metric">${c.metric}</div><div class="cc-head"><div class="client">${c.client} · ${c.industry}</div><h3>${c.title}</h3></div><div class="cc-body"><p>${c.challenge.substring(0,120)}…</p></div><div class="cc-tags">${c.tags.map(t=>`<span>${t}</span>`).join('')}</div>`;
-cGrid.appendChild(d)});
-
-// ═══ FILTER ═══
-document.querySelectorAll('.fbtn').forEach(b=>{b.addEventListener('click',()=>{
-document.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('active'));b.classList.add('active');
-const f=b.dataset.filter;document.querySelectorAll('.cc').forEach(c=>{c.classList.toggle('hidden',f!=='all'&&c.dataset.category!==f)})})});
-
-// ═══ MODAL ═══
-function openMdl(i){const c=cases[i];document.getElementById('mMetric').textContent=c.metric;
-document.getElementById('mTitle').textContent=c.title;document.getElementById('mInd').textContent=c.client+' · '+c.industry+' · '+c.tags.join(' · ');
-document.getElementById('mBod').innerHTML=`<h4>THE CHALLENGE</h4><p>${c.challenge}</p><h4>WHAT WE DEPLOYED</h4><p>${c.solution}</p><h4>MEASURABLE RESULTS</h4><ul>${c.results.map(r=>`<li>${r}</li>`).join('')}</ul><h4>TECHNOLOGY STACK</h4><div class="mdl-tech">${c.tech}</div>`;
-document.getElementById('modalBg').classList.add('active');document.body.style.overflow='hidden'}
-function closeMdl(){document.getElementById('modalBg').classList.remove('active');document.body.style.overflow=''}
-document.getElementById('modalBg').addEventListener('click',e=>{if(e.target===e.currentTarget)closeMdl()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMdl()});
 
 // ═══ SCROLL REVEALS ═══
 const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');
