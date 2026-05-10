@@ -27,6 +27,13 @@ import CaseStudies from '../components/CaseStudies.astro';
     --line-strong: rgba(210, 204, 241, 0.22);
     --muted: rgba(210, 204, 241, 0.72);
     --dim: rgba(210, 204, 241, 0.55);
+    --bg-light: #fafafa;
+    --bg-light-alt: #f4f4f7;
+    --ink-strong: #0a0e1f;
+    --ink-mid: #4a5070;
+    --ink-dim: #7a7f96;
+    --line-light: rgba(10, 14, 31, 0.08);
+    --line-light-strong: rgba(10, 14, 31, 0.14);
   }
 
   *{ box-sizing: border-box; }
@@ -1520,6 +1527,77 @@ import CaseStudies from '../components/CaseStudies.astro';
     transform: translateY(0);
   }
 
+  /* ---------- LIGHT SECTION MODIFIER ---------- */
+  .section-light{
+    position: relative;
+    z-index: 1;
+    background: var(--bg-light);
+    color: var(--ink-strong);
+  }
+  .section-light .section-eyebrow{ color: var(--blue); }
+  .section-light .section-eyebrow::before{ background: var(--blue); }
+  .section-light .section-title,
+  .section-light h2,
+  .section-light h3,
+  .section-light h4{ color: var(--ink-strong); }
+  .section-light .section-lede,
+  .section-light p{ color: var(--ink-mid); }
+  .section-light .stat-block,
+  .section-light .service,
+  .section-light .insight-card,
+  .section-light .pricing-card,
+  .section-light .accordion-item,
+  .section-light .tl-step{
+    background: white;
+    border-color: var(--line-light);
+    color: var(--ink-strong);
+  }
+  .section-light .stat-block:hover,
+  .section-light .service:hover,
+  .section-light .insight-card:hover,
+  .section-light .pricing-card:hover{
+    border-color: var(--blue);
+    box-shadow: 0 12px 40px rgba(25, 90, 221, 0.12);
+  }
+  .section-light .stat-block .desc,
+  .section-light .svc-desc,
+  .section-light .insight-card .meta,
+  .section-light .pricing-desc,
+  .section-light .pillar-teaser,
+  .section-light .pillar-full-text{ color: var(--ink-mid); }
+  .section-light .accordion-item{ border-bottom-color: var(--line-light); border-radius: 0; }
+  .section-light .btn-ghost{
+    color: var(--ink-strong);
+    border-color: var(--ink-strong);
+  }
+  .section-light .btn-ghost:hover{
+    color: var(--blue);
+    border-color: var(--blue);
+  }
+  .section-light .industry-pill{
+    color: rgba(10, 14, 31, 0.55);
+    border-right-color: var(--line-light);
+  }
+  .section-light .industry-pill:hover{ color: var(--ink-strong); }
+  .section-light .industry-pill .outcome{ color: rgba(10, 14, 31, 0.45); }
+  .section-light .eyebrow{ color: var(--blue); }
+  .section-light .about-intro{ color: var(--ink-mid); }
+  .section-light .about-card{
+    background: white;
+    border-color: var(--line-light);
+  }
+  .section-light .about-card h3{ color: var(--ink-strong); }
+  .section-light .about-card p{ color: var(--ink-mid); }
+  .section-light .founder-card{
+    background: white;
+    border-color: var(--line-light);
+  }
+  .section-light .founder-name{ color: var(--ink-strong); }
+  .section-light .founder-role{ color: var(--blue); }
+  .section-light .founder-bio{ color: var(--ink-mid); }
+  .section-light .founder-highlights{ color: var(--ink-mid); }
+  .section-light .founder-highlights li{ color: var(--ink-mid); }
+
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 980px){
     .hero-grid{ grid-template-columns: 1fr; gap: 60px; }
@@ -1646,7 +1724,7 @@ import CaseStudies from '../components/CaseStudies.astro';
 </div>
 
 <!-- ============== PROBLEM SECTION ============== -->
-<section class="problem-section">
+<section class="problem-section section-light">
   <div class="wrap">
     <div class="section-eyebrow reveal">The Market Reality</div>
     <h2 class="head section-title reveal">The Delivery Gap<br>Nobody Talks About.</h2>
@@ -1756,7 +1834,7 @@ import CaseStudies from '../components/CaseStudies.astro';
 </section>
 
 <!-- ============== SERVICES ============== -->
-<section id="services">
+<section id="services" class="section-light">
   <div class="wrap">
     <div class="section-eyebrow reveal">What We Deploy</div>
     <h2 class="head section-title reveal">Three Capabilities.<br>One Standard: Production.</h2>
@@ -1834,7 +1912,7 @@ import CaseStudies from '../components/CaseStudies.astro';
 </section>
 
 <!-- ============== TIMELINE ============== -->
-<section class="timeline-section" id="timeline">
+<section class="timeline-section section-light" id="timeline">
   <div class="wrap">
     <div class="section-eyebrow reveal">How We Work</div>
     <h2 class="head section-title reveal">The 90-Day Sprint.</h2>
@@ -1852,7 +1930,7 @@ import CaseStudies from '../components/CaseStudies.astro';
 <CaseStudies />
 
 <!-- ============== TEAM ============== -->
-<section id="about" class="about-section">
+<section id="about" class="about-section section-light">
   <div class="wrap">
     <span class="eyebrow">ABOUT BORION AI</span>
     <h2 class="head">Built to Deploy.<br>Not to Advise.</h2>
