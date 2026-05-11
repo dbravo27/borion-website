@@ -1,10 +1,11 @@
 ---
-title: "The Critical AI Handoff"
+title: "The Critical AI Handoff — Why Models Die Between the Notebook and Production"
 slug: "ai-handoff"
-date: "2025-05-10"
-category: "Market Analysis"
-readTime: "10 min read"
-lede: "\"The model is ready.\" Three words that have killed more AI projects than bad data, wrong algorithms, and insufficient compute combined."
+date: 2026-05-11
+eyebrow: "Operations"
+author: "Claud Rodriguez, CSO"
+readMin: 10
+art: "handoff"
 ---
 
 ## The Most Dangerous Phrase in AI

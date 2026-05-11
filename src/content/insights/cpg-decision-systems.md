@@ -1,10 +1,11 @@
 ---
 title: "Transforming CPG Data into Integrated Decision Systems"
 slug: "cpg-decision-systems"
-date: "2025-05-10"
-category: "Strategy"
-readTime: "8 min read"
-lede: "You have more data than ever. You have less clarity than you need. Here is why — and what to do about it."
+date: 2026-05-11
+eyebrow: "Strategy"
+author: "Claud Rodriguez, CSO"
+readMin: 8
+art: "cpg"
 ---
 
 ## The Data Paradox

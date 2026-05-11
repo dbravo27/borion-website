@@ -10,7 +10,7 @@ export interface Props {
   frontmatter: {
     title: string;
     eyebrow: string;
-    date: Date | string;
+    date: Date;
     author: string;
     readMin: number;
     art: 'cpg' | 'deck' | 'handoff';
@@ -23,9 +23,7 @@ export interface Props {
 }
 
 const { frontmatter, related = [] } = Astro.props;
-const dateStr = typeof frontmatter.date === 'string'
-  ? frontmatter.date
-  : frontmatter.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+const dateStr = frontmatter.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 <html lang="en">
 <head>

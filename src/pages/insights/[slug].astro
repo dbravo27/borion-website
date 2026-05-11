@@ -18,22 +18,21 @@ interface Props {
 const { post, allPosts } = Astro.props;
 const { Content } = await render(post);
 
-const fmt = (d: Date | string) =>
-  (typeof d === 'string' ? new Date(d) : d)
-    .toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
 // Up to 2 most-recent other posts as "Continue reading"
 const related = allPosts
   .filter(p => p.data.slug !== post.data.slug)
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 2)
   .map(p => ({
     href: `/insights/${p.data.slug}`,
-    eyebrow: p.data.category,
+    eyebrow: p.data.eyebrow,
     title: p.data.title,
     date: fmt(p.data.date),
-    readMin: p.data.readTime,
-    art: p.data.slug.includes('cpg') ? 'cpg' : p.data.slug.includes('slide') ? 'deck' : 'handoff',
+    readMin: p.data.readMin,
+    art: p.data.art,
   }));
 ---
 <PostLayout frontmatter={post.data} related={related}>

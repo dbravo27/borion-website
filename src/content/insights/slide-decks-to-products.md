@@ -1,10 +1,11 @@
 ---
 title: "From Slide Decks to Interactive Products in Data Science"
 slug: "slide-decks-to-products"
-date: "2025-05-10"
-category: "Methodology"
-readTime: "10 min read"
-lede: "Your model is accurate. Your stakeholders are unimpressed. The problem is not the science — it is what you did with it when you were done."
+date: 2026-05-11
+eyebrow: "Methodology"
+author: "Claud Rodriguez, CSO"
+readMin: 10
+art: "deck"
 ---
 
 ## The Deck Is Not the Deliverable
