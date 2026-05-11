@@ -1,0 +1,118 @@
+---
+// Art_Deck — stacked static deck → live interactive product
+---
+<div class="art art-deck">
+  <div class="art-left">
+    <div class="slide slide-3"></div>
+    <div class="slide slide-2"></div>
+    <div class="slide slide-1"></div>
+    <div class="slide slide-0">
+      <div class="bar bar-w60"></div>
+      <div class="bar bar-thin bar-w90"></div>
+      <div class="bar bar-thin bar-w70"></div>
+      <div class="chart">
+        <span style="height:40%"></span>
+        <span style="height:60%"></span>
+        <span style="height:30%"></span>
+        <span style="height:70%"></span>
+        <span style="height:50%"></span>
+      </div>
+    </div>
+    <div class="caption-static">STATIC DECK</div>
+  </div>
+
+  <div class="art-arrow">
+    <svg viewBox="0 0 60 60" aria-hidden="true">
+      <defs>
+        <linearGradient id="deckArr" x1="0%" y1="50%" x2="100%" y2="50%">
+          <stop offset="0%" stop-color="var(--purple)" />
+          <stop offset="100%" stop-color="var(--blue)" />
+        </linearGradient>
+      </defs>
+      <path d="M 8 30 L 46 30 M 38 22 L 46 30 L 38 38"
+        stroke="url(#deckArr)" stroke-width="2" fill="none"
+        stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </div>
+
+  <div class="art-right">
+    <div class="dots"><span></span><span></span><span></span></div>
+    <div class="slider-block">
+      <div class="slider-label">SKU · region · period</div>
+      <div class="slider-track"><div class="slider-knob"></div></div>
+    </div>
+    <div class="live-chart">
+      <span style="height:40%"></span><span style="height:55%"></span>
+      <span style="height:30%"></span><span style="height:70%"></span>
+      <span style="height:50%"></span><span style="height:80%"></span>
+      <span style="height:65%"></span><span style="height:90%"></span>
+    </div>
+    <div class="caption-live">INTERACTIVE PRODUCT</div>
+  </div>
+</div>
+
+<style>
+  .art-deck{
+    position:absolute; inset:0; padding:32px;
+    background: linear-gradient(180deg, var(--lavender-soft) 0%, var(--cream) 100%);
+    display:flex; align-items:center; justify-content:center; gap:0;
+  }
+  .art-left{
+    flex:1; height:170px; position:relative;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .slide{
+    position:absolute; width:130px; height:90px;
+    border-radius:6px; background:#fff;
+    border:1px solid var(--line); padding:10px;
+  }
+  .slide-3{ left: calc(50% - 65px + 12px); top: calc(50% - 45px - 12px); opacity:0.46; }
+  .slide-2{ left: calc(50% - 65px + 8px);  top: calc(50% - 45px - 8px);  opacity:0.64; }
+  .slide-1{ left: calc(50% - 65px + 4px);  top: calc(50% - 45px - 4px);  opacity:0.82; }
+  .slide-0{ left: calc(50% - 65px);        top: calc(50% - 45px);        opacity:1;
+            box-shadow:0 4px 16px rgba(10,14,31,0.06);
+            display:flex; flex-direction:column; }
+  .bar{ height:4px; background:rgba(10,14,31,0.18); border-radius:2px; margin-bottom:6px; }
+  .bar-thin{ height:3px; background:rgba(10,14,31,0.08); margin-bottom:4px; }
+  .bar-w90{ width:90%; }
+  .bar-w70{ width:70%; margin-bottom:10px; }
+  .bar-w60{ width:60%; }
+  .chart{ display:flex; align-items:flex-end; gap:3px; height:28px; }
+  .chart > span{ flex:1; background:rgba(10,14,31,0.18); border-radius:1px; }
+  .caption-static{
+    position:absolute; bottom:-2px;
+    font-family: var(--font-display);
+    font-size:10px; font-weight:700; color: var(--ink-mid);
+    letter-spacing:0.14em; text-transform:uppercase;
+  }
+  .art-arrow{
+    width:60px; height:170px; position:relative;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .art-arrow svg{ width:50px; height:50px; }
+  .art-right{
+    flex:1; height:170px; border-radius:10px;
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    padding:12px; display:flex; flex-direction:column; gap:8px;
+    box-shadow: 0 0 36px rgba(25,90,221,0.3); color:#fff;
+  }
+  .dots{ display:flex; gap:4px; }
+  .dots > span{ width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.4); }
+  .slider-label{
+    font-family: var(--font-mono); font-size:8px;
+    color:rgba(255,255,255,0.85); margin-bottom:4px; letter-spacing:0.05em;
+  }
+  .slider-track{
+    height:4px; border-radius:2px; background:rgba(255,255,255,0.2); position:relative;
+  }
+  .slider-knob{
+    position:absolute; left:40%; top:-3px;
+    width:10px; height:10px; border-radius:50%; background:#fff;
+  }
+  .live-chart{ flex:1; display:flex; align-items:flex-end; gap:3px; margin-top:4px; }
+  .live-chart > span{ flex:1; background:rgba(255,255,255,0.85); border-radius:1px; }
+  .caption-live{
+    font-family: var(--font-display); font-size:10px; font-weight:700;
+    color:#fff; letter-spacing:0.14em; text-transform:uppercase;
+  }
+</style>

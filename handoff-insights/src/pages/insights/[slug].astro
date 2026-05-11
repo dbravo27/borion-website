@@ -1,0 +1,41 @@
+---
+import PostLayout from '../../layouts/PostLayout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('insights');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post, allPosts: posts },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<'insights'>;
+  allPosts: CollectionEntry<'insights'>[];
+}
+
+const { post, allPosts } = Astro.props;
+const { Content } = await post.render();
+
+const fmt = (d: Date | string) =>
+  (typeof d === 'string' ? new Date(d) : d)
+    .toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+// Up to 2 most-recent other posts as "Continue reading"
+const related = allPosts
+  .filter(p => p.slug !== post.slug)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 2)
+  .map(p => ({
+    href: `/insights/${p.slug}`,
+    eyebrow: p.data.eyebrow,
+    title: p.data.title,
+    date: fmt(p.data.date),
+    readMin: p.data.readMin,
+    art: p.data.art,
+  }));
+---
+<PostLayout frontmatter={post.data} related={related}>
+  <Content />
+</PostLayout>

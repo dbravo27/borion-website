@@ -1,0 +1,171 @@
+---
+import PostSignature from '../components/insights/PostSignature.astro';
+import BlogCard from '../components/insights/BlogCard.astro';
+import Art_CPG from '../components/insights/Art_CPG.astro';
+import Art_Deck from '../components/insights/Art_Deck.astro';
+import Art_Handoff from '../components/insights/Art_Handoff.astro';
+import '../styles/blog.css';
+
+export interface Props {
+  frontmatter: {
+    title: string;
+    eyebrow: string;
+    date: Date | string;
+    author: string;
+    readMin: number;
+    art: 'cpg' | 'deck' | 'handoff';
+    slug: string;
+  };
+  related?: Array<{
+    href: string; eyebrow: string; title: string;
+    date: string; readMin: number; art: 'cpg' | 'deck' | 'handoff';
+  }>;
+}
+
+const { frontmatter, related = [] } = Astro.props;
+const dateStr = typeof frontmatter.date === 'string'
+  ? frontmatter.date
+  : frontmatter.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{frontmatter.title} — Borion AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" />
+</head>
+<body>
+  <!-- Nav -->
+  <nav class="post-nav">
+    <a href="/" class="post-nav-logo">
+      <img src="/assets/borion-logo-dark.png" alt="BorionAI" />
+    </a>
+    <div class="post-nav-links">
+      <a href="/#about">About</a>
+      <a href="/#services">Services</a>
+      <a href="/#case-studies">Case Studies</a>
+      <a href="/insights" class="active">Insights</a>
+      <a href="/#contact">Book a Call</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="post-hero">
+    <div class="post-hero-text">
+      <div class="post-hero-eyebrow">
+        <span class="bar"></span>
+        {frontmatter.eyebrow} · {frontmatter.readMin} min read
+      </div>
+      <h1 class="post-hero-title">{frontmatter.title}</h1>
+      <div class="post-hero-meta">
+        <span>{dateStr}</span>
+        <span>·</span>
+        <span>{frontmatter.author}</span>
+      </div>
+    </div>
+    <div class="post-hero-art">
+      {frontmatter.art === 'cpg' && <Art_CPG />}
+      {frontmatter.art === 'deck' && <Art_Deck />}
+      {frontmatter.art === 'handoff' && <Art_Handoff />}
+    </div>
+  </header>
+
+  <!-- Editorial signature divider -->
+  <PostSignature />
+
+  <!-- Article body — markdown HTML lives here via <slot /> -->
+  <article class="post-article">
+    <div class="post-body">
+      <slot />
+    </div>
+  </article>
+
+  <!-- Continue reading -->
+  {related.length > 0 && (
+    <section class="post-related">
+      <div class="post-related-label">Continue reading</div>
+      <div class="post-related-grid">
+        {related.map(p => (
+          <BlogCard {...p} />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <style>
+    body{ margin:0; background: var(--cream); color: var(--ink); font-family: var(--font-body); }
+
+    .post-nav{
+      padding: 20px 60px;
+      border-bottom: 1px solid var(--line-soft);
+      display:flex; align-items:center; justify-content:space-between;
+      background: var(--cream);
+    }
+    .post-nav-logo img{ height: 36px; width:auto; display:block; }
+    .post-nav-links{ display:flex; gap:28px; font-size:14px; }
+    .post-nav-links a{ color: var(--ink-mid); text-decoration:none; }
+    .post-nav-links a:hover{ color: var(--ink); }
+    .post-nav-links a.active{ color: var(--purple); font-weight:600; }
+
+    .post-hero{
+      padding: 80px 60px 60px;
+      background: linear-gradient(180deg, var(--lavender-soft) 0%, var(--cream) 100%);
+      border-bottom: 1px solid rgba(111, 93, 210, 0.18);
+      display:grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items:center;
+    }
+    .post-hero-eyebrow{
+      font-size:12px; font-weight:700; letter-spacing:0.16em;
+      text-transform:uppercase; color: var(--purple); margin-bottom:24px;
+      display:flex; align-items:center; gap:12px;
+    }
+    .post-hero-eyebrow .bar{ width:24px; height:1px; background: var(--purple); }
+    .post-hero-title{
+      font-family: var(--font-display);
+      font-size: 56px; font-weight:500; line-height:1.05;
+      letter-spacing:-0.02em; margin: 0 0 28px; color: var(--ink);
+      text-wrap: balance;
+    }
+    .post-hero-meta{
+      display:flex; gap:16px; font-size:14px; color: var(--ink-dim);
+      font-family: var(--font-display); letter-spacing:0.01em;
+    }
+    .post-hero-art{
+      height: 360px; border-radius: 18px; overflow:hidden;
+      border: 1px solid rgba(111, 93, 210, 0.18);
+      position: relative;
+      background: linear-gradient(180deg, var(--lavender-soft) 0%, var(--cream) 100%);
+      box-shadow: 0 20px 60px rgba(20, 30, 66, 0.10);
+    }
+
+    .post-article{
+      padding: 48px 60px 100px;
+      background: var(--cream);
+      display:grid; grid-template-columns: minmax(0, 720px);
+      justify-content:center;
+    }
+
+    .post-related{
+      padding: 60px 60px 80px;
+      background: var(--cream);
+      border-top: 1px solid var(--line-soft);
+    }
+    .post-related-label{
+      font-size:11px; font-weight:700; letter-spacing:0.18em;
+      text-transform:uppercase; color: var(--purple); margin-bottom:24px;
+    }
+    .post-related-grid{ display:flex; gap:24px; flex-wrap: wrap; }
+    .post-related-grid > *{ flex:1; min-width: 320px; }
+
+    @media (max-width: 900px) {
+      .post-hero{ grid-template-columns: 1fr; gap: 40px; padding: 56px 24px 40px; }
+      .post-hero-title{ font-size: 36px; }
+      .post-article{ padding: 32px 24px 80px; }
+      .post-related{ padding: 48px 24px 64px; }
+      .post-nav{ padding: 16px 24px; }
+      .post-nav-links{ display:none; }
+    }
+  </style>
+</body>
+</html>

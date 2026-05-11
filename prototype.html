@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Borion AI — AI That Ships</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="prototype.css" />
+</head>
+<body>
+
+<!-- ============================================================
+     NAV — sticky, blur, border appears after 80px scroll
+     ============================================================ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">
+      <span class="dot"></span>
+      Borion<span style="color: var(--lavender); margin-left: 1px; font-size: 0.7em; vertical-align: super; opacity: 0.8;">ai</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#how">How We Work</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#cases">Case Studies</a></li>
+      <li><a href="#industries">Industries</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <a href="#book" class="btn btn-primary btn-sm">Book a Call <span class="arrow">→</span></a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="top">
+  <div class="hero-grid"></div>
+  <div class="hero-canvas-side">
+    <canvas id="heroCanvas"></canvas>
+  </div>
+  <div class="container" style="position: relative; z-index: 2; width: 100%;">
+    <div class="hero-content">
+      <span class="hero-badge">
+        <span class="pulse"></span>
+        Now booking Q3 engagements
+      </span>
+      <h1 class="display">
+        AI That <span class="grad-text">Ships.</span>
+      </h1>
+      <p class="lead">
+        We deploy production AI agents in 60–90 days. You don't pay in full until it works.
+      </p>
+      <div class="ctas">
+        <a href="#book" class="btn btn-primary">Book a Call <span class="arrow">→</span></a>
+        <a href="#how" class="btn btn-ghost">See How We Work</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROOF BAR — secondary navy, gradient numerals
+     ============================================================ -->
+<section class="proof">
+  <div class="container">
+    <div class="proof-row">
+      <div class="proof-col">
+        <div class="proof-num">25+</div>
+        <div class="proof-lbl">Projects Delivered</div>
+      </div>
+      <div class="proof-col">
+        <div class="proof-num">90</div>
+        <div class="proof-lbl">Days to Production</div>
+      </div>
+      <div class="proof-col">
+        <div class="proof-num">12+</div>
+        <div class="proof-lbl">Scientists on Bench</div>
+      </div>
+      <div class="proof-col">
+        <div class="proof-num">7</div>
+        <div class="proof-lbl">Industries Served</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROBLEM
+     ============================================================ -->
+<section id="problem">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">The Market Reality</span>
+      <h2 class="section-title">The delivery gap<br/>nobody talks about.</h2>
+      <p class="lead">
+        Corporations spend billions on AI consulting that produces strategy decks — not working systems.
+        The reason is structural: large firms profit from delay, not delivery.
+      </p>
+    </div>
+    <div class="problem-stats">
+      <div class="card">
+        <div class="stat-num">95%</div>
+        <div class="stat-lbl">of AI pilots never reach production</div>
+      </div>
+      <div class="card">
+        <div class="stat-num">56%</div>
+        <div class="stat-lbl">of CEOs report zero return from AI</div>
+      </div>
+      <div class="card">
+        <div class="stat-num">$124M</div>
+        <div class="stat-lbl">average annual enterprise AI budget</div>
+      </div>
+      <div class="card">
+        <div class="stat-num">40%</div>
+        <div class="stat-lbl">of apps will embed AI agents this year</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHY US — numbered cards
+     ============================================================ -->
+<section id="why" class="bg-mid-soft">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Why Us</span>
+      <h2 class="section-title">We are in the business of deployment.<br/>Not consultation.</h2>
+      <p class="lead">
+        No decks. No recommendations that need another engagement to act on.
+        We ship working AI systems into production — and we don't stop until they deliver.
+      </p>
+    </div>
+    <div class="why-grid">
+      <div class="card">
+        <div class="num">01 / Principle</div>
+        <h3 class="head">Delivery is the only metric.</h3>
+        <p class="body">We define <em>done</em> before work begins. Not a formality — a commitment. We scope around deployable outcomes, not billable hours.</p>
+      </div>
+      <div class="card">
+        <div class="num">02 / Principle</div>
+        <h3 class="head">Speed as a structural advantage.</h3>
+        <p class="body">Senior practitioners only. No layered handoffs. From contract to production in 90 days — because the org chart isn't between you and your model.</p>
+      </div>
+      <div class="card">
+        <div class="num">03 / Principle</div>
+        <h3 class="head">Aligned incentives, milestone-based.</h3>
+        <p class="body">25% on signing, 25% on prototype, 25% on pilot, 25% on production. We don't profit from delay because delay doesn't pay us.</p>
+      </div>
+      <div class="card">
+        <div class="num">04 / Principle</div>
+        <h3 class="head">Built into your stack — not next to it.</h3>
+        <p class="body">Our agents run on your infra, with your data governance, behind your auth. No black-box API dependency. You own the system the day we ship.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TIMELINE — 90-Day Sprint
+     ============================================================ -->
+<section id="how">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">How We Work</span>
+      <h2 class="section-title">The 90-day sprint.</h2>
+      <p class="lead">Four phases, fixed milestones, payment on delivery. No retainers. No scope creep dressed up as "discovery."</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-step">
+        <div class="week">Weeks 1–2</div>
+        <h3>Discovery</h3>
+        <p>Data audit, use-case scoping, success metrics agreed in writing.</p>
+      </div>
+      <div class="timeline-step">
+        <div class="week">Week 3</div>
+        <h3>Scope &amp; proposal</h3>
+        <p>Fixed price, fixed timeline, fixed deliverable. Signed before code.</p>
+      </div>
+      <div class="timeline-step">
+        <div class="week">Weeks 4–6</div>
+        <h3>Prototype</h3>
+        <p>End-to-end working system on your data. Reviewed live, not in a deck.</p>
+      </div>
+      <div class="timeline-step">
+        <div class="week">Weeks 7–12</div>
+        <h3>Pilot &amp; production</h3>
+        <p>Hardening, integrations, monitoring. Hands on keyboard until it ships.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRICING — flagship anchor + book-a-call CTA at end
+     ============================================================ -->
+<section id="pricing" class="bg-mid-soft">
+  <div class="container">
+    <div class="section-header" style="text-align: center; margin-left: auto; margin-right: auto;">
+      <span class="eyebrow" style="margin-left: auto; margin-right: auto;">Pricing</span>
+      <h2 class="section-title">Transparent. Milestone-based.<br/>Tied to delivery.</h2>
+      <p class="lead" style="margin-left: auto; margin-right: auto;">
+        We don't profit from delay. Milestone-based payments mean if we can deliver in six weeks, we deliver in six weeks.
+      </p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="card tier">
+        <div class="level">Entry</div>
+        <h3>Readiness Audit</h3>
+        <div class="price">$15K–$25K</div>
+        <div class="term">/ 2 weeks · fixed fee</div>
+        <ul>
+          <li>Data maturity assessment</li>
+          <li>Use-case prioritization</li>
+          <li>Go / no-go recommendation</li>
+          <li>Production roadmap</li>
+        </ul>
+        <a href="#book" class="tier-cta">Get Started <span>→</span></a>
+      </div>
+
+      <div class="card tier flagship">
+        <span class="popular">★ Most Popular</span>
+        <div class="level">Flagship</div>
+        <h3>90-Day AI Agent Sprint</h3>
+        <div class="price">$90K–$175K</div>
+        <div class="term">/ 8–12 weeks · 25/25/25/25</div>
+        <ul>
+          <li>Contract to production in 90 days</li>
+          <li>Senior team, no handoffs</li>
+          <li>Runs on your infra, your data</li>
+          <li>30 days post-launch support</li>
+          <li>You own the system end-to-end</li>
+        </ul>
+        <a href="#book" class="tier-cta">Book a Call <span>→</span></a>
+      </div>
+
+      <div class="card tier">
+        <div class="level">Growth</div>
+        <h3>Department Transformation</h3>
+        <div class="price">$220K–$400K</div>
+        <div class="term">/ 12–20 weeks</div>
+        <ul>
+          <li>Full department AI overhaul</li>
+          <li>Customer service / supply chain / finance</li>
+          <li>Multi-agent orchestration</li>
+          <li>Quarterly outcome reviews</li>
+        </ul>
+        <a href="#book" class="tier-cta">Get Started <span>→</span></a>
+      </div>
+
+      <div class="card tier">
+        <div class="level">Enterprise</div>
+        <h3>Organization-Wide</h3>
+        <div class="price">$700K–$2M+</div>
+        <div class="term">/ 24–40+ weeks</div>
+        <ul>
+          <li>Cross-functional AI ops</li>
+          <li>Compliance &amp; governance built-in</li>
+          <li>Embedded delivery team</li>
+          <li>Outcome SLAs</li>
+        </ul>
+        <a href="#book" class="tier-cta">Get Started <span>→</span></a>
+      </div>
+    </div>
+
+    <div class="pricing-end-cta">
+      <p>Not sure which tier? A 30-minute call usually settles it.</p>
+      <a href="#book" class="btn btn-primary">Book a Call <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CASE STUDIES
+     ============================================================ -->
+<section id="cases">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Case Studies</span>
+      <h2 class="section-title">25+ projects. 7 industries.<br/>All in production.</h2>
+      <p class="lead">Working systems in live enterprise environments — not pilots, not POCs, not promised next quarter.</p>
+      <div class="case-filters">
+        <button class="filter-chip active">All</button>
+        <button class="filter-chip">CPG</button>
+        <button class="filter-chip">Retail</button>
+        <button class="filter-chip">Healthcare</button>
+        <button class="filter-chip">Energy</button>
+        <button class="filter-chip">Finance</button>
+        <button class="filter-chip">Manufacturing</button>
+      </div>
+    </div>
+
+    <div class="cases-grid">
+      <div class="card case-card">
+        <div class="industry">CPG · Beverages</div>
+        <h3>Demand forecasting at SKU-store level for Fortune 100 beverage co.</h3>
+        <p>Replaced quarterly Excel forecasting with daily ML predictions across 240k SKU-store pairs. Live in 11 weeks, integrated with SAP IBP.</p>
+        <div class="case-metric">
+          <div class="m-num">31%</div>
+          <div class="m-lbl">forecast error reduction</div>
+        </div>
+      </div>
+
+      <div class="card case-card">
+        <div class="industry">Healthcare</div>
+        <h3>Clinical-note summarization for a national hospital network.</h3>
+        <p>HIPAA-compliant agent that condenses 8-page clinical notes into structured handoff summaries. Deployed to 3,200 clinicians.</p>
+        <div class="case-metric">
+          <div class="m-num">12 hr</div>
+          <div class="m-lbl">saved per clinician / week</div>
+        </div>
+      </div>
+
+      <div class="card case-card">
+        <div class="industry">Financial Services</div>
+        <h3>Fraud-detection ensemble for a Tier-1 retail bank.</h3>
+        <p>Replaced rule-based engine with gradient-boosted ensemble + graph features. Real-time scoring at 4ms p99.</p>
+        <div class="case-metric">
+          <div class="m-num">$48M</div>
+          <div class="m-lbl">fraud loss avoided / yr</div>
+        </div>
+      </div>
+
+      <div class="card case-card">
+        <div class="industry">Energy</div>
+        <h3>Predictive maintenance for offshore wind operator.</h3>
+        <p>Vibration + SCADA fusion model predicting gearbox failure 6–10 weeks ahead. Cut unplanned downtime materially.</p>
+        <div class="case-metric">
+          <div class="m-num">42%</div>
+          <div class="m-lbl">downtime reduction</div>
+        </div>
+      </div>
+
+      <div class="card case-card">
+        <div class="industry">Retail</div>
+        <h3>Customer-service agent across 11 product lines.</h3>
+        <p>RAG-based agent grounded in product docs + order history. Handles tier-1 inquiries end-to-end with human escalation.</p>
+        <div class="case-metric">
+          <div class="m-num">68%</div>
+          <div class="m-lbl">first-contact resolution</div>
+        </div>
+      </div>
+
+      <div class="card case-card">
+        <div class="industry">Manufacturing</div>
+        <h3>Vision QA for automotive subassembly line.</h3>
+        <p>Edge-deployed defect detection on 14 stations. Catches what human QC misses at line speed without slowing throughput.</p>
+        <div class="case-metric">
+          <div class="m-num">3.4×</div>
+          <div class="m-lbl">defect catch rate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section id="about" class="bg-mid-soft">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <span class="eyebrow">About Borion AI</span>
+        <h2 class="section-title">Built to deploy.<br/>Not to advise.</h2>
+        <p class="lead">
+          The technical capability and the commercial capability — both present, both senior, both accountable for outcome. That's the whole structural difference.
+        </p>
+      </div>
+      <div class="about-points">
+        <div class="card about-point">
+          <h3 class="head">Senior practitioners only.</h3>
+          <p class="body">No junior staffing pyramid. The person who scoped your project is the person shipping it.</p>
+        </div>
+        <div class="card about-point">
+          <h3 class="head">Global delivery, six languages.</h3>
+          <p class="body">Embedded teams across NA, LATAM, and EMEA. Time-zone overlap with your engineers, not against them.</p>
+        </div>
+        <div class="card about-point">
+          <h3 class="head">Outcome accountability in writing.</h3>
+          <p class="body">Success criteria signed before kickoff. Milestone payments tied to those criteria. No ambiguity about <em>done</em>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     INDUSTRIES — marquee
+     ============================================================ -->
+<section id="industries" class="industries-section">
+  <div class="container">
+    <div class="industries-header">
+      <div>
+        <span class="eyebrow">Industries</span>
+        <h2 class="section-title">7 industries. One standard:<br/>production-deployed AI.</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee-wrap">
+    <div class="marquee-row" id="marquee1"></div>
+    <div class="marquee-row reverse" id="marquee2"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     INSIGHTS — 3 article cards w/ proper thumbnails
+     ============================================================ -->
+<section id="insights">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Latest from Borion</span>
+      <h2 class="section-title">Insights on AI that ships.</h2>
+      <p class="lead">Practical intelligence on enterprise AI deployment — from the team building it.</p>
+    </div>
+
+    <div class="insights-grid">
+      <article class="card insight-card">
+        <div class="insight-thumb" style="background: linear-gradient(135deg, #0d3084 0%, #195add 100%);">
+          <svg viewBox="0 0 600 220" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="th1g" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#195add" stop-opacity="0"/>
+                <stop offset="100%" stop-color="#6f5dd2" stop-opacity="0.6"/>
+              </linearGradient>
+            </defs>
+            <rect width="600" height="220" fill="url(#th1g)"/>
+            <!-- Bar chart of pilots vs production -->
+            <g transform="translate(60,40)">
+              <rect x="0" y="20" width="60" height="120" fill="rgba(255,255,255,0.1)" rx="4"/>
+              <rect x="0" y="115" width="60" height="25" fill="#d2ccf1" rx="4"/>
+              <text x="30" y="160" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Inter Tight" font-size="10" font-weight="600" letter-spacing="2">PILOTS</text>
+
+              <rect x="100" y="20" width="60" height="120" fill="rgba(255,255,255,0.1)" rx="4"/>
+              <rect x="100" y="22" width="60" height="118" fill="#195add" rx="4"/>
+              <text x="130" y="160" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Inter Tight" font-size="10" font-weight="600" letter-spacing="2">PROD</text>
+
+              <line x1="200" y1="80" x2="480" y2="80" stroke="rgba(255,255,255,0.2)" stroke-dasharray="4 4"/>
+              <text x="220" y="60" fill="white" font-family="Inter Tight" font-size="34" font-weight="500" letter-spacing="-0.02em">95% gap</text>
+              <text x="220" y="100" fill="rgba(255,255,255,0.7)" font-family="Manrope" font-size="11">between pilots → production</text>
+            </g>
+          </svg>
+        </div>
+        <div class="insight-meta">
+          <span class="tag">Field Note</span>
+          <span class="dot">·</span>
+          <span class="read">7 min read</span>
+        </div>
+        <h3>Why 95% of AI pilots stall — and the four checkpoints that prevent it.</h3>
+        <p>The pattern is structural, not technical. We've seen it kill 11 out of 12 pilots we audited last year.</p>
+        <a class="read-more">Read article →</a>
+      </article>
+
+      <article class="card insight-card">
+        <div class="insight-thumb" style="background: linear-gradient(135deg, #141e42 0%, #6f5dd2 100%);">
+          <svg viewBox="0 0 600 220" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="th2g" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#195add" stop-opacity="0.8"/>
+                <stop offset="100%" stop-color="#6f5dd2" stop-opacity="0.8"/>
+              </linearGradient>
+            </defs>
+            <!-- Network / agent graph -->
+            <g transform="translate(60,30)" stroke="rgba(255,255,255,0.25)" stroke-width="1.2" fill="none">
+              <line x1="60" y1="80" x2="180" y2="40"/>
+              <line x1="60" y1="80" x2="180" y2="120"/>
+              <line x1="180" y1="40" x2="320" y2="80"/>
+              <line x1="180" y1="120" x2="320" y2="80"/>
+              <line x1="320" y1="80" x2="440" y2="40"/>
+              <line x1="320" y1="80" x2="440" y2="120"/>
+              <line x1="180" y1="40" x2="180" y2="120" stroke-dasharray="2 4"/>
+            </g>
+            <g transform="translate(60,30)">
+              <circle cx="60" cy="80" r="14" fill="#d2ccf1"/>
+              <circle cx="180" cy="40" r="11" fill="#195add"/>
+              <circle cx="180" cy="120" r="11" fill="#195add"/>
+              <circle cx="320" cy="80" r="14" fill="url(#th2g)"/>
+              <circle cx="440" cy="40" r="11" fill="#6f5dd2"/>
+              <circle cx="440" cy="120" r="11" fill="#6f5dd2"/>
+              <text x="60" y="115" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Inter Tight" font-size="10" font-weight="600">USER</text>
+              <text x="320" y="115" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Inter Tight" font-size="10" font-weight="600">ORCH.</text>
+              <text x="440" y="160" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Inter Tight" font-size="9" font-weight="600" letter-spacing="2">TOOLS</text>
+            </g>
+          </svg>
+        </div>
+        <div class="insight-meta">
+          <span class="tag">Architecture</span>
+          <span class="dot">·</span>
+          <span class="read">11 min read</span>
+        </div>
+        <h3>Multi-agent systems in production: what works, what costs you sleep.</h3>
+        <p>Five architectural choices that determine whether your agent stack stays up at 3 a.m. on a Tuesday.</p>
+        <a class="read-more">Read article →</a>
+      </article>
+
+      <article class="card insight-card">
+        <div class="insight-thumb" style="background: linear-gradient(135deg, #0d3084 0%, #141e42 100%);">
+          <svg viewBox="0 0 600 220" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <!-- Cost line chart -->
+            <g transform="translate(60,30)">
+              <polyline
+                fill="none"
+                stroke="#195add"
+                stroke-width="2.5"
+                points="0,140 60,135 120,128 180,118 240,100 300,72 360,40 420,30 480,28"
+              />
+              <polyline
+                fill="none"
+                stroke="#6f5dd2"
+                stroke-width="2"
+                stroke-dasharray="4 4"
+                points="0,140 60,138 120,136 180,132 240,128 300,124 360,118 420,112 480,108"
+              />
+              <!-- area under primary -->
+              <polygon
+                fill="rgba(25,90,221,0.15)"
+                points="0,140 60,135 120,128 180,118 240,100 300,72 360,40 420,30 480,28 480,160 0,160"
+              />
+              <line x1="0" y1="160" x2="480" y2="160" stroke="rgba(255,255,255,0.18)"/>
+              <text x="0" y="20" fill="white" font-family="Inter Tight" font-size="28" font-weight="500" letter-spacing="-0.02em">73% ↓</text>
+              <text x="0" y="40" fill="rgba(255,255,255,0.6)" font-family="Manrope" font-size="11">inference cost over 9 months</text>
+              <text x="430" y="180" fill="rgba(255,255,255,0.5)" font-family="Inter Tight" font-size="9" letter-spacing="1.5">Q3</text>
+              <text x="0" y="180" fill="rgba(255,255,255,0.5)" font-family="Inter Tight" font-size="9" letter-spacing="1.5">Q1</text>
+            </g>
+          </svg>
+        </div>
+        <div class="insight-meta">
+          <span class="tag">Economics</span>
+          <span class="dot">·</span>
+          <span class="read">5 min read</span>
+        </div>
+        <h3>The unit economics of agents: when do you stop buying tokens and start owning models?</h3>
+        <p>A back-of-envelope framework for the build / fine-tune / API decision, with the thresholds we use on real engagements.</p>
+        <a class="read-more">Read article →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer id="book">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="nav-logo">
+          <span class="dot"></span>
+          Borion<span style="color: var(--lavender); margin-left: 1px; font-size: 0.7em; vertical-align: super; opacity: 0.8;">ai</span>
+        </a>
+        <p>AI that ships. Production-deployed agents in 60–90 days, on milestone-based contracts. Built by senior practitioners, owned by you.</p>
+        <div style="margin-top: 28px; display: flex; gap: 12px;">
+          <a class="btn btn-primary">Book a Call <span class="arrow">→</span></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a>About</a></li>
+          <li><a>Why Borion</a></li>
+          <li><a>How we work</a></li>
+          <li><a>Careers</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Engagements</h4>
+        <ul>
+          <li><a>Readiness Audit</a></li>
+          <li><a>90-Day Sprint</a></li>
+          <li><a>Department Transformation</a></li>
+          <li><a>Org-Wide</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a>Case studies</a></li>
+          <li><a>Insights</a></li>
+          <li><a>Industries</a></li>
+          <li><a>Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Borion AI. All rights reserved.</div>
+      <div style="display: flex; gap: 24px;">
+        <a>Privacy</a>
+        <a>Terms</a>
+        <a>Security</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     STICKY BOTTOM CTA — appears after Cases scrolls past
+     ============================================================ -->
+<div class="sticky-cta" id="stickyCta">
+  <span class="label"><strong>Ready to ship?</strong> 30-minute call, no deck.</span>
+  <a href="#book" class="btn btn-primary btn-sm">Book a Call <span class="arrow">→</span></a>
+</div>
+
+<script>
+  // ─── Nav: 1px border appears after 80px scroll ───────────────
+  const nav = document.getElementById('nav');
+  const stickyCta = document.getElementById('stickyCta');
+  const casesSec = document.getElementById('cases');
+
+  function onScroll() {
+    if (window.scrollY > 80) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+
+    // Sticky CTA: visible after Cases section scrolls fully past, hide near footer
+    const casesRect = casesSec.getBoundingClientRect();
+    const casesPassed = casesRect.bottom < window.innerHeight * 0.5;
+    const nearFooter = (document.body.scrollHeight - window.scrollY - window.innerHeight) < 240;
+    if (casesPassed && !nearFooter) stickyCta.classList.add('visible');
+    else stickyCta.classList.remove('visible');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ─── Hero canvas — particle field, right 40%, 40% opacity ───
+  (function () {
+    const c = document.getElementById('heroCanvas');
+    if (!c) return;
+    const ctx = c.getContext('2d');
+    let raf, particles = [];
+    const N = 70;
+
+    function resize() {
+      c.width = c.clientWidth;
+      c.height = c.clientHeight;
+      particles = Array.from({ length: N }, () => ({
+        x: Math.random() * c.width,
+        y: Math.random() * c.height,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        r: 0.6 + Math.random() * 1.6,
+      }));
+    }
+    resize();
+    new ResizeObserver(resize).observe(c);
+
+    function draw() {
+      ctx.clearRect(0, 0, c.width, c.height);
+      ctx.lineWidth = 0.6;
+      for (let i = 0; i < N; i++) {
+        const p = particles[i];
+        for (let j = i + 1; j < N; j++) {
+          const q = particles[j];
+          const dx = p.x - q.x, dy = p.y - q.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < 16000) {
+            const a = (1 - d2 / 16000) * 0.4;
+            ctx.strokeStyle = 'rgba(210, 204, 241, ' + a + ')';
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.stroke();
+          }
+        }
+      }
+      for (const p of particles) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > c.width) p.vx *= -1;
+        if (p.y < 0 || p.y > c.height) p.vy *= -1;
+        const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 4);
+        grd.addColorStop(0, 'rgba(210, 204, 241, 0.95)');
+        grd.addColorStop(1, 'rgba(25, 90, 221, 0)');
+        ctx.fillStyle = grd;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r * 4, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      raf = requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+
+  // ─── Industries marquee — 2 rows, 88px, mono → color on hover ─
+  (function () {
+    const industries = [
+      { name: 'CPG', icon: 'cpg', outcome: '31% forecast error ↓' },
+      { name: 'Retail', icon: 'retail', outcome: '68% first-contact resolution' },
+      { name: 'Healthcare', icon: 'health', outcome: '12 hr / clinician / week' },
+      { name: 'Energy', icon: 'energy', outcome: '42% downtime ↓' },
+      { name: 'Financial Services', icon: 'fin', outcome: '$48M fraud avoided' },
+      { name: 'EdTech', icon: 'edu', outcome: '2.4× learner retention' },
+      { name: 'Manufacturing', icon: 'mfg', outcome: '3.4× defect catch rate' },
+      { name: 'Real Estate', icon: 'realestate', outcome: '11d → 2d underwriting' },
+    ];
+
+    const ICONS = {
+      cpg:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 8h10v12H7z"/><path d="M9 4h6v4H9z"/></svg>',
+      retail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h16l-1.5 11h-13z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>',
+      health: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 4v16M4 12h16" stroke-linecap="round"/></svg>',
+      energy: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 3 4 14h7l-1 7 9-11h-7z" stroke-linejoin="round"/></svg>',
+      fin:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20h18M5 20V10M10 20V6M15 20V12M20 20V8"/></svg>',
+      edu:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c2 2 10 2 12 0v-5"/></svg>',
+      mfg:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20V8l6 4V8l6 4V8l6 4v8z"/></svg>',
+      realestate: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-7 9 7v9H3z"/><path d="M9 20v-6h6v6"/></svg>',
+    };
+
+    function pill(item) {
+      return `<a class="industry-pill">
+        <span class="ind-icon">${ICONS[item.icon] || ''}</span>
+        <span>${item.name}</span>
+        <span class="outcome">— ${item.outcome}</span>
+      </a>`;
+    }
+
+    // Render: full set duplicated for seamless loop
+    const html = industries.map(pill).join('') + industries.map(pill).join('');
+    document.getElementById('marquee1').innerHTML = html;
+
+    // Reverse row: rotate the order so the two rows aren't identical
+    const rotated = industries.slice(4).concat(industries.slice(0, 4));
+    const html2 = rotated.map(pill).join('') + rotated.map(pill).join('');
+    document.getElementById('marquee2').innerHTML = html2;
+  })();
+
+  // ─── Filter chips: visual-only toggle ───────────────────────
+  document.querySelectorAll('.filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+---
+import BlogCard from '../../components/insights/BlogCard.astro';
+import '../../styles/blog.css';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('insights'))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const fmt = (d: Date | string) =>
+  (typeof d === 'string' ? new Date(d) : d)
+    .toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Insights — Borion AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" />
+</head>
+<body>
+  <nav class="post-nav">
+    <a href="/"><img src="/assets/borion-logo-dark.png" alt="BorionAI" /></a>
+    <div class="post-nav-links">
+      <a href="/#about">About</a>
+      <a href="/#services">Services</a>
+      <a href="/#case-studies">Case Studies</a>
+      <a href="/insights" class="active">Insights</a>
+      <a href="/#contact">Book a Call</a>
+    </div>
+  </nav>
+
+  <section class="insights-hero">
+    <div class="eyebrow"><span class="bar"></span>Latest from Borion</div>
+    <h1>Insights on AI That Ships.</h1>
+    <p>Practical intelligence on enterprise AI deployment — from the team that builds production systems, not strategy decks.</p>
+  </section>
+
+  <section class="insights-grid">
+    {posts.map(p => (
+      <BlogCard
+        href={`/insights/${p.slug}`}
+        eyebrow={p.data.eyebrow}
+        title={p.data.title}
+        date={fmt(p.data.date)}
+        readMin={p.data.readMin}
+        art={p.data.art}
+      />
+    ))}
+  </section>
+
+  <style>
+    body{ margin:0; background: var(--navy); color:#fff; font-family: var(--font-body); }
+    .post-nav{
+      padding: 20px 60px; background: var(--navy);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .post-nav img{ height: 32px; }
+    .post-nav-links{ display:flex; gap:28px; font-size:14px; }
+    .post-nav-links a{ color: rgba(255,255,255,0.7); text-decoration:none; }
+    .post-nav-links a.active{ color:#fff; font-weight:600; }
+
+    .insights-hero{ padding: 80px 60px 40px; max-width: 1280px; }
+    .insights-hero .eyebrow{
+      font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase;
+      color: var(--blue); margin-bottom:16px; display:flex; align-items:center; gap:12px;
+    }
+    .insights-hero .bar{ width:24px; height:1px; background: var(--blue); }
+    .insights-hero h1{
+      font-family: var(--font-display);
+      font-size: 52px; font-weight:500; line-height:1.05; letter-spacing:-0.02em;
+      margin: 0 0 16px;
+    }
+    .insights-hero p{
+      font-size:17px; color: rgba(210,204,241,0.72); max-width:640px;
+      line-height:1.55; margin: 0;
+    }
+
+    .insights-grid{
+      padding: 24px 60px 100px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 24px;
+      max-width: 1600px;
+    }
+
+    @media (max-width: 700px){
+      .post-nav-links{ display:none; }
+      .insights-hero{ padding: 56px 24px 32px; }
+      .insights-hero h1{ font-size: 36px; }
+      .insights-grid{ padding: 24px 24px 64px; }
+    }
+  </style>
+</body>
+</html>
