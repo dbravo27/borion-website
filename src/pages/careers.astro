@@ -1,16 +1,16 @@
 ---
-// Careers page
+// Careers page — BAI-ENG-001
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Careers — Borion AI</title>
-<meta name="description" content="Join Borion AI. We're hiring MLOps engineers to build production AI systems for enterprise clients.">
+<title>Senior ML Platform Engineer / MLOps — Borion AI</title>
+<meta name="description" content="Help us deploy real AI systems into production. 100% remote role building production AI, ML, and Agentic AI solutions.">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root{
     --navy: #141e42;
@@ -55,8 +55,8 @@
 
   /* Hero */
   .hero{
-    padding: 120px 60px 80px;
-    max-width: 900px;
+    padding: 100px 60px 60px;
+    max-width: 880px;
     margin: 0 auto;
     text-align: center;
   }
@@ -71,7 +71,7 @@
     font-size: 13px;
     font-weight: 600;
     color: var(--blue);
-    margin-bottom: 32px;
+    margin-bottom: 28px;
     letter-spacing: 0.01em;
   }
   .pulse-dot{
@@ -87,77 +87,107 @@
   }
   .hero h1{
     font-family: var(--font-display);
-    font-size: clamp(42px, 5vw, 64px);
+    font-size: clamp(36px, 4vw, 52px);
     font-weight: 500;
-    line-height: 1.1;
+    line-height: 1.15;
     letter-spacing: -0.02em;
-    margin: 0 0 24px;
+    margin: 0 0 20px;
   }
   .hero p{
-    font-size: 20px;
+    font-size: 18px;
     color: var(--muted);
-    margin: 0 0 48px;
-    line-height: 1.5;
+    margin: 0 0 32px;
+    line-height: 1.55;
+  }
+  .hero-tags{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  .tag{
+    padding: 7px 15px;
+    background: rgba(210, 204, 241, 0.08);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--lavender);
+    font-weight: 500;
   }
 
-  /* Role section */
-  .role{
-    max-width: 720px;
+  /* Content sections */
+  .section{
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 0 60px 80px;
+    padding: 60px 60px;
   }
-  .role h2{
+  .section-tight{
+    max-width: 800px;
+  }
+  .section h2{
     font-family: var(--font-display);
-    font-size: 32px;
+    font-size: 36px;
     font-weight: 500;
     line-height: 1.2;
-    letter-spacing: -0.01em;
-    margin: 0 0 16px;
+    letter-spacing: -0.015em;
+    margin: 0 0 20px;
+    color: var(--white);
+  }
+  .section p{
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.65;
+    margin: 0 0 24px;
+  }
+  .section strong{
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .quote{
+    background: linear-gradient(135deg, rgba(25, 90, 221, 0.08), rgba(111, 93, 210, 0.08));
+    border-left: 3px solid var(--blue);
+    padding: 24px 28px;
+    margin: 32px 0;
+    border-radius: 8px;
+  }
+  .quote p{
+    font-size: 19px;
+    line-height: 1.6;
+    margin: 0;
     color: var(--lavender);
   }
-  .role-meta{
-    font-size: 15px;
-    color: var(--muted);
-    margin-bottom: 32px;
-    display: flex;
-    gap: 16px;
+
+  /* Two-column grid */
+  .two-col{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 48px;
+    margin-top: 32px;
   }
-  .role-meta span{
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .role-content{
-    background: rgba(210, 204, 241, 0.04);
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    padding: 40px;
-  }
-  .role-content h3{
+  .col h3{
     font-family: var(--font-display);
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     color: var(--lavender);
-    margin: 0 0 12px;
+    margin: 0 0 16px;
+    letter-spacing: -0.01em;
   }
-  .role-content p{
-    color: var(--muted);
-    margin: 0 0 24px;
-    line-height: 1.65;
-  }
-  .role-content ul{
+  .col ul{
     list-style: none;
     padding: 0;
-    margin: 0 0 24px;
+    margin: 0;
   }
-  .role-content li{
+  .col li{
     padding-left: 24px;
     position: relative;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     color: var(--muted);
     line-height: 1.6;
+    font-size: 15px;
   }
-  .role-content li::before{
+  .col li::before{
     content: "→";
     position: absolute;
     left: 0;
@@ -165,36 +195,90 @@
     font-weight: 600;
   }
 
+  /* Numbered list for 90-day plan */
+  .numbered-list{
+    list-style: none;
+    padding: 0;
+    margin: 32px 0 0;
+    counter-reset: item;
+  }
+  .numbered-list li{
+    padding-left: 52px;
+    position: relative;
+    margin-bottom: 20px;
+    color: var(--muted);
+    line-height: 1.65;
+    font-size: 16px;
+    counter-increment: item;
+  }
+  .numbered-list li::before{
+    content: counter(item, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 36px;
+    height: 36px;
+    background: rgba(25, 90, 221, 0.12);
+    border: 1px solid rgba(25, 90, 221, 0.3);
+    border-radius: 50%;
+    color: var(--blue);
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+  }
+
+  /* Bonus tags */
+  .bonus-tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .bonus-tag{
+    padding: 8px 16px;
+    background: rgba(111, 93, 210, 0.12);
+    border: 1px solid rgba(111, 93, 210, 0.25);
+    border-radius: 20px;
+    font-size: 14px;
+    color: var(--lavender);
+    font-weight: 500;
+  }
+
   /* CTA */
   .cta{
     text-align: center;
-    padding: 60px 60px 120px;
+    padding: 80px 60px 120px;
   }
   .cta-box{
-    max-width: 600px;
+    max-width: 720px;
     margin: 0 auto;
     background: linear-gradient(135deg, rgba(25, 90, 221, 0.12), rgba(111, 93, 210, 0.12));
     border: 1px solid rgba(111, 93, 210, 0.3);
     border-radius: 20px;
-    padding: 48px 40px;
+    padding: 56px 48px;
   }
-  .cta-box h3{
+  .cta-box h2{
     font-family: var(--font-display);
-    font-size: 28px;
+    font-size: 34px;
     font-weight: 500;
-    margin: 0 0 16px;
+    margin: 0 0 20px;
     color: var(--white);
+    letter-spacing: -0.015em;
   }
   .cta-box p{
     color: var(--muted);
-    margin: 0 0 32px;
-    font-size: 16px;
+    margin: 0 0 36px;
+    font-size: 17px;
+    line-height: 1.6;
   }
   .cta-email{
     display: inline-block;
     background: var(--blue);
     color: white;
-    padding: 14px 32px;
+    padding: 15px 36px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
@@ -204,6 +288,11 @@
   .cta-email:hover{
     background: var(--purple);
     transform: translateY(-2px);
+  }
+  .cta-note{
+    margin-top: 20px;
+    font-size: 14px;
+    color: rgba(210, 204, 241, 0.6);
   }
 
   /* Footer */
@@ -224,14 +313,20 @@
   .foot-links{ display: flex; gap: 24px; }
 
   /* Responsive */
+  @media (max-width: 968px){
+    .two-col{ grid-template-columns: 1fr; gap: 32px; }
+  }
   @media (max-width: 768px){
     .nav{ padding: 16px 24px; }
     .nav-links{ display: none; }
-    .hero{ padding: 80px 24px 60px; }
-    .role{ padding: 0 24px 60px; }
-    .role-content{ padding: 32px 24px; }
-    .cta{ padding: 40px 24px 80px; }
+    .hero{ padding: 80px 24px 48px; }
+    .hero h1{ font-size: 32px; }
+    .hero p{ font-size: 16px; }
+    .section{ padding: 48px 24px; }
+    .section h2{ font-size: 28px; }
+    .cta{ padding: 56px 24px 80px; }
     .cta-box{ padding: 40px 28px; }
+    .cta-box h2{ font-size: 26px; }
     footer{
       flex-direction: column;
       gap: 16px;
@@ -262,63 +357,163 @@
 <section class="hero">
   <div class="hero-badge">
     <span class="pulse-dot"></span>
-    Now Hiring
+    We're Hiring · Engineering
   </div>
-  <h1>Build Production AI That Actually Ships</h1>
-  <p>Join a team that deploys enterprise AI systems in 90 days — not quarters. We work with Fortune 500 clients who pay for outcomes, not effort.</p>
+  <h1>Senior ML Platform Engineer / MLOps</h1>
+  <p>Help us deploy real AI systems into production. You'll sit at the intersection of software engineering, ML, cloud infrastructure, and agentic AI — turning prototypes into reliable services that clients actually use, measure, and trust.</p>
+
+  <div class="hero-tags">
+    <span class="tag">100% Remote</span>
+    <span class="tag">Full-time</span>
+    <span class="tag">Senior · 5+ yrs</span>
+    <span class="tag">English fluent</span>
+    <span class="tag">Delivery-based comp</span>
+  </div>
 </section>
 
-<!-- Role -->
-<section class="role">
-  <h2>MLOps Engineer</h2>
-  <div class="role-meta">
-    <span>📍 Remote (Global)</span>
-    <span>⏰ Full-time</span>
+<!-- About BorionAI -->
+<section class="section section-tight">
+  <h2>About BorionAI</h2>
+  <p>BorionAI is a <strong>boutique AI implementation firm</strong> built around one principle: AI should not stop at prototypes, notebooks, or slide decks. We deploy production-ready AI systems that work in real business environments, on timelines measured in weeks, and we tie our compensation to delivery — not hours billed.</p>
+
+  <p>We work with enterprises tired of long consulting engagements, stalled pilots, and AI projects that never reach production. Our model is different: <strong>small senior teams, fast execution, clear ownership, fixed-scope delivery</strong>, and practical systems that connect data, models, APIs, workflows, and business users.</p>
+
+  <p><strong>We are not</strong> a strategy firm, a staff-augmentation shop, or a slide-deck factory. <strong>We are an implementation firm.</strong></p>
+</section>
+
+<!-- Why work with us -->
+<section class="section section-tight">
+  <h2>Why work with us</h2>
+  <p>A 100% remote role for people who like building real systems. You'll work directly on production AI, ML, and Agentic AI solutions instead of getting stuck in layers of process. The work is hands-on, technical, and outcome-driven: pipelines, APIs, model endpoints, service layers, cloud deployments, orchestration, CI/CD, monitoring, and client-facing AI products.</p>
+
+  <div class="quote">
+    <p>Deployment, deployment, deployment — production-ready systems delivered in less than 90 days whenever scope allows.</p>
   </div>
 
-  <div class="role-content">
-    <h3>What You'll Do</h3>
-    <p>You'll be responsible for taking research-grade models and turning them into production systems that run at enterprise scale. This isn't about maintaining pipelines — it's about building the infrastructure that makes AI deployment actually work.</p>
+  <p>BorionAI is a senior, execution-focused team. High standards, low bureaucracy, clear delivery mindset. We're looking for senior builders who want ownership — room to design, deploy, simplify, and make technical decisions that directly affect delivery.</p>
+</section>
 
-    <ul>
-      <li>Design and implement production ML pipelines for Fortune 500 deployments</li>
-      <li>Build monitoring, retraining, and deployment systems that survive real-world conditions</li>
-      <li>Work directly with data scientists and clients to translate prototypes into scalable systems</li>
-      <li>Own the full stack: from model serving to CI/CD to observability</li>
-      <li>Ship working systems in 60–90 day cycles, not 12-month roadmaps</li>
-    </ul>
+<!-- Role summary -->
+<section class="section section-tight">
+  <h2>Role summary</h2>
+  <p>This role sits at the intersection of Software Engineering, Machine Learning Engineering, MLOps, cloud infrastructure, and Agentic AI deployment. You'll work closely with Data Scientists and AI Engineers to turn models, pipelines, and prototypes into reliable production systems.</p>
 
-    <h3>What We're Looking For</h3>
-    <ul>
-      <li>3+ years building and deploying production ML systems</li>
-      <li>Deep experience with ML infrastructure: model serving, feature stores, monitoring</li>
-      <li>Strong software engineering fundamentals (Python, containerization, cloud platforms)</li>
-      <li>Comfortable working directly with clients and translating business needs into technical specs</li>
-      <li>Track record of shipping systems that run in production for months, not days</li>
-      <li>Bias toward pragmatism over perfection — you ship working solutions, then iterate</li>
-    </ul>
+  <p>The ideal candidate isn't just someone who knows ML tools. We need someone who can build <strong>the production layer around AI</strong>: APIs, orchestration, model endpoints, cloud data flows, CI/CD, logging, monitoring, authentication, scalability, and service design.</p>
+</section>
 
-    <h3>What We Offer</h3>
-    <ul>
-      <li>Work on real problems for companies you've heard of</li>
-      <li>Performance-based compensation — we get paid when systems deploy, and so do you</li>
-      <li>Remote-first, async work culture (we don't do standup theater)</li>
-      <li>Small team, high autonomy — you'll own entire systems, not tickets</li>
-      <li>Learn from practitioners who've built AI infrastructure at Shell, AB InBev, Keurig Dr Pepper</li>
-    </ul>
+<!-- What you will do -->
+<section class="section">
+  <h2>What you will do</h2>
+  <div class="two-col">
+    <div class="col">
+      <ul>
+        <li>Build and deploy production-grade ML and Agentic AI pipelines</li>
+        <li>Design data flows across S3, ADLS, GCS and other cloud storage</li>
+        <li>Build the service layer between ML, APIs, web apps, and client tools</li>
+        <li>Test and document APIs with Postman or similar</li>
+        <li>Build CI/CD pipelines for ML and software services</li>
+        <li>Deploy to AWS, Azure, or GCP environments</li>
+        <li>Productionize models — close the gap between notebooks and systems</li>
+        <li>Work under pressure with clear timelines and delivery commitments</li>
+      </ul>
+    </div>
+    <div class="col">
+      <ul>
+        <li>Design and maintain workflows using Airflow, Prefect, Dagster, or similar</li>
+        <li>Expose ML models via batch and real-time inference endpoints</li>
+        <li>Build REST APIs for model access, predictions, and integrations</li>
+        <li>Implement authentication, logging, monitoring, and observability</li>
+        <li>Containerize and deploy services with Docker; Kubernetes when needed</li>
+        <li>Improve latency, throughput, cost, reliability, maintainability</li>
+        <li>Support Agentic AI: LLMs, tools, APIs, RAG, function calling</li>
+        <li>Communicate technical decisions clearly — internally and with clients</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    <h3>Our Stack</h3>
-    <p>Python · Docker · Kubernetes · AWS/GCP/Azure · MLflow/Kubeflow · PostgreSQL · FastAPI · GitHub Actions · Terraform</p>
-    <p style="margin-top: 16px; font-size: 14px; opacity: 0.8;">We adapt to client environments — expect to work across different tech stacks.</p>
+<!-- First 90 days -->
+<section class="section section-tight">
+  <h2>First 90 days</h2>
+  <ul class="numbered-list">
+    <li>Deploy at least one ML or Agentic AI workflow as a production-ready endpoint</li>
+    <li>Set up a basic orchestration pipeline for training, scoring, or inference</li>
+    <li>Implement a clean API layer exposing model predictions or AI workflow outputs</li>
+    <li>Add logging, monitoring, and basic observability to at least one production workflow</li>
+    <li>Improve reliability, performance, or maintainability of an existing ML, data, or service component</li>
+    <li>Create reusable patterns that make future AI deployments faster and cleaner</li>
+  </ul>
+</section>
+
+<!-- What we're looking for -->
+<section class="section">
+  <h2>What we're looking for</h2>
+  <div class="two-col">
+    <div class="col">
+      <ul>
+        <li>5+ years in Software Engineering, ML Engineering, MLOps, or a closely related role</li>
+        <li>Fluent English — written and spoken</li>
+        <li>Deploying ML models or data products to production</li>
+        <li>Cloud: AWS, Azure, or GCP</li>
+        <li>Solid database fundamentals — SQL & NoSQL (PostgreSQL, MySQL, MongoDB, or similar); schema design, indexing, query performance</li>
+        <li>Docker</li>
+        <li>System design, API design, production service patterns</li>
+        <li>Practical understanding of batch vs real-time inference</li>
+        <li>Consulting mindset and strong ownership — ambiguity to clean workflow</li>
+      </ul>
+    </div>
+    <div class="col">
+      <ul>
+        <li>Strong Python engineering skills</li>
+        <li>Building & deploying REST APIs (FastAPI, Flask, Django, Spring Boot…)</li>
+        <li>Orchestration: Airflow, Prefect, Dagster, Kubeflow, or similar</li>
+        <li>Storage & data systems: S3, ADLS, GCS, lakes, warehouses, lakehouses</li>
+        <li>MLflow or similar — tracking, registry, versioning, lifecycle</li>
+        <li>CI/CD: GitHub Actions, GitLab CI, Jenkins, Azure DevOps, or similar</li>
+        <li>Large-scale data: Spark, Databricks, Dask, Ray, or similar</li>
+        <li>Reasoning about latency, throughput, scalability, cost, observability</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Bonus points -->
+<section class="section section-tight">
+  <h2>Bonus points</h2>
+  <div class="bonus-tags">
+    <span class="bonus-tag">Kubernetes</span>
+    <span class="bonus-tag">Databricks</span>
+    <span class="bonus-tag">LLM / Agentic AI</span>
+    <span class="bonus-tag">RAG & GraphRAG</span>
+    <span class="bonus-tag">Vector DBs</span>
+    <span class="bonus-tag">FastAPI</span>
+    <span class="bonus-tag">Terraform / IaC</span>
+    <span class="bonus-tag">Web-app deployment</span>
+    <span class="bonus-tag">Model monitoring & drift</span>
+    <span class="bonus-tag">Client integrations</span>
+    <span class="bonus-tag">Internal ML platforms</span>
+  </div>
+</section>
+
+<!-- The hiring bar -->
+<section class="section section-tight">
+  <h2>The hiring bar</h2>
+  <p>The strongest candidates can explain trade-offs clearly, simplify complex systems, and connect data, models, APIs, cloud infrastructure, and client-facing applications into one reliable production workflow.</p>
+
+  <p>Tool knowledge matters — but <strong>ownership, engineering judgment, fluent communication, consulting maturity, and production experience matter more.</strong></p>
+
+  <div class="quote">
+    <p>Engineers who have built real systems end-to-end.</p>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta">
   <div class="cta-box">
-    <h3>Interested?</h3>
-    <p>Send us your resume and a brief note about a production ML system you've built. No cover letter required — just tell us what you shipped and what went wrong.</p>
-    <a href="mailto:careers@borion.ai" class="cta-email">Apply: careers@borion.ai</a>
+    <h2>Ready to ship real AI?</h2>
+    <p>Send your CV and a short note on why this role fits to the address below. We read every application.</p>
+    <a href="mailto:careers@borion.ai?subject=MLOps%20Engineer%20%C2%B7%20BAI-ENG-001" class="cta-email">Apply at careers@borion.ai</a>
+    <div class="cta-note">Subject line: MLOps Engineer · BAI-ENG-001</div>
   </div>
 </section>
 
