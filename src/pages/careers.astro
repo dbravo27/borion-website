@@ -1,0 +1,337 @@
+---
+// Careers page
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Careers — Borion AI</title>
+<meta name="description" content="Join Borion AI. We're hiring MLOps engineers to build production AI systems for enterprise clients.">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy: #141e42;
+    --navy-deep: #0b1230;
+    --blue: #195add;
+    --purple: #6f5dd2;
+    --lavender: #d2ccf1;
+    --white: #ffffff;
+    --muted: rgba(210, 204, 241, 0.72);
+    --line: rgba(210, 204, 241, 0.12);
+    --font-display: 'Inter Tight', system-ui, sans-serif;
+    --font-body: 'Manrope', system-ui, sans-serif;
+  }
+
+  *{ box-sizing: border-box; }
+  html, body{ margin: 0; padding: 0; }
+  body{
+    background: var(--navy);
+    color: var(--white);
+    font-family: var(--font-body);
+    line-height: 1.6;
+  }
+
+  /* Nav */
+  .nav{
+    padding: 20px 60px;
+    border-bottom: 1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav img{ height: 40px; }
+  .nav-links{ display:flex; gap:28px; font-size:14px; }
+  .nav-links a{ color: var(--muted); text-decoration:none; transition: color 0.2s; }
+  .nav-links a:hover{ color: var(--white); }
+  .nav-links .btn{
+    background: var(--blue);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+  .nav-links .btn:hover{ background: var(--purple); color: white; }
+
+  /* Hero */
+  .hero{
+    padding: 120px 60px 80px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hero-badge{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(25, 90, 221, 0.12);
+    border: 1px solid rgba(25, 90, 221, 0.3);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 32px;
+    letter-spacing: 0.01em;
+  }
+  .pulse-dot{
+    width: 8px;
+    height: 8px;
+    background: var(--blue);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .hero h1{
+    font-family: var(--font-display);
+    font-size: clamp(42px, 5vw, 64px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 24px;
+  }
+  .hero p{
+    font-size: 20px;
+    color: var(--muted);
+    margin: 0 0 48px;
+    line-height: 1.5;
+  }
+
+  /* Role section */
+  .role{
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 60px 80px;
+  }
+  .role h2{
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px;
+    color: var(--lavender);
+  }
+  .role-meta{
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 32px;
+    display: flex;
+    gap: 16px;
+  }
+  .role-meta span{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .role-content{
+    background: rgba(210, 204, 241, 0.04);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 40px;
+  }
+  .role-content h3{
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--lavender);
+    margin: 0 0 12px;
+  }
+  .role-content p{
+    color: var(--muted);
+    margin: 0 0 24px;
+    line-height: 1.65;
+  }
+  .role-content ul{
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+  }
+  .role-content li{
+    padding-left: 24px;
+    position: relative;
+    margin-bottom: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .role-content li::before{
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--blue);
+    font-weight: 600;
+  }
+
+  /* CTA */
+  .cta{
+    text-align: center;
+    padding: 60px 60px 120px;
+  }
+  .cta-box{
+    max-width: 600px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(25, 90, 221, 0.12), rgba(111, 93, 210, 0.12));
+    border: 1px solid rgba(111, 93, 210, 0.3);
+    border-radius: 20px;
+    padding: 48px 40px;
+  }
+  .cta-box h3{
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 500;
+    margin: 0 0 16px;
+    color: var(--white);
+  }
+  .cta-box p{
+    color: var(--muted);
+    margin: 0 0 32px;
+    font-size: 16px;
+  }
+  .cta-email{
+    display: inline-block;
+    background: var(--blue);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.2s;
+  }
+  .cta-email:hover{
+    background: var(--purple);
+    transform: translateY(-2px);
+  }
+
+  /* Footer */
+  footer{
+    padding: 40px 60px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  footer a{
+    color: var(--muted);
+    text-decoration: none;
+  }
+  footer a:hover{ color: var(--white); }
+  .foot-links{ display: flex; gap: 24px; }
+
+  /* Responsive */
+  @media (max-width: 768px){
+    .nav{ padding: 16px 24px; }
+    .nav-links{ display: none; }
+    .hero{ padding: 80px 24px 60px; }
+    .role{ padding: 0 24px 60px; }
+    .role-content{ padding: 32px 24px; }
+    .cta{ padding: 40px 24px 80px; }
+    .cta-box{ padding: 40px 28px; }
+    footer{
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+      padding: 32px 24px;
+    }
+    .foot-links{ flex-wrap: wrap; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <a href="/">
+    <img src="/BORION-02.png" alt="BorionAI" />
+  </a>
+  <div class="nav-links">
+    <a href="/#about">About</a>
+    <a href="/#services">Services</a>
+    <a href="/insights">Insights</a>
+    <a href="/careers">Careers</a>
+    <a href="/#contact" class="btn">Book a Call</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-badge">
+    <span class="pulse-dot"></span>
+    Now Hiring
+  </div>
+  <h1>Build Production AI That Actually Ships</h1>
+  <p>Join a team that deploys enterprise AI systems in 90 days — not quarters. We work with Fortune 500 clients who pay for outcomes, not effort.</p>
+</section>
+
+<!-- Role -->
+<section class="role">
+  <h2>MLOps Engineer</h2>
+  <div class="role-meta">
+    <span>📍 Remote (Global)</span>
+    <span>⏰ Full-time</span>
+  </div>
+
+  <div class="role-content">
+    <h3>What You'll Do</h3>
+    <p>You'll be responsible for taking research-grade models and turning them into production systems that run at enterprise scale. This isn't about maintaining pipelines — it's about building the infrastructure that makes AI deployment actually work.</p>
+
+    <ul>
+      <li>Design and implement production ML pipelines for Fortune 500 deployments</li>
+      <li>Build monitoring, retraining, and deployment systems that survive real-world conditions</li>
+      <li>Work directly with data scientists and clients to translate prototypes into scalable systems</li>
+      <li>Own the full stack: from model serving to CI/CD to observability</li>
+      <li>Ship working systems in 60–90 day cycles, not 12-month roadmaps</li>
+    </ul>
+
+    <h3>What We're Looking For</h3>
+    <ul>
+      <li>3+ years building and deploying production ML systems</li>
+      <li>Deep experience with ML infrastructure: model serving, feature stores, monitoring</li>
+      <li>Strong software engineering fundamentals (Python, containerization, cloud platforms)</li>
+      <li>Comfortable working directly with clients and translating business needs into technical specs</li>
+      <li>Track record of shipping systems that run in production for months, not days</li>
+      <li>Bias toward pragmatism over perfection — you ship working solutions, then iterate</li>
+    </ul>
+
+    <h3>What We Offer</h3>
+    <ul>
+      <li>Work on real problems for companies you've heard of</li>
+      <li>Performance-based compensation — we get paid when systems deploy, and so do you</li>
+      <li>Remote-first, async work culture (we don't do standup theater)</li>
+      <li>Small team, high autonomy — you'll own entire systems, not tickets</li>
+      <li>Learn from practitioners who've built AI infrastructure at Shell, AB InBev, Keurig Dr Pepper</li>
+    </ul>
+
+    <h3>Our Stack</h3>
+    <p>Python · Docker · Kubernetes · AWS/GCP/Azure · MLflow/Kubeflow · PostgreSQL · FastAPI · GitHub Actions · Terraform</p>
+    <p style="margin-top: 16px; font-size: 14px; opacity: 0.8;">We adapt to client environments — expect to work across different tech stacks.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-box">
+    <h3>Interested?</h3>
+    <p>Send us your resume and a brief note about a production ML system you've built. No cover letter required — just tell us what you shipped and what went wrong.</p>
+    <a href="mailto:careers@borion.ai" class="cta-email">Apply: careers@borion.ai</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div>© 2026 Borion AI. Built for deployment.</div>
+  <div class="foot-links">
+    <a href="/">Home</a>
+    <a href="/insights">Insights</a>
+    <a href="/careers">Careers</a>
+    <a href="mailto:team@borion.ai">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
