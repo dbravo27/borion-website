@@ -336,6 +336,10 @@
     .foot-links{ flex-wrap: wrap; justify-content: center; }
   }
 </style>
+
+<!-- Calendly integration -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </head>
 <body>
 
@@ -349,7 +353,7 @@
     <a href="/#services">Services</a>
     <a href="/insights">Insights</a>
     <a href="/careers">Careers</a>
-    <a href="/#contact" class="btn">Book a Call</a>
+    <a href="javascript:void(0)" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/team-borion/30min'}); return false;" class="btn">Book a Call</a>
   </div>
 </nav>
 

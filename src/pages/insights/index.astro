@@ -17,6 +17,10 @@ const fmt = (d: Date) =>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" />
+
+  <!-- Calendly integration -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </head>
 <body>
   <nav class="post-nav">
@@ -26,7 +30,7 @@ const fmt = (d: Date) =>
       <a href="/#services">Services</a>
       <a href="/#case-studies">Case Studies</a>
       <a href="/insights" class="active">Insights</a>
-      <a href="/#contact">Book a Call</a>
+      <a href="javascript:void(0)" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/team-borion/30min'}); return false;">Book a Call</a>
     </div>
   </nav>
 
