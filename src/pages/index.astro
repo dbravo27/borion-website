@@ -1,6 +1,7 @@
 ---
 import CaseStudies from '../components/CaseStudies.astro';
 import BlogCard from '../components/insights/BlogCard.astro';
+import SprintTimeline from '../components/SprintTimeline.astro';
 import '../styles/blog.css';
 import { getCollection } from 'astro:content';
 
@@ -38,11 +39,15 @@ const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month:
     --dim: rgba(210, 204, 241, 0.55);
     --bg-light: #fafafa;
     --bg-light-alt: #f4f4f7;
+    --ink: #0a0e1f;
     --ink-strong: #0a0e1f;
     --ink-mid: #4a5070;
     --ink-dim: #7a7f96;
     --line-light: rgba(10, 14, 31, 0.08);
     --line-light-strong: rgba(10, 14, 31, 0.14);
+    --font-display: 'Inter Tight', system-ui, sans-serif;
+    --font-body: 'Manrope', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
   }
 
   *{ box-sizing: border-box; }
@@ -1905,19 +1910,7 @@ const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month:
 </section>
 
 <!-- ============== TIMELINE ============== -->
-<section class="timeline-section section-light" id="timeline">
-  <div class="wrap">
-    <div class="section-eyebrow reveal">How We Work</div>
-    <h2 class="head section-title reveal">The 90-Day Sprint.</h2>
-    <div class="timeline reveal">
-      <div class="tl-step" data-num="01"><h4>Discovery</h4><p>Weeks 1–2</p></div>
-      <div class="tl-step" data-num="02"><h4>Scope & Proposal</h4><p>Week 3</p></div>
-      <div class="tl-step" data-num="03"><h4>Prototype</h4><p>Weeks 4–6</p></div>
-      <div class="tl-step" data-num="04"><h4>Pilot</h4><p>Weeks 7–8</p></div>
-      <div class="tl-step" data-num="05"><h4>Production</h4><p>Weeks 9–12</p></div>
-    </div>
-  </div>
-</section>
+<SprintTimeline />
 
 <!-- ============== CASE STUDIES ============== -->
 <CaseStudies />

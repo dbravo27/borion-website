@@ -1,0 +1,261 @@
+---
+// SprintTimeline.astro — "How We Work · The 90-Day Sprint"
+// Week-scaled progress track. Phase widths are proportional to duration.
+// Drop into src/components/ and use in your page like:
+//   import SprintTimeline from '../components/SprintTimeline.astro';
+//   <SprintTimeline />
+//
+// Tokens used (must exist in your global CSS — see :root block in styles below):
+//   --blue, --purple, --navy, --ink, --ink-mid, --ink-dim, --line, --line-soft,
+//   --bg, --white, --font-display, --font-body, --font-mono
+---
+
+<section class="sprint" id="how-we-work">
+  <div class="wrap">
+    <!-- Header -->
+    <div class="sprint-eyebrow">
+      <span class="bar"></span>
+      How We Work
+    </div>
+    <h2 class="sprint-title">The 90-Day Sprint.</h2>
+    <p class="sprint-lede">
+      Twelve weeks from contract to production. Each phase has a fixed deliverable and a fixed payment milestone.
+    </p>
+
+    <!-- Timeline -->
+    <div class="track-wrap">
+      <!-- Week scale -->
+      <div class="week-scale">
+        <span>W01</span><span>W02</span><span>W04</span><span>W06</span>
+        <span>W08</span><span>W10</span><span>W12</span>
+      </div>
+
+      <!-- Progress bar with phase dividers -->
+      <div class="track">
+        <div class="track-fill"></div>
+        <!-- 4 dividers at week boundaries 2, 3, 6, 8 (out of 12) -->
+        <span class="track-divider" style="left: 16.6667%"></span>
+        <span class="track-divider" style="left: 25%"></span>
+        <span class="track-divider" style="left: 50%"></span>
+        <span class="track-divider" style="left: 66.6667%"></span>
+      </div>
+
+      <!-- Phase cards (flex proportional to phase span in weeks) -->
+      <div class="phases">
+        <article class="phase" style="flex: 2">
+          <span class="phase-dot"></span>
+          <div class="phase-head">
+            <span class="phase-num">01</span>
+            <span class="phase-week">Weeks 1–2</span>
+          </div>
+          <h3 class="phase-name">Discovery</h3>
+          <p class="phase-desc">Data audit, use-case scoping, success metrics agreed in writing.</p>
+          <div class="phase-out">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+              <path d="M1 5 L4 8 L9 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Aligned scope doc
+          </div>
+        </article>
+
+        <article class="phase" style="flex: 1">
+          <span class="phase-dot"></span>
+          <div class="phase-head">
+            <span class="phase-num">02</span>
+            <span class="phase-week">Week 3</span>
+          </div>
+          <h3 class="phase-name">Scope & Proposal</h3>
+          <p class="phase-desc">Fixed price, fixed timeline, fixed deliverable. Signed before code.</p>
+          <div class="phase-out">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+              <path d="M1 5 L4 8 L9 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Signed SOW
+          </div>
+        </article>
+
+        <article class="phase" style="flex: 3">
+          <span class="phase-dot"></span>
+          <div class="phase-head">
+            <span class="phase-num">03</span>
+            <span class="phase-week">Weeks 4–6</span>
+          </div>
+          <h3 class="phase-name">Prototype</h3>
+          <p class="phase-desc">End-to-end working system on your data. Reviewed live, not in a deck.</p>
+          <div class="phase-out">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+              <path d="M1 5 L4 8 L9 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Working prototype
+          </div>
+        </article>
+
+        <article class="phase" style="flex: 2">
+          <span class="phase-dot"></span>
+          <div class="phase-head">
+            <span class="phase-num">04</span>
+            <span class="phase-week">Weeks 7–8</span>
+          </div>
+          <h3 class="phase-name">Pilot</h3>
+          <p class="phase-desc">Hardening, integrations, monitoring. Real users, real traffic.</p>
+          <div class="phase-out">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+              <path d="M1 5 L4 8 L9 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Pilot in market
+          </div>
+        </article>
+
+        <article class="phase" style="flex: 4">
+          <span class="phase-dot"></span>
+          <div class="phase-head">
+            <span class="phase-num">05</span>
+            <span class="phase-week">Weeks 9–12</span>
+          </div>
+          <h3 class="phase-name">Production</h3>
+          <p class="phase-desc">Handoff to your team with runbooks, observability, and on-call.</p>
+          <div class="phase-out">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+              <path d="M1 5 L4 8 L9 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Owned by you
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* If you don't already have these tokens globally, add them in your root CSS.
+     They use the exact Borion palette. */
+  .sprint {
+    --sprint-bg: #f7f7f7;
+    background: var(--sprint-bg);
+    padding: 88px 0 96px;
+    color: var(--ink, #0a0e1f);
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+  }
+  .sprint .wrap {
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+
+  .sprint-eyebrow {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: var(--font-display, 'Inter Tight', sans-serif);
+    font-size: 12px; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--blue, #195add);
+    margin-bottom: 24px;
+  }
+  .sprint-eyebrow .bar {
+    width: 28px; height: 1px; background: var(--blue, #195add);
+  }
+
+  .sprint-title {
+    font-family: var(--font-display, 'Inter Tight', sans-serif);
+    font-size: clamp(48px, 6vw, 84px);
+    font-weight: 500; line-height: 1.0; letter-spacing: -0.035em;
+    margin: 0 0 24px; color: var(--navy, #141e42);
+    text-wrap: balance;
+  }
+  .sprint-lede {
+    font-size: 18px; line-height: 1.55;
+    color: var(--ink-mid, #4a5070);
+    max-width: 620px; margin: 0 0 56px;
+  }
+
+  /* ===== Track ===== */
+  .track-wrap { margin-top: 40px; }
+
+  .week-scale {
+    display: flex; justify-content: space-between;
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    color: var(--ink-dim, #7a7f96); text-transform: uppercase;
+    margin-bottom: 16px; padding: 0 2px;
+  }
+
+  .track {
+    position: relative;
+    height: 8px; border-radius: 4px;
+    background: rgba(10, 14, 31, 0.06);
+  }
+  .track-fill {
+    position: absolute; inset: 0; border-radius: 4px;
+    background: linear-gradient(90deg, #195add 0%, #6f5dd2 100%);
+  }
+  .track-divider {
+    position: absolute; top: -4px; bottom: -4px; width: 1px;
+    background: rgba(255, 255, 255, 0.55);
+  }
+
+  /* ===== Phase cards ===== */
+  .phases {
+    display: flex; gap: 14px; margin-top: 32px;
+  }
+  .phase {
+    background: #fff;
+    border: 1px solid rgba(10, 14, 31, 0.10);
+    border-radius: 14px;
+    padding: 22px 24px;
+    position: relative;
+    box-shadow: 0 4px 16px rgba(20, 30, 66, 0.04);
+    min-width: 0; /* allow flex shrinking */
+  }
+  /* Connector dot bridging card to track */
+  .phase-dot {
+    position: absolute; top: -38px; left: 24px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: #fff;
+    border: 3px solid var(--blue, #195add);
+    box-shadow: 0 0 0 4px var(--sprint-bg, #f7f7f7);
+  }
+  .phase-head {
+    display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px;
+  }
+  .phase-num {
+    font-family: var(--font-display, 'Inter Tight', sans-serif);
+    font-size: 14px; font-weight: 600; color: var(--blue, #195add);
+    letter-spacing: 0.02em;
+  }
+  .phase-week {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 10.5px; font-weight: 500; letter-spacing: 0.12em;
+    color: var(--ink-dim, #7a7f96); text-transform: uppercase;
+  }
+  .phase-name {
+    font-family: var(--font-display, 'Inter Tight', sans-serif);
+    font-size: 22px; font-weight: 500; line-height: 1.15;
+    letter-spacing: -0.01em; color: var(--navy, #141e42);
+    margin: 0 0 10px;
+  }
+  .phase-desc {
+    font-size: 13.5px; line-height: 1.5;
+    color: var(--ink-mid, #4a5070); margin: 0;
+  }
+  .phase-out {
+    margin-top: 18px; padding-top: 14px;
+    border-top: 1px solid rgba(10, 14, 31, 0.06);
+    display: flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 10.5px; letter-spacing: 0.08em;
+    color: var(--ink-dim, #7a7f96); text-transform: uppercase;
+  }
+  .phase-out svg { color: var(--blue, #195add); flex-shrink: 0; }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 1100px) {
+    .phases { flex-wrap: wrap; }
+    .phase { flex: 1 1 calc(50% - 7px) !important; }
+    .phase-dot { display: none; }
+  }
+  @media (max-width: 720px) {
+    .sprint { padding: 64px 0 72px; }
+    .sprint .wrap { padding: 0 24px; }
+    .sprint-lede { font-size: 16px; margin-bottom: 40px; }
+    .week-scale { font-size: 10px; }
+    .phase { flex: 1 1 100% !important; }
+  }
+</style>
